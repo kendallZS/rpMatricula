@@ -17,5 +17,7 @@ namespace matricula
             gvUsrs.DataSource = ob.MostrarUsrs();
             gvUsrs.DataBind();
         }
+
+      
     }
 }

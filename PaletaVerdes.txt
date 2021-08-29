@@ -1,0 +1,7 @@
+Paleta de colores verdes
+#45F5E3
+#3BD499
+#4DEB82
+#3BD443
+#76F545
+

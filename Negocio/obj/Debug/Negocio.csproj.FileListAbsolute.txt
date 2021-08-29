@@ -1,10 +1,8 @@
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\Negocio.dll
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\Negocio.pdb
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\Datos.dll
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\EntityFramework.dll
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\Datos.pdb
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\Datos.dll.config
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\bin\Debug\EntityFramework.xml
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Negocio\obj\Debug\Negocio.csproj.CopyComplete
