@@ -20,8 +20,9 @@ nota_1 decimal(18,2),
 nota_2 decimal(18,2),
 nota_3 decimal(18,2),
 identificacion int, --* listo
-promedio decimal(18,2) --*
+promedio decimal(18,2) null
 )
+
 --drop table Notas
 
 select * from Notas
@@ -87,8 +88,21 @@ ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --ejecutad
 
 
 --Procedimietos almacenados
+create procedure MostrarUsuarios
+as
+select * from Usuarios
+go
+exec MostrarUsuarios
 
 
+create procedure InsertaNotas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
+@identificacion int, @promedio decimal(18,2)
+as
+insert into Notas values(@nota1,@nota2,@nota3,@identificacion,@promedio)
+go
+exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@promedio=0
 
+select * from notas
+--delete notas
 -- ALTER TABLE PromedioEstudiante
 --ALTER COLUMN id_promedio varchar(80);

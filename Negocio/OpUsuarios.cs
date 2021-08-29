@@ -17,5 +17,7 @@ namespace Negocio
             tabla = usrs.Mostrar();
             return tabla;
         }
+
+
     }
 }

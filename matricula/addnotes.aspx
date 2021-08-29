@@ -64,8 +64,10 @@
             <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Button CssClass="success button" ID="btnGuardarNotas" Text="Agregar" runat="server" />
-
+            <asp:Button CssClass="success button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
+            <br />
+            <br />
+            <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
         </div>
         <%--</div>--%>
         <%--        </div>--%>
