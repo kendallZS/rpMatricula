@@ -8,10 +8,10 @@ using Datos;
 
 namespace Negocio
 {
-    class OpUsuarios
+    public class OpUsuarios
     {
         private Usuarios usrs = new Usuarios();
-        public DataTable MostrarProd()
+        public DataTable MostrarUsrs()
         {
             DataTable tabla = new DataTable();
             tabla = usrs.Mostrar();

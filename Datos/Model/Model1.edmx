@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MatriculaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MatriculaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Matricula">
           <Key>
             <PropertyRef Name="id_matricula" />
@@ -39,6 +39,18 @@
           <Property Name="apellidos" Type="varchar" MaxLength="40" />
           <Property Name="id_rol" Type="int" />
         </EntityType>
+        <Association Name="FK__Notas__identific__70DDC3D8">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="identificacion" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Usuarios__id_rol__44FF419A">
           <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -56,13 +68,16 @@
           <EntitySet Name="Notas" EntityType="Self.Notas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Notas__identific__70DDC3D8" Association="Self.FK__Notas__identific__70DDC3D8">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
           <AssociationSet Name="FK__Usuarios__id_rol__44FF419A" Association="Self.FK__Usuarios__id_rol__44FF419A">
             <End Role="Rol" EntitySet="Rol" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MatriculaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -83,6 +98,7 @@
           <Property Name="nota_3" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="identificacion" Type="Int32" />
           <Property Name="promedio" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Usuarios" Relationship="MatriculaModel.FK__Notas__identific__70DDC3D8" FromRole="Notas" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Rol">
           <Key>
@@ -101,6 +117,7 @@
           <Property Name="apellidos" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="id_rol" Type="Int32" />
           <NavigationProperty Name="Rol" Relationship="Self.FK__Usuarios__id_rol__44FF419A" FromRole="Usuarios" ToRole="Rol" />
+          <NavigationProperty Name="Notas" Relationship="MatriculaModel.FK__Notas__identific__70DDC3D8" FromRole="Usuarios" ToRole="Notas" />
         </EntityType>
         <Association Name="FK__Usuarios__id_rol__44FF419A">
           <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
@@ -123,7 +140,23 @@
             <End Role="Rol" EntitySet="Rol" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
+          <AssociationSet Name="FK__Notas__identific__70DDC3D8" Association="MatriculaModel.FK__Notas__identific__70DDC3D8">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Notas" EntitySet="Notas" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__Notas__identific__70DDC3D8">
+          <End Type="MatriculaModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="MatriculaModel.Notas" Role="Notas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="identificacion" />
+            </Principal>
+            <Dependent Role="Notas">
+              <PropertyRef Name="identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

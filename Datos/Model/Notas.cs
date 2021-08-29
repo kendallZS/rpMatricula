@@ -20,5 +20,7 @@ namespace Datos.Model
         public Nullable<decimal> nota_3 { get; set; }
         public Nullable<int> identificacion { get; set; }
         public Nullable<decimal> promedio { get; set; }
+    
+        public virtual Usuarios Usuarios { get; set; }
     }
 }
