@@ -22,7 +22,9 @@ nota_3 decimal(18,2),
 identificacion int, --* listo
 promedio decimal(18,2) --*
 )
+--drop table Notas
 
+select * from Notas
 --Create table PromedioEstudiante(
 --id_promedio int identity(1,1) primary key,
 --id_nota int, --* listo
@@ -82,6 +84,11 @@ ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --ejecutad
  --Volcado de datos para la tabla PromedioEstudiante
  insert into PromedioEstudiante values (364829575,1,40,1)
  insert into PromedioEstudiante values ('Estudiante')
+
+
+--Procedimietos almacenados
+
+
 
 -- ALTER TABLE PromedioEstudiante
 --ALTER COLUMN id_promedio varchar(80);
