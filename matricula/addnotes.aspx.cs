@@ -30,6 +30,7 @@ namespace matricula
 
             try
             {
+                
                 notas.InsertarNotas(Convert.ToDouble(txtNota1.Text), Convert.ToDouble(txtNota2.Text),
                     Convert.ToDouble(txtNota3.Text), Convert.ToInt32(txtIdentificacion.Text),0);
                 
@@ -73,5 +74,7 @@ namespace matricula
             txtNota2.Text = "";
             txtNota3.Text = "";
         }
+
+      
     }
 }

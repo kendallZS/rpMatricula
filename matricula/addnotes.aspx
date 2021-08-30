@@ -7,6 +7,8 @@
 
     <title>Ingreso de notas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtwqLEhOP7jsw7yv3WPqTSluT6C_0Je_PF5w&usqp=CAU"/>
 
     <style>
 
@@ -83,13 +85,13 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="txt" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" type="number" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:Button CssClass="button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
+                   <asp:Button CssClass="button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
                     <br />
                     <br />
                     <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
@@ -138,5 +140,10 @@
             }
         }
     </style>
+
+    <script>
+       
+    </script>
+
 </body>
 </html>
