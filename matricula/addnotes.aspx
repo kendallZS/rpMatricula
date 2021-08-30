@@ -25,7 +25,8 @@
             }
 
         .header1 .callout a {
-            font-size:25px;
+            padding:15px;
+            font-size:18px;
             color: white;
             text-decoration: none;
             margin: 1%;
@@ -63,7 +64,7 @@
                 <a class="a" href="#">content</a>
                 <a class="a" href="#">content</a>
             </div>
-             <br />
+          
            
             <div class="alert callout" style="border: none;">
                 <br />
@@ -76,10 +77,9 @@
 
         <br />
 
-
-        <div id="frm" class="medium-gray callout" style="text-align: center">
-
-            <h2 style="color: #FC4B2D; ">Ingrese los siguientes datos</h2>
+        <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
+            <h2 style="color: #FC4B2D;">Ingrese los siguientes datos</h2>
+            <h3 style="font-size:10px">Recuerde para cifras con DECIMALES colocar una coma "," y NO un punto "."  </h3>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -93,9 +93,16 @@
                     <br />
                     <br />
                     <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
+                    <br />
+                    <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
                 </ContentTemplate>
             </asp:UpdatePanel>
-        </div>
+        </asp:Panel>
+
+        <%--<div id="frm" class="callout" style="text-align: center">
+
+          
+        </div>--%>
           
         <%--</div>--%>
         <%--        </div>--%>

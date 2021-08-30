@@ -12,10 +12,16 @@ namespace Negocio
 
         //INSERTA LAS NOTAS:
         private Notas notas = new Notas();
-        public void InsertarNotas(decimal n1, decimal n2, decimal n3,
-            int ident, decimal prom)
+        public void InsertarNotas(double n1, double n2, double n3,
+            int ident, double prom)
         {
             notas.Insertar(n1, n2, n3, ident, prom);
+        }
+
+        //Actualiza promedio
+        public void EditarProm(decimal promedio, int id)
+        {
+            notas.Editar(promedio,id);
         }
     }
 }

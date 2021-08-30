@@ -16,8 +16,8 @@ namespace Datos
         SqlCommand comando = new SqlCommand();
 
         Conexion conn = new Conexion();
-        public void Insertar(decimal n1, decimal n2, decimal n3,
-            int ident, decimal prom)
+        public void Insertar(double n1, double n2, double n3,
+            int ident, double prom)
         {
             comando.Connection = conn.AbrirConexion();
             comando.CommandText = "InsertaNotas";
@@ -27,6 +27,19 @@ namespace Datos
             comando.Parameters.AddWithValue("@nota3", n3);
             comando.Parameters.AddWithValue("@identificacion", ident);
             comando.Parameters.AddWithValue("@promedio", prom);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conn.CerrarConexion();
+        }
+
+        //Para editar promedio.
+        public void Editar(decimal promedio, int id)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "EditarPromedio";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@promedio", promedio);
+            comando.Parameters.AddWithValue("@identificacion", id);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conn.CerrarConexion();

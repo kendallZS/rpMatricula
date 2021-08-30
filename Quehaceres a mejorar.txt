@@ -1,2 +1,4 @@
 Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
 para evitar verla para colocarla después.
+-Validaciones(que en las notas no meta letras...etc)
+-Periodos

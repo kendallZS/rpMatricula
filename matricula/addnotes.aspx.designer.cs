@@ -24,6 +24,15 @@ namespace matricula
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control pnlFrm.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFrm;
+
+        /// <summary>
         /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace matricula
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCorrectoError;
+
+        /// <summary>
+        /// Control lblPromedio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPromedio;
 
         /// <summary>
         /// Control gvUsrs.

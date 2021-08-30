@@ -16,6 +16,8 @@ namespace matricula
         OpUsuarios ob = new OpUsuarios();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //pnlFrm.Visible = false;
+
             lblCorrectoError.Visible = false;
 
             gvUsrs.DataSource = ob.MostrarUsrs();
@@ -28,14 +30,36 @@ namespace matricula
 
             try
             {
-                notas.InsertarNotas(Convert.ToDecimal(txtNota1.Text), Convert.ToDecimal(txtNota2.Text),
-                    Convert.ToDecimal(txtNota3.Text), Convert.ToInt32(txtIdentificacion.Text),0);
-
+                notas.InsertarNotas(Convert.ToDouble(txtNota1.Text), Convert.ToDouble(txtNota2.Text),
+                    Convert.ToDouble(txtNota3.Text), Convert.ToInt32(txtIdentificacion.Text),0);
+                
 
                 //MessageBox.Show("se inserto correctamente");
                 lblCorrectoError.Visible = true;
                 lblCorrectoError.ForeColor = Color.Green;
                 lblCorrectoError.Text = "Se ha ingresado correctamente";
+
+                decimal n1,n2,n3, promedio;
+                n1 = Convert.ToDecimal(txtNota1.Text);
+                n2 = Convert.ToDecimal(txtNota2.Text);
+                n3 = Convert.ToDecimal(txtNota3.Text);
+
+                promedio = (n1 + n2 + n3)/3;
+
+                lblPromedio.Text ="Promedio: "+ promedio.ToString("#.##");
+
+
+                //Actualizar el promedio del estudiante.
+                try
+                {
+                    notas.EditarProm(promedio, Convert.ToInt32(txtIdentificacion.Text));
+                                     
+                }
+                catch (Exception ex)
+                {
+                    lblCorrectoError.Text = ex.ToString();
+                }
+
             }
             catch (Exception ex)
             {

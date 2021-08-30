@@ -1,3 +1,4 @@
+
 create database Matricula
 
 use Matricula
@@ -103,6 +104,27 @@ go
 exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@promedio=0
 
 select * from notas
+
+create procedure EditarPromedio @promedio decimal(18,2), @identificacion int
+as
+update Notas set promedio=@promedio where identificacion= @identificacion
+go
+exec EditarPromedio @promedio=30, @identificacion=315243695
+
+select * from notas
+--delete notas
+
+select * from notas where identificacion=315243695
+
+
+
+
+
+
+
+
+
+
 --delete notas
 -- ALTER TABLE PromedioEstudiante
 --ALTER COLUMN id_promedio varchar(80);
