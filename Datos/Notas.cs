@@ -11,7 +11,7 @@ namespace Datos
    public class Notas
     {
 
-        SqlDataReader leer;
+        SqlDataReader leer2;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
@@ -46,5 +46,19 @@ namespace Datos
             comando.Parameters.Clear();
             conn.CerrarConexion();
         }
+
+        //Verifica en la tabla notas si ya existe el usuario (identificacion) con sus notas
+        //y promedio.
+        //public DataTable Mostrar(int id)
+        //{
+        //    comando.Connection = conn.AbrirConexion();
+        //    comando.CommandText = "VerificaExistencia";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    leer2 = comando.ExecuteReader();
+        //    tabla.Load(leer2);
+        //    conn.CerrarConexion();
+        //    return tabla;
+
+        //}
     }
 }

@@ -78,7 +78,7 @@
         </header>
 
         <br />
-
+        <asp:GridView ID="gvVerificaExistencia" runat="server"></asp:GridView>
         <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
             <h2 style="color: #FC4B2D;">Ingrese los siguientes datos</h2>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

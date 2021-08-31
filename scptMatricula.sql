@@ -25,7 +25,9 @@ promedio decimal(18,2) null,
 id_matricula int --* listo
 )
 
---drop table Notas
+
+
+--delete Notas
 
 select * from Notas
 --Create table PromedioEstudiante(
@@ -42,13 +44,15 @@ id_matricula int primary key identity(1,1),
 fecha datetime
 )
 --drop table Matricula
+--PARA HACER LOS JOINS SE DEBEN VINCULAR DESDE LA LLAVE FORANEA O ATRIBUTO QUE RELACIONA AMBAS TABLAS EN CASO DE QUE UNA
+--TABLA TENGA MAS REGISTROS QUE LA OTRA
 select Notas.identificacion, Notas.nota_1,Notas.nota_2,Notas.nota_3, Notas.promedio,
 Matricula.fecha
-from Notas
-inner join Matricula on Notas.id_nota=Matricula.id_matricula
-where Notas.identificacion=365987542
+from Matricula
+inner join Notas on Matricula.id_matricula= Notas.id_matricula
+where Notas.identificacion=315243695
 
-select * from Notas
+select * from Notas where Notas.identificacion=315243695
 select * from Matricula
 
 --FORÁNEAS
@@ -135,6 +139,8 @@ exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@prome
 
 select * from notas
 
+
+
 create procedure EditarPromedio @promedio decimal(18,2), @identificacion int
 as
 update Notas set promedio=@promedio where identificacion= @identificacion
@@ -142,13 +148,13 @@ go
 exec EditarPromedio @promedio=30, @identificacion=315243695
 
 select * from notas
---delete notas
 
-select * from notas where identificacion=315243695
+create procedure VerificaExistencia @identificacion int
+as
+select identificacion from Notas where identificacion=@identificacion
+go
 
-
-
-
+exec VerificaExistencia @identificacion=315247585
 
 
 

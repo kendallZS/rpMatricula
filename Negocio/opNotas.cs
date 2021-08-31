@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,5 +24,13 @@ namespace Negocio
         {
             notas.Editar(promedio,id);
         }
+
+        //Verifica si ya un usuario tiene asignada su nota
+        //public DataTable MostrarExistencia(int id)
+        //{
+        //    DataTable tabla = new DataTable();
+        //    tabla = notas.Mostrar(id);
+        //    return tabla;
+        //}
     }
 }

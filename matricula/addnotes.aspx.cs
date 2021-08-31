@@ -14,6 +14,7 @@ namespace matricula
     {
         
         OpUsuarios ob = new OpUsuarios();
+        opNotas opNotas = new opNotas();
         protected void Page_Load(object sender, EventArgs e)
         {
             //pnlFrm.Visible = false;
@@ -30,6 +31,9 @@ namespace matricula
         {
             opNotas notas = new opNotas();
             int hora_matricula;
+
+            //verifica si ya el usuario tiene nostas asignadas.
+            
             if (txtIdentificacion.Text == "" || txtNota1.Text == "" ||
                 txtNota2.Text == "" || txtNota3.Text == "")
             {
