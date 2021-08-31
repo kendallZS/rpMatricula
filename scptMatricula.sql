@@ -21,7 +21,8 @@ nota_1 decimal(18,2),
 nota_2 decimal(18,2),
 nota_3 decimal(18,2),
 identificacion int, --* listo
-promedio decimal(18,2) null
+promedio decimal(18,2) null,
+id_matricula int --* listo
 )
 
 --drop table Notas
@@ -33,13 +34,22 @@ select * from Notas
 --promedio decimal(18,2),
 --id_matricula int --* listo
 --)
-
+--delete Notas
 --drop table PromedioEstudiante
 
 Create table Matricula(
 id_matricula int primary key identity(1,1),
-fecha date
+fecha datetime
 )
+--drop table Matricula
+select Notas.identificacion, Notas.nota_1,Notas.nota_2,Notas.nota_3, Notas.promedio,
+Matricula.fecha
+from Notas
+inner join Matricula on Notas.id_nota=Matricula.id_matricula
+where Notas.identificacion=365987542
+
+select * from Notas
+select * from Matricula
 
 --FORÁNEAS
 ALTER TABLE Usuarios
@@ -47,6 +57,12 @@ ADD FOREIGN KEY (id_rol) REFERENCES Rol(id_rol); --ejecutado
 
 ALTER TABLE Notas
 ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --ejecutado
+
+Alter table Notas
+Add id_matricula int --ejecutado
+
+ALTER TABLE Notas
+ADD FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula); --ejecutado
 
 --ALTER TABLE PromedioEstudiante
 --ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --NO
@@ -72,21 +88,35 @@ ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --ejecutad
  insert into Rol values (2,'Estudiante')
 
  --Volcado de datos para la tabla Notas
- insert into Notas values (1,70,85,60)
- insert into Notas values (2,55,44,33)
- insert into Notas values (3,77,49,90)
- insert into Notas values (4,94,98,97)
- insert into Notas values (5,51,88,86)
- insert into Notas values (6,74,71,95)
- insert into Notas values (7,88,87,89)
- insert into Notas values (8,64,93,91)
- insert into Notas values (9,44,33,100)
+ insert into Notas values (70,85,60,364829575,0,1)
+ insert into Notas values (55,44,33,315243695,0,2)
+ insert into Notas values (77,49,90,365987542,0,3)
+ insert into Notas values (94,98,97,325698654,0,4)
+ insert into Notas values (51,88,86, 315247585,0,5)
+ insert into Notas values (74,71,95,369852147,0,6)
+ insert into Notas values (88,87,89,364829517,0,7)
+ insert into Notas values (64,93,91,325687595,0,8)
+ insert into Notas values (44,33,100)
 
 
  --Volcado de datos para la tabla PromedioEstudiante
- insert into PromedioEstudiante values (364829575,1,40,1)
- insert into PromedioEstudiante values ('Estudiante')
+ --insert into PromedioEstudiante values (364829575,1,40,1)
+ --insert into PromedioEstudiante values ('Estudiante')
 
+  --Volcado de datos para la tabla PromedioEstudiante
+ insert into Matricula values ('2021-09-05 08:10:00.000')
+ insert into Matricula values ('2021-09-05 08:20:00.000')
+ insert into Matricula values ('2021-09-05 08:30:00.000')
+ insert into Matricula values ('2021-09-05 08:40:00.000')
+ insert into Matricula values ('2021-09-05 08:50:00.000')
+ insert into Matricula values ('2021-09-05 09:10:00.000')
+ insert into Matricula values ('2021-09-05 09:20:00.000')
+ insert into Matricula values ('2021-09-05 09:30:00.000')
+
+
+-- delete Matricula
+
+ select * from Matricula
 
 --Procedimietos almacenados
 create procedure MostrarUsuarios
@@ -96,12 +126,12 @@ go
 exec MostrarUsuarios
 
 
-create procedure InsertaNotas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
-@identificacion int, @promedio decimal(18,2)
+Create procedure InsertaNotas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
+@identificacion int, @promedio decimal(18,2), @idmatricula int
 as
-insert into Notas values(@nota1,@nota2,@nota3,@identificacion,@promedio)
+insert into Notas values(@nota1,@nota2,@nota3,@identificacion,@promedio,@idmatricula)
 go
-exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@promedio=0
+exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@promedio=0,@idmatricula=1
 
 select * from notas
 

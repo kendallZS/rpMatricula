@@ -81,8 +81,7 @@
 
         <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
             <h2 style="color: #FC4B2D;">Ingrese los siguientes datos</h2>
-            <h3 style="font-size:10px">Recuerde para cifras con DECIMALES colocar una coma "," y NO un punto "."  </h3>
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+           <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:TextBox CssClass="txt" type="number" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
@@ -97,7 +96,9 @@
                     <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
                     <br />
                     <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
-                </ContentTemplate>
+                    <br />
+                    <asp:Label Text="text" ID="lblpruebaValorHorario" runat="server" />
+                    </ContentTemplate>
             </asp:UpdatePanel>
         </asp:Panel>
 

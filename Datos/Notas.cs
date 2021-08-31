@@ -16,8 +16,9 @@ namespace Datos
         SqlCommand comando = new SqlCommand();
 
         Conexion conn = new Conexion();
+        //Inserta las notas
         public void Insertar(double n1, double n2, double n3,
-            int ident, double prom)
+            int ident, double prom, int idmatricula)
         {
             comando.Connection = conn.AbrirConexion();
             comando.CommandText = "InsertaNotas";
@@ -27,6 +28,7 @@ namespace Datos
             comando.Parameters.AddWithValue("@nota3", n3);
             comando.Parameters.AddWithValue("@identificacion", ident);
             comando.Parameters.AddWithValue("@promedio", prom);
+            comando.Parameters.AddWithValue("@idmatricula", idmatricula);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conn.CerrarConexion();
