@@ -149,18 +149,37 @@ exec EditarPromedio @promedio=30, @identificacion=315243695
 
 select * from notas
 
-create procedure VerificaExistencia @identificacion int
-as
-select identificacion from Notas where identificacion=@identificacion
-go
-
-exec VerificaExistencia @identificacion=315247585
 
 
+--SP que valida si un usuario ya tiene asignadas sus notas para que no ingrese otro registro con otras notas distintas
+--a la tabla
+create procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
+@identificacion int, @promedio decimal(18,2), @idmatricula int
+    as
+	DECLARE @conteoExistencia INT
+        SET @conteoExistencia = (SELECT COUNT(*) FROM Notas WHERE identificacion = @identificacion);
+            IF @conteoExistencia > 0 begin
+                --SIGNAL SQLSTATE '45000'
+                print 'El registro ya existe';
+				RAISERROR (
+           N'El usuario que indicó ya cuenta con sus notas asignadas.', -- Mensaje de ejemplo
+           10, -- Severity,  
+           1   -- State
+			);
+				end
+            ELSE 
+			begin
+                INSERT INTO Notas values(@nota1, @nota2, @nota3,@identificacion,@promedio,@idmatricula)
+            END
+    go
+--	drop procedure sp_inserta_si_no_existe
+exec sp_inserta_si_no_existe 50,60,44,315243695,0,3
+
+
+select * from Notas
 
 
 
-
---delete notas
+delete notas
 -- ALTER TABLE PromedioEstudiante
 --ALTER COLUMN id_promedio varchar(80);

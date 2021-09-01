@@ -15,13 +15,15 @@ namespace Datos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
 
+        int valor;
+
         Conexion conn = new Conexion();
         //Inserta las notas
         public void Insertar(double n1, double n2, double n3,
             int ident, double prom, int idmatricula)
         {
             comando.Connection = conn.AbrirConexion();
-            comando.CommandText = "InsertaNotas";
+            comando.CommandText = "sp_inserta_si_no_existe";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@nota1", n1);
             comando.Parameters.AddWithValue("@nota2", n2);
@@ -49,15 +51,15 @@ namespace Datos
 
         //Verifica en la tabla notas si ya existe el usuario (identificacion) con sus notas
         //y promedio.
-        //public DataTable Mostrar(int id)
+        //public void Mostrar(int id)
         //{
         //    comando.Connection = conn.AbrirConexion();
         //    comando.CommandText = "VerificaExistencia";
         //    comando.CommandType = CommandType.StoredProcedure;
         //    leer2 = comando.ExecuteReader();
-        //    tabla.Load(leer2);
+        //    valor=Convert.ToInt32(leer2);
         //    conn.CerrarConexion();
-        //    return tabla;
+        //    //return tabla;
 
         //}
     }

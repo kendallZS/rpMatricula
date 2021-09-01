@@ -26,11 +26,10 @@ namespace Negocio
         }
 
         //Verifica si ya un usuario tiene asignada su nota
-        //public DataTable MostrarExistencia(int id)
+        //public void MostrarExistencia(int id)
         //{
-        //    DataTable tabla = new DataTable();
-        //    tabla = notas.Mostrar(id);
-        //    return tabla;
+           
+        //    string ident = notas.Mostrar(id);
         //}
     }
 }

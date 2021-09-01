@@ -32,7 +32,7 @@ namespace matricula
             opNotas notas = new opNotas();
             int hora_matricula;
 
-            //verifica si ya el usuario tiene nostas asignadas.
+            //verifica que no hayan campos vacíos.
             
             if (txtIdentificacion.Text == "" || txtNota1.Text == "" ||
                 txtNota2.Text == "" || txtNota3.Text == "")
@@ -112,15 +112,9 @@ namespace matricula
 
 
                     //Actualizar el promedio del estudiante.
-                    try
-                    {
-                        notas.EditarProm(promedio, Convert.ToInt32(txtIdentificacion.Text));
-
-                    }
-                    catch (Exception ex)
-                    {
-                        lblCorrectoError.Text = ex.ToString();
-                    }
+                   
+                    notas.EditarProm(promedio, Convert.ToInt32(txtIdentificacion.Text));
+                                                                          
 
                 }
                 catch (Exception ex)
