@@ -25,11 +25,11 @@ namespace Negocio
             notas.Editar(promedio,id);
         }
 
-        //Verifica si ya un usuario tiene asignada su nota
-        //public void MostrarExistencia(int id)
-        //{
-           
-        //    string ident = notas.Mostrar(id);
-        //}
+        //Actualiza Notas
+        public void EditarNotas(double n1, double n2, double n3,
+            int ident, double prom, int idmatricula)
+        {
+            notas.EditaNotas(n1, n2, n3, ident, prom, idmatricula);
+        }
     }
 }

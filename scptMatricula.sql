@@ -179,7 +179,12 @@ exec sp_inserta_si_no_existe 50,60,44,315243695,0,3
 select * from Notas
 
 
+--Procedimiento para editar notas
+create procedure sp_editar_notas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
+@identificacion int, @promedio decimal(18,2), @idmatricula int
+as
+update Notas set nota_1=@nota1, nota_2=@nota2, nota_3=@nota3, promedio=@promedio,id_matricula=@idmatricula
+where identificacion=@identificacion
+go
 
-delete notas
--- ALTER TABLE PromedioEstudiante
---ALTER COLUMN id_promedio varchar(80);
+exec sp_editar_notas 55,55,55,315243695,0,5

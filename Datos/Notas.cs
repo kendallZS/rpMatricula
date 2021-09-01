@@ -49,18 +49,25 @@ namespace Datos
             conn.CerrarConexion();
         }
 
-        //Verifica en la tabla notas si ya existe el usuario (identificacion) con sus notas
-        //y promedio.
-        //public void Mostrar(int id)
-        //{
-        //    comando.Connection = conn.AbrirConexion();
-        //    comando.CommandText = "VerificaExistencia";
-        //    comando.CommandType = CommandType.StoredProcedure;
-        //    leer2 = comando.ExecuteReader();
-        //    valor=Convert.ToInt32(leer2);
-        //    conn.CerrarConexion();
-        //    //return tabla;
 
-        //}
+        //Edita las notas
+        public void EditaNotas(double n1, double n2, double n3,
+            int ident, double prom, int idmatricula)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "sp_editar_notas";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@nota1", n1);
+            comando.Parameters.AddWithValue("@nota2", n2);
+            comando.Parameters.AddWithValue("@nota3", n3);
+            comando.Parameters.AddWithValue("@identificacion", ident);
+            comando.Parameters.AddWithValue("@promedio", prom);
+            comando.Parameters.AddWithValue("@idmatricula", idmatricula);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conn.CerrarConexion();
+        }
+
+
     }
 }

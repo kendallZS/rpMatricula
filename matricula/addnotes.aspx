@@ -10,6 +10,38 @@
     
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtwqLEhOP7jsw7yv3WPqTSluT6C_0Je_PF5w&usqp=CAU"/>
 
+     <style>
+        .window-notice {
+            background: rgba(33, 41, 52, .85);
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            display: flex;
+            position: fixed;
+          /*  z-index: 999;*/
+        }
+    </style>
+    <style>
+        .window-notice .content {
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+            box-sizing: content-box;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            max-width: 600px;
+            min-width: 320px !important;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            padding: 0;
+            font-size: 1.3rem;
+        }
+    </style>
+
+
     <style>
 
         body {
@@ -52,6 +84,34 @@
                 overflow-y:scroll;
                 height:300px;
             }
+
+            #btnActualizarNotasEst{
+                background-color:#FC4B2D;
+                width:55px;
+                border-radius:44px;
+                margin-left:35.2%;
+                /*font-size:15px;*/
+            }
+            #btnActualizarNotasEst:hover{
+                background:green;
+            }
+            #btnCerraModal{
+                background-color:#FC4B2D;
+               /*width:60px;*/
+                border-radius:44px;
+                /*margin-left:40%;*/
+                /*font-size:15px;*/
+            }
+
+            #btnCerraModal:hover{
+                background:green;
+            }
+
+
+            #btnModalActNotas:hover{
+                background-color:lightgray;
+                border-radius:4px;
+            }
     </style>
 </head>
 <body style="margin: 0; text-align:center">
@@ -78,7 +138,7 @@
         </header>
 
         <br />
-        <asp:GridView ID="gvVerificaExistencia" runat="server"></asp:GridView>
+
         <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
             <h2 style="color: #FC4B2D;">Ingrese los siguientes datos</h2>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -98,14 +158,36 @@
                     <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
                     <br />
                     <asp:Label Text="text" ID="lblpruebaValorHorario" runat="server" />
-                    </ContentTemplate>
+                  </ContentTemplate>
             </asp:UpdatePanel>
         </asp:Panel>
 
-        <%--<div id="frm" class="callout" style="text-align: center">
+        
+
+
+
+    <script>
+
+        function myFunction2() {
+            var x = document.getElementById("window-notice");
+            var y = document.getElementById("btnCerraModal");
+            var z = document.getElementById("btnModalActNotas");
+            if (x.style.display === "none") {
+                y.style.display = "block";
+                x.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.style.display = "none";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+        }
+    </script>
+
+
 
           
-        </div>--%>
+<%--        </div>--%>
           
         <%--</div>--%>
         <%--        </div>--%>
@@ -118,7 +200,29 @@
         <div class="gv-cont">
         <asp:GridView CssClass="gv" ID="gvUsrs" runat="server"></asp:GridView>
         </div>
+
+            <%-- Modal Actualizacion notas --%>
+        <div class="window-notice" style="display: none;" id="window-notice">
+            <div class="content">
+                <header style="background-color:#FC4B2D">
+                    <h3 style="color:white;font-size:27px">Actualización de notas</h3>
+                    <p style="font-size:15px;color:white">Ingrese lo que se le solicita acontinuación</p>
+                </header>
+                <br />
+                <asp:TextBox CssClass="txt" type="number" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
+                <br />
+                <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
+               <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
+                <br />
+
+            </div>
+        </div>
     </form>
+
+   
 
     <style>
         @media only screen and (max-width: 600px) {
@@ -142,9 +246,13 @@
         }
     </style>
 
-    <script>
-       
-    </script>
+    <div style="position: absolute; top: 80%; left: 44%" class="cont-modal">
+    
+        <button style="position:relative;color: darkcyan" id="btnModalActNotas" onclick="myFunction2()">Actualizar notas estudiante</button>
+          
+    </div>
+
+    <button style="position:fixed;top:53.5%;left:51.2%;display:none" class="button" ID="btnCerraModal" onClick="myFunction2()">Cancelar</button>
 
 </body>
 </html>
