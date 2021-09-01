@@ -5,3 +5,8 @@ para evitar verla para colocarla después.
 --En modulo de docente poner una ventana con la opcion para actualizar notas
 --Notificaciones por correo
 --agregar campo Contrasena para los usuarios ENCRIPTAR
+--Tarjetas dinamicas
+
+
+Para el mod estudiantes mostrar una tarjeta con el horario de matricula
+y al darle click muestre una ventana con las notas y promedio

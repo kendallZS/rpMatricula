@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtwqLEhOP7jsw7yv3WPqTSluT6C_0Je_PF5w&usqp=CAU"/>
 
      <style>
+        
         .window-notice {
             background: rgba(33, 41, 52, .85);
             left: 0;
@@ -43,6 +44,7 @@
 
 
     <style>
+      
 
         body {
             font-family:Garamond;
