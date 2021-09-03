@@ -85,6 +85,35 @@
     }
 }
 
+@media only screen and (max-width:600px) {
+  /* For mobile phones: */
+  .main .callout{
+      width: 100%;      
+    }
+}
+
+@media only screen and (max-width:600px) {
+  /* For mobile phones: */
+  .main .callout .card{
+      width:100%;
+    }
+}
+
+@media only screen and (max-width:600px) {
+  /* For mobile phones: */
+  .main .callout #card{
+      width:100%;
+      margin-left:15%;
+    }
+}
+
+    @media only screen and (max-width:600px) {
+        /* For mobile phones: */
+        #encabezado {
+            display: none;
+        }
+    }
+
     .header1 .callout button {
         padding: 9px;
         font-size: 18px;
@@ -102,7 +131,8 @@
     .card {
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
-        width: 40%;
+        width: 70%;
+        margin-left:30%;
     }
 
         .card:hover {
@@ -113,6 +143,16 @@
         padding: 2px 16px;
     }
 
+    footer h3{
+        font-size:15px;
+        color:white;
+       /* margin-right:95%;*/
+    }
+
+      footer a{
+       
+        margin-right:95%;
+    }
 </style>
 </head>
 <body style="font-family: Verdana; text-align:center">
@@ -130,7 +170,7 @@
             </div>
           
            
-            <div class="alert callout" style="border: none;">
+            <div id="encabezado" class="alert callout" style="border: none;">
                 <br />
 
                 <h2 style="color:lightyellow;text-shadow: 2px 2px 2px #FC4B2D;
@@ -139,27 +179,45 @@
             </div>
         </header>
 
-        <div style="overflow: auto">
+        <br />
 
-
-            <div class="main">
-                <div style="word-wrap: break-word;" class="callout">
-                    <div style="width:40%; margin-left:30%" class="card">
-                        <img style="height:60px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg6mTt1EIgit18bPwjA_OyzpeVDJkuiR2qOw&usqp=CAU" alt="Avatar">
+        <div class="main">
+            <div style="word-wrap: break-word;" class="callout">
+                <div id="cc2" style="width:80%;border:none" class="callout">
+                    <div id="card" class="card">
+                        <img style="height: 60px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg6mTt1EIgit18bPwjA_OyzpeVDJkuiR2qOw&usqp=CAU" alt="Avatar">
                         <br />
                         <div class="container">
-                            <h4><b>John Doe</b></h4>
-                            <p>Architect & Engineer</p>
+                            <h5><b>"nombre | identificacion"</b></h5>
+                            <asp:Label CssClass="label primary" Text="Aquí el horario" runat="server" />
+                            <br />
+                            <br />
+                            <a style="float: right" href="#">Detalles</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
 
+        <br />
+        <br />
+        <footer class="callout" style="background-color:black;margin-top:280px;">
+            <h3>Autor: @</h3> 
+            <a href="#">content</a> <br />
+            <a href="#">content</a> <br />
+            <a href="#">content</a> <br />
+         
+            <%--Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.
+            Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+            cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó
+            una galería de textos y los mezcló de tal manera que logró hacer un libro de textos
+            especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de
+            relleno en documentos electrónicos, quedando esencialmente igual al original. Fue
+            popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian
+            pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como 
+            por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.--%>
+        </footer>
 
-        <div style="background-color: #f1f1f1; text-align: center; padding: 10px; margin-top: 7px; font-size: 12px;">This web page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content respond to the resizing.</div>
     </form>
 </body>
 </html>
