@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="addnotes.aspx" />
     <Content Include="SeeNotes.aspx" />
+    <Content Include="studentmodule.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="SeeNotes.aspx.designer.cs">
       <DependentUpon>SeeNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="studentmodule.aspx.cs">
+      <DependentUpon>studentmodule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="studentmodule.aspx.designer.cs">
+      <DependentUpon>studentmodule.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

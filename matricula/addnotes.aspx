@@ -132,9 +132,10 @@
            
             <div class="alert callout" style="border: none;">
                 <br />
-                <br />
-  
-                <br />
+
+                <h2 style="color:lightyellow;text-shadow: 2px 2px 2px #FC4B2D;
+                    font-family:Verdana">Módulo del docente</h2>
+
                 <br />
             </div>
         </header>
@@ -142,7 +143,7 @@
         <br />
 
         <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
-            <h2 style="color: #FC4B2D;">Ingrese los siguientes datos</h2>
+            <h3 style="color: #FC4B2D;">Ingrese los siguientes datos</h3>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
