@@ -11,7 +11,7 @@ namespace matricula
 {
 
 
-    public partial class studentmodule
+    public partial class pruebasession
     {
 
         /// <summary>
@@ -24,21 +24,12 @@ namespace matricula
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control gvhorario.
+        /// Control lblmuestraSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvhorario;
-
-        /// <summary>
-        /// Control gvDesglose.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDesglose;
+        protected global::System.Web.UI.WebControls.Label lblmuestraSesion;
     }
 }

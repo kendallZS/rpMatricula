@@ -68,7 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="addnotes.aspx" />
-    <Content Include="SeeNotes.aspx" />
+    <Content Include="guardasession.aspx" />
+    <Content Include="pruebasession.aspx" />
     <Content Include="studentmodule.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -80,13 +81,20 @@
     <Compile Include="addnotes.aspx.designer.cs">
       <DependentUpon>addnotes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeeNotes.aspx.cs">
-      <DependentUpon>SeeNotes.aspx</DependentUpon>
+    <Compile Include="guardasession.aspx.cs">
+      <DependentUpon>guardasession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SeeNotes.aspx.designer.cs">
-      <DependentUpon>SeeNotes.aspx</DependentUpon>
+    <Compile Include="guardasession.aspx.designer.cs">
+      <DependentUpon>guardasession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pruebasession.aspx.cs">
+      <DependentUpon>pruebasession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pruebasession.aspx.designer.cs">
+      <DependentUpon>pruebasession.aspx</DependentUpon>
     </Compile>
     <Compile Include="studentmodule.aspx.cs">
       <DependentUpon>studentmodule.aspx</DependentUpon>

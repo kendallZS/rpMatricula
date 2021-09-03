@@ -7,6 +7,9 @@ para evitar verla para colocarla después.
 --agregar campo Contrasena para los usuarios ENCRIPTAR
 --Tarjetas dinamicas
 --Al final hacer responsive los modulos.
+--Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
+Sp)
+--Hacer un index
 
 Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio

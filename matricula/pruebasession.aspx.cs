@@ -7,11 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace matricula
 {
-    public partial class SeeNotes : System.Web.UI.Page
+    public partial class pruebasession : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["misesion"] != null)
+            {
+                lblmuestraSesion.Text = Session["misesion"].ToString();
+            }
+            
         }
+    
     }
 }

@@ -188,3 +188,33 @@ where identificacion=@identificacion
 go
 
 exec sp_editar_notas 55,55,55,315243695,0,5
+
+select * from Notas
+
+Create procedure Sp_Muestra_horario_matricula @identificacion int
+as
+select Matricula.fecha
+from Matricula
+inner join Notas on Matricula.id_matricula= Notas.id_matricula
+where Notas.identificacion=@identificacion
+go
+exec Sp_Muestra_horario_matricula 315243695
+
+--drop procedure Muestra_horario_matricula
+
+select * from Notas
+select * from Matricula
+
+
+--Muestra detalle de notas y promedio (mod estudiante)
+
+Create procedure Sp_Muestra_desglose @identificacion int
+as
+select Notas.nota_1 Nota1,Notas.nota_2 Nota2,Notas.nota_3 Nota3,Notas.promedio Promedio
+from Matricula
+inner join Notas on Matricula.id_matricula= Notas.id_matricula
+where Notas.identificacion=@identificacion
+go
+exec Sp_Muestra_horario_matricula 315243695
+
+
