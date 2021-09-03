@@ -211,10 +211,10 @@ select * from Matricula
 Create procedure Sp_Muestra_desglose @identificacion int
 as
 select Notas.nota_1 Nota1,Notas.nota_2 Nota2,Notas.nota_3 Nota3,Notas.promedio Promedio
-from Matricula
-inner join Notas on Matricula.id_matricula= Notas.id_matricula
+from Notas
 where Notas.identificacion=@identificacion
 go
-exec Sp_Muestra_horario_matricula 315243695
+
+exec Sp_Muestra_desglose 315243695
 
 

@@ -257,7 +257,7 @@
             <a href="#">content</a> <br />
         </footer>
 
-            <%-- Modal Actualizacion notas --%>
+            <%--  Modal visualizar desglose de notas --%>
         <div class="window-notice" style="display: none;" id="window-notice">
             <div class="content">
                 <header style="background-color:#FC4B2D">
