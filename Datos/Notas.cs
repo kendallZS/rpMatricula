@@ -69,5 +69,17 @@ namespace Datos
         }
 
 
+        public DataTable MostrarNotas(int identificacion)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Sp_Muestra_desglose";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", identificacion);
+            leer2 = comando.ExecuteReader();
+            tabla.Load(leer2);
+            conn.CerrarConexion();
+            return tabla;
+        }
+
     }
 }

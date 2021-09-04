@@ -31,5 +31,14 @@ namespace Negocio
         {
             notas.EditaNotas(n1, n2, n3, ident, prom, idmatricula);
         }
+
+
+        //Muestra desglose de notas
+        public DataTable MostrarNotasEstudiantes(int identificacion)
+        {
+            DataTable tabla = new DataTable();
+            tabla = notas.MostrarNotas(identificacion);
+            return tabla;
+        }
     }
 }

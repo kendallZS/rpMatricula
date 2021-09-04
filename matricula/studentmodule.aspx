@@ -232,55 +232,32 @@
     <form id="form1" runat="server">
 
 
-<div style="margin:0px" class="bs-example">
-    <nav style="background-color:#FC4B2D;margin:0px" class="navbar navbar-expand-md navbar-light">
-        <a href="#" class="navbar-brand">Bienvenido</a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div style="margin: 0px" class="bs-example">
+            <nav style="background-color: #FC4B2D; margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" class="navbar-brand">Bienvenido</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">Profile</a>
-                <a href="#" class="nav-item nav-link">Messages</a>
-                <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <a href="#" class="nav-item nav-link">Log out</a>
-            </div>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">Profile</a>
+                        <a href="#" class="nav-item nav-link">Messages</a>
+                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="#" class="nav-item nav-link">Log out</a>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
         <div id="encabezado" class="alert callout" style="border: none;">
-                <br />
-                <h2 style="color:lightyellow;text-shadow: 2px 2px 2px #FC4B2D;
-                    font-family:Verdana">Módulo del estudiante</h2>
-                <br />
-            </div>
+            <br />
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del estudiante</h2>
+            <br />
+        </div>
 
-
-       <%--   <header class="header1" style="background: #FC4B2D;">
-           
-             
-            <div id="contHeaderBtn" class="callout" style="background-color:#FC4B2D; border: none">
-              
-           <button>content</button>
-               <button>content</button>
-               <button>content</button>
-               <button>content</button>
-               <button>content</button>
-            </div>
-          
-           
-            <div id="encabezado" class="alert callout" style="border: none;">
-                <br />
-
-                <h2 style="color:lightyellow;text-shadow: 2px 2px 2px #FC4B2D;
-                    font-family:Verdana">Módulo del estudiante</h2>
-                <br />
-            </div>
-        </header>--%>
 
         <br />
 
@@ -292,8 +269,7 @@
                         <br />
                         <div class="container">
                             <h5><b>"nombre | identificacion"</b></h5>
-                           <%-- <asp:Label ID="lblMostrarHorario" Text="text" runat="server" />--%>
-                            <asp:GridView CssClass="callout primary" Height="10px" ForeColor="" BackColor="Red" ID="gvhorario" runat="server"></asp:GridView>
+                           <asp:GridView CssClass="callout primary" Height="10px" ForeColor="" BackColor="Red" ID="gvhorario" runat="server"></asp:GridView>
                             <br />
                             <br />
                             <a onclick="myFunction2()" style="float: right" href="#">Detalles</a>

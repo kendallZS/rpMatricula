@@ -14,10 +14,13 @@ namespace matricula
         {
            
             opHorarioMatricula horarioMatricula = new opHorarioMatricula();
+            opNotas opNotas = new opNotas();
             //lblMostrarHorario.Text = horarioMatricula.MostrarHorario(364829517).ToString();
             gvhorario.DataSource = horarioMatricula.MostrarHorario(364829517);
             gvhorario.DataBind();
 
+            gvDesglose.DataSource = opNotas.MostrarNotasEstudiantes(364829517);
+            gvDesglose.DataBind();
         }
     }
 }

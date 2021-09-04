@@ -215,6 +215,6 @@ from Notas
 where Notas.identificacion=@identificacion
 go
 
-exec Sp_Muestra_desglose 315243695
+exec Sp_Muestra_desglose 364829517
 
 
