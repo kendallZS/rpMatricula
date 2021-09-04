@@ -13,3 +13,7 @@ Sp)
 
 Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio
+
+
+Variables de session asp.net:
+https://www.youtube.com/watch?v=6WyUj81gBmo
