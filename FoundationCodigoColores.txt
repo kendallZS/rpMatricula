@@ -1,0 +1,8 @@
+Dark Gray	#8a8a8a	138, 138, 138	
+Medium Gray	#cacaca	202, 202, 202	
+Light Gray	#e6e6e6	230, 230, 230	
+Primary	#1779ba	23, 121, 186	
+Secondary	#767676	118, 118, 118	
+Success	#3adb76	58, 219, 118	
+Warning	#ffae00	255, 174, 0	
+Alert	#cc4b37	204, 75, 55
