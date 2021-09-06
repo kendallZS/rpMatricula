@@ -6,7 +6,7 @@
 
     <title>Login</title>
 
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
     <%-- header --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
@@ -19,57 +19,143 @@
     </style>
 
     <style>
-        body{
-            text-align:center
+        body {
+            text-align: center
         }
 
-         #navbarCollapse .navbar-nav a{
-            color:white;
+        #navbarCollapse .navbar-nav a {
+            color: white;
         }
 
-        #encabezado{
-            height:130px;
+        #encabezado {
+            height: 130px;
+        }
+
+        /*Modal*/
+        .window-notice {
+            background: rgba(33, 41, 52, .85);
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            display: flex;
+            position: fixed;
+            /*  z-index: 999;*/
+        }
+
+            .window-notice .content {
+                background: #fff;
+                border-radius: 2px;
+                box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+                box-sizing: content-box;
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                max-width: 600px;
+                min-width: 320px !important;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                padding: 0;
+                font-size: 1.3rem;
+            }
+
+        #btnRegistrarme {
+            width: 120px;
+            margin-left: 40%;
+            border-radius: 10px;
         }
 
 
-       /*formulario*/
-       .cont-login{
-           width:35%;
-           margin-left:33%;
-       }
 
-       .callout .cont-login #cont-log2{
-           background-color:lightgray;
-           border:none;
-       }
+        #txtIdentificacionRegistro {
+            border-radius: 10px;
+        }
 
-       .callout .cont-login #cont-log2 h3{
-           color:#cc4b37;
-       }
+        #txtNombre {
+            border-radius: 10px;
+        }
 
-        .callout .cont-login #cont-log2 #btnlogin{
-           border-radius:15px;
-       }
+        #txtApellidos {
+            border-radius: 10px;
+        }
 
-          @media only screen and (max-width:1024px) {
+        #txtContrasenaRegistro {
+            border-radius: 10px;
+        }
+        /*Fin modal*/
+
+
+        /*formulario*/
         .cont-login {
-            width:50%;
-           margin-left:26.5%;
+            width: 35%;
+            margin-left: 33%;
         }
-    }
 
-         @media only screen and (max-width:800px) {
-        .cont-login {
-            width:100%;
-           margin-left:0%;
+        .callout .cont-login #cont-log2 {
+            background-color: lightgray;
+            border: none;
         }
-    }
-	</style>
+
+            .callout .cont-login #cont-log2 h3 {
+                color: #cc4b37;
+            }
+
+            .callout .cont-login #cont-log2 #btnlogin {
+                border-radius: 15px;
+            }
+
+             #txtIdentificacion{
+                border-radius:10px;
+            }
+             #txtContrasena{
+                border-radius:10px;
+            }
+
+
+
+        @media only screen and (max-width:1024px) {
+            .cont-login {
+                width: 50%;
+                margin-left: 26.5%;
+            }
+        }
+
+        @media only screen and (max-width:800px) {
+            .cont-login {
+                width: 100%;
+                margin-left: 0%;
+            }
+        }
+
+/*Registro media screen*/
+  @media only screen and (max-width:600px) {
+            .window-notice .content #btnRegistrarme{
+                width: 100%;
+                margin-left: 0%;
+            }
+        }
+    </style>
+
+    <%-- Para la modal de registro --%>
+    <script>
+
+        function myFunction2() {
+            var x = document.getElementById("window-notice");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
 </head>
 <body>
 
     <form id="form1" runat="server">
-         <div style="margin: 0px" class="bs-example">
+        <div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
                 <a href="#" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -89,7 +175,7 @@
                 </div>
             </nav>
         </div>
-       
+
         <br />
         <br />
         <br />
@@ -103,12 +189,37 @@
                     <asp:TextBox placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server"></asp:TextBox>
                     <asp:Button CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" />
-                </div>
+                    <br />
+                    <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
+                    <br />   
+                    <asp:Label Text="text" runat="server" />
+                    </div>
             </div>
             <br />
             <br />
         </div>
-    </form>
 
+
+
+        <%-- Modal para formulario de registro --%>
+        <div class="window-notice" style="display: none;" id="window-notice">
+            <div class="content">
+                <header style="background-color: #cc4b37">
+                    <h3 style="color: white; font-size: 27px">Ingrese los siguientes datos</h3>
+                    <p style="font-size: 15px; color: white">Pronto se le asignará el rol correspondiente</p>
+                </header>
+                <br />
+                <asp:TextBox CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
+                <asp:TextBox CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
+                <asp:TextBox CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
+                <asp:TextBox CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
+                <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" />
+                
+                <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>
+                <br />
+
+            </div>
+        </div>
+    </form>
 </body>
 </html>

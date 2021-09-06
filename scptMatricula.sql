@@ -7,8 +7,14 @@ Create table Usuarios(
 identificacion int primary key,
 nombre varchar(20),
 apellidos varchar(40),
-id_rol int --* listo
+id_rol int, --* listo
+contrasena varbinary(50),
+--llave varchar(50)
 )
+--drop table Usuarios
+--delete usuarios
+--alter table usuarios
+--drop column llave
 
 Create table Rol(
 id_rol int primary key,
@@ -68,6 +74,13 @@ Add id_matricula int --ejecutado
 ALTER TABLE Notas
 ADD FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula); --ejecutado
 
+ALTER TABLE Usuarios
+ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
+
+
+--ALTER TABLE Usuarios
+--drop column llave ;
+
 --ALTER TABLE PromedioEstudiante
 --ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --NO
 
@@ -122,7 +135,7 @@ ADD FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula); --ejecutado
 
  select * from Matricula
 
---Procedimietos almacenados
+--PROCEDIMIENTOS ALMACENADOS
 create procedure MostrarUsuarios
 as
 select * from Usuarios
@@ -218,3 +231,55 @@ go
 exec Sp_Muestra_desglose 364829517
 
 
+--Encripta contrasena cuando se hace un registro
+--https://www.c-sharpcorner.com/blogs/password-encryption-and-decryption-in-sql-sp
+Alter PROCEDURE Sp_registra_usuario 
+@identificacion int,
+@nombre varchar(20),
+@apellidos varchar(40),
+@id_rol int,
+@contrasena varchar(50)
+as
+Declare @Encrypt varbinary(200)  
+--								clave | campo a encriptar
+
+Select @Encrypt = EncryptByPassPhrase('key',@contrasena)  
+insert into Usuarios values (@identificacion,@nombre,@apellidos,@id_rol,@Encrypt)
+go
+
+exec Sp_registra_usuario 364829572,'test','test test',1,'333'
+
+select * from Usuarios
+
+--Desencripta la contrasena
+ALTER PROCEDURE Sp_desencripta 
+@identificacion int
+as
+Select *,libre= convert(varchar(100),DecryptByPassPhrase('key',contrasena)) from Usuarios as Decrypt   
+--where identificacion=@identificacion
+go
+
+exec Sp_desencripta 315243695
+
+select * from Usuarios 
+--delete Usuarios
+
+
+------------------------ALGORITMO DESENCRIPTAR-------------------------------------------------------
+--Declare @Encrypt varbinary(200)  
+--Select @Encrypt = EncryptByPassPhrase('key', 'Jothish' )  
+--Select @Encrypt as Encrypt  
+
+--Select convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) as Decrypt  
+----------------------------------------------------------------------------------------------------
+
+
+exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
+exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'
+exec Sp_registra_usuario  325698654,'Jeovanny','Coto Perez',1,'111'
+exec Sp_registra_usuario  315247585,'Maria','Figueroa Mata',1,'111'
+exec Sp_registra_usuario  369852147,'Rafael','Jimenez Azofeifa',2,'111'
+exec Sp_registra_usuario  364829517,'Yorleny','Fuentes Zuñiga',2,'111'
+exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
+exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
+exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'

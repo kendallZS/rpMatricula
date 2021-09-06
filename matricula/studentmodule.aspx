@@ -191,6 +191,7 @@
         margin-right:95%;
     }
 
+      /*Modal*/
         .window-notice {
             background: rgba(33, 41, 52, .85);
             left: 0;
@@ -218,6 +219,8 @@
             padding: 0;
             font-size: 1.3rem;
         }
+        /*Fin modal*/
+
 
         #navbarCollapse .navbar-nav a{
             color:white;

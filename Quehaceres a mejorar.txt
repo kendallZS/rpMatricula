@@ -1,19 +1,17 @@
 Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
 para evitar verla para colocarla después.
--Validaciones(que en las notas no meta letras...etc)
+-Validaciones(que en las notas no meta letras...etc)--listo
 -Periodos
---En modulo de docente poner una ventana con la opcion para actualizar notas
+--En modulo de docente poner una ventana con la opcion para actualizar notas--listo
 --Notificaciones por correo
---agregar campo Contrasena para los usuarios ENCRIPTAR
+--agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
 --Tarjetas dinamicas
 --Al final hacer responsive los modulos.
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
 --Hacer un index
+--el adm puede inacivar cuentas, asignar los roles...
 
 Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio
 
-
-Variables de session asp.net:
-https://www.youtube.com/watch?v=6WyUj81gBmo
