@@ -205,7 +205,7 @@
             <div class="cont-login">
                 <div id="cont-log2" class="callout">
                     <h3>Inicio de sesión</h3>
-                    <asp:TextBox onkeypress="ValidaSoloNumeros()" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
                     <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
                     <br />

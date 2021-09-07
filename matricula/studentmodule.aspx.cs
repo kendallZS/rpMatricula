@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
+using System.Drawing;
 
 namespace matricula
 {
@@ -16,40 +17,32 @@ namespace matricula
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            opHorarioMatricula horarioMatricula = new opHorarioMatricula();
-            opNotas opNotas = new opNotas();
-            //lblMostrarHorario.Text = horarioMatricula.MostrarHorario(364829517).ToString();
+            OpUsuarios opUsuarios = new OpUsuarios();
+            try
+            {
+                //Muestra la sesión
+                if (Session["misesion"] != null)
+                {
+                    lblGuardaSesion.Text = Session["misesion"].ToString();
+                }
 
-            //gvhorario.DataSource = horarioMatricula.MostrarHorario(364829517);
-            //gvhorario.DataBind();
+                lblMostrarIdentificacion.Text = lblGuardaSesion.Text;
+                lblMostrarNombre.Text = " | "+opUsuarios.MostrarNombre(Convert.ToInt32(lblGuardaSesion.Text));
 
-            //lblMostrar.Text = horarioMatricula.MostrarHorario(364829517).ToString();
+                opHorarioMatricula horarioMatricula = new opHorarioMatricula();
+                opNotas opNotas = new opNotas();
 
-            gvDesglose.DataSource = opNotas.MostrarNotasEstudiantes(365987542);
-            gvDesglose.DataBind();
+                gvDesglose.DataSource = opNotas.MostrarNotasEstudiantes(Convert.ToInt32(lblGuardaSesion.Text));
+                gvDesglose.DataBind();
 
-            lblMostrar.Text = horarioMatricula.MostrarHorario(365987542);
+                lblMostrar.Text = horarioMatricula.MostrarHorario(Convert.ToInt32(lblGuardaSesion.Text));
+            }
+            catch (Exception)
+            {
+                lblMostrarIdentificacion.ForeColor = Color.Red;
+                lblMostrarIdentificacion.Text = "Información inaccesible ya que no existe sesión o esta se ha cerrado.";
+            }
 
-            //Prueba mostrar en label
-
-            //SqlCommand comando = new SqlCommand("select Matricula.fecha from Matricula inner join Notas on Matricula.id_matricula = Notas.id_matricula where Notas.identificacion = @identificacion", connection2);
-
-            ////comando.CommandType = CommandType.StoredProcedure;
-            //comando.Parameters.AddWithValue("@identificacion", 364829517);
-            //connection2.Open();
-            //SqlDataReader usr = comando.ExecuteReader();
-
-            //if (usr.Read())
-            //{
-            //    lblMostrar.Text = usr["fecha"].ToString();
-            //}
-
-         
-
-            //connection2.Close();
-            //return tabla;
-        
-    }
+        }
     }
 }

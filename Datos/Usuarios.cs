@@ -18,6 +18,7 @@ namespace Datos
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
         string valor;
+        string nombre;
 
         Conexion conn = new Conexion();
         public DataTable Mostrar()
@@ -79,6 +80,24 @@ namespace Datos
                 valor = usr["libre"].ToString();
             }
             return valor;
+            conn.CerrarConexion();
+        }
+
+
+        //Muestra Nombre del usuario en sesión
+        public string MostrarNombreUsr(int identificacion)
+        {
+            SqlCommand comando = new SqlCommand("select nombre from Usuarios where identificacion=@identificacion", conn.AbrirConexion());
+            //comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", identificacion);
+
+            SqlDataReader usr = comando.ExecuteReader();
+
+            if (usr.Read())
+            {
+                nombre = usr["nombre"].ToString();
+            }
+            return nombre;
             conn.CerrarConexion();
         }
 

@@ -31,5 +31,10 @@ namespace Negocio
             contr = usrs.Desencriptar(ident);
             return contr;
         }
+
+        public string MostrarNombre(int ident)
+        {
+           return usrs.MostrarNombreUsr(ident);
+        }
     }
 }

@@ -60,6 +60,10 @@ namespace matricula
 
         protected void btnlogin_Click(object sender, EventArgs e)
         {
+            //Variable de sesión que identifica al usuario
+            Session["misesion"] = txtIdentificacion.Text;
+
+
             try
             {
                 connection.Open();

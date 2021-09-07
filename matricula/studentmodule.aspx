@@ -227,7 +227,7 @@
 </head>
 <body style="font-family: Verdana; text-align:center">
     <form id="form1" runat="server">
-
+        <asp:Label hidden="" ID="lblGuardaSesion" runat="server" />
 
         <div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
@@ -265,7 +265,7 @@
                         <img style="height: 60px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg6mTt1EIgit18bPwjA_OyzpeVDJkuiR2qOw&usqp=CAU" alt="Avatar">
                         <br />
                         <div class="container">
-                            <h5><b>"nombre | identificacion"</b></h5>
+                            <h5><asp:Label ID="lblMostrarIdentificacion" Text="text" runat="server" /><asp:Label ID="lblMostrarNombre" Text="text" runat="server" /></h5>
                            <asp:GridView CssClass="callout primary" Height="10px" ForeColor="" BackColor="Red" ID="gvhorario" runat="server"></asp:GridView>
                             <asp:Label ID="lblMostrar" Text="text" runat="server" />
                             <br />

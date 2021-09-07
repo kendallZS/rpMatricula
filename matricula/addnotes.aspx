@@ -178,6 +178,7 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
+                    Ha ingresado como:...
                     <div class="navbar-nav">
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
@@ -203,7 +204,7 @@
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="txt" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
@@ -253,7 +254,7 @@
                     (Las cifras con decimales deben separarse mediante una coma (,)</p>
                 </header>
                 <br />
-                <asp:TextBox CssClass="txt" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
