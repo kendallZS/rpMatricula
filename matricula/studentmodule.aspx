@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
+    <%-- Para el header --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -151,14 +152,7 @@
         }
     }
 
-    .header1 .callout button {
-        padding: 9px;
-        font-size: 18px;
-        color: white;
-        text-decoration: none;
-        margin: 1%;
-    }
-
+   
     .header1 .callout button:hover {
         background: #3493FA;
         color: white;
@@ -221,7 +215,7 @@
         }
         /*Fin modal*/
 
-
+        /*Para el header*/
         #navbarCollapse .navbar-nav a{
             color:white;
         }
@@ -236,7 +230,7 @@
 
 
         <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #FC4B2D; margin: 0px" class="navbar navbar-expand-md navbar-light">
+            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
                 <a href="#" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -273,6 +267,7 @@
                         <div class="container">
                             <h5><b>"nombre | identificacion"</b></h5>
                            <asp:GridView CssClass="callout primary" Height="10px" ForeColor="" BackColor="Red" ID="gvhorario" runat="server"></asp:GridView>
+                           <%-- <asp:Label ID="lblMostrar" Text="text" runat="server" />--%>
                             <br />
                             <br />
                             <a onclick="myFunction2()" style="float: right" href="#">Detalles</a>
@@ -298,12 +293,12 @@
             <%--  Modal visualizar desglose de notas --%>
         <div class="window-notice" style="display: none;" id="window-notice">
             <div class="content">
-                <header style="background-color:#FC4B2D">
+                <header style="background-color:#cc4b37">
                     <h3 style="color:white;font-size:27px">Detalle de notas</h3>
                     <p style="font-size:15px;color:white">Desglose de resultados obtenidos</p>
                 </header>
                 <br />
-                <asp:GridView ID="gvDesglose" runat="server"></asp:GridView>
+                <asp:GridView Font-Size="12px" Width="100%" ID="gvDesglose" runat="server"></asp:GridView>
                 <br />
                 <a onclick="myFunction2()" href="#">Cerrar</a>
                 <br />

@@ -151,6 +151,25 @@
         }
     </script>
 
+    <%-- Valida que ingrese solo numeros en campos como la identificacion --%>
+     <script type="text/javascript" >
+               //Función que permite solo Números
+         function ValidaSoloNumeros() {
+             if ((event.keyCode < 48) || (event.keyCode > 57))
+                 event.returnValue = false;
+         }
+
+         //Valida solo texto
+         function SoloTexto() {
+             if ((event.keyCode != 32) && (event.keyCode < 65) || (event.keyCode > 90) && (event.keyCode < 97) || (event.keyCode > 122))
+                 event.returnValue = false;
+         }
+     </script>
+
+
+
+
+
 </head>
 <body>
 
@@ -186,13 +205,13 @@
             <div class="cont-login">
                 <div id="cont-log2" class="callout">
                     <h3>Inicio de sesión</h3>
-                    <asp:TextBox placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server"></asp:TextBox>
-                    <asp:Button CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" />
+                    <asp:TextBox onkeypress="ValidaSoloNumeros()" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" />
                     <br />
                     <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
                     <br />   
-                    <asp:Label Text="text" runat="server" />
+                    <asp:Label ID="lblMensaj" Text="text" runat="server" />
                     </div>
             </div>
             <br />
@@ -209,11 +228,11 @@
                     <p style="font-size: 15px; color: white">Pronto se le asignará el rol correspondiente</p>
                 </header>
                 <br />
-                <asp:TextBox CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
-                <asp:TextBox CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
-                <asp:TextBox CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
-                <asp:TextBox CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
-                <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" />
+                <asp:TextBox onkeypress="ValidaSoloNumeros()" CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
+                <asp:TextBox onkeypress="SoloTexto()" CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
+                <asp:TextBox onkeypress="SoloTexto()" CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
+                <asp:TextBox TextMode="Password" CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
+                <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" OnClick="btnRegistrarme_Click" />
                 
                 <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>
                 <br />

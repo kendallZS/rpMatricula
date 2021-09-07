@@ -45,31 +45,57 @@ namespace Datos
             comando.Parameters.Clear();
             conn.CerrarConexion();
         }
-        public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
+
+
+        //Inserta las registro de usuario
+        public void InsertarUsuario(int ident, string nombre, string apellidos,
+            int idRol, string contrasena)
         {
             comando.Connection = conn.AbrirConexion();
-            comando.CommandText = "EditarProductos";
+            comando.CommandText = "Sp_registra_usuario";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", ident);
             comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.Parameters.AddWithValue("@descrip", desc);
-            comando.Parameters.AddWithValue("@Marca", marca);
-            comando.Parameters.AddWithValue("@precio", precio);
-            comando.Parameters.AddWithValue("@stock", precio);
-            comando.Parameters.AddWithValue("@id", id);
+            comando.Parameters.AddWithValue("@apellidos", apellidos);
+            comando.Parameters.AddWithValue("@id_rol", idRol);
+            comando.Parameters.AddWithValue("@contrasena", contrasena);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conn.CerrarConexion();
         }
-        public void Eliminar(int id)
-        {
-            comando.Connection = conn.AbrirConexion();
-            comando.CommandText = "EliminarProducto";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@idpro", id);
-            comando.ExecuteNonQuery();
-            comando.Parameters.Clear();
-            conn.CerrarConexion();
-        }
+
+
+
+
+
+
+
+
+        //public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
+        //{
+        //    comando.Connection = conn.AbrirConexion();
+        //    comando.CommandText = "EditarProductos";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    comando.Parameters.AddWithValue("@nombre", nombre);
+        //    comando.Parameters.AddWithValue("@descrip", desc);
+        //    comando.Parameters.AddWithValue("@Marca", marca);
+        //    comando.Parameters.AddWithValue("@precio", precio);
+        //    comando.Parameters.AddWithValue("@stock", precio);
+        //    comando.Parameters.AddWithValue("@id", id);
+        //    comando.ExecuteNonQuery();
+        //    comando.Parameters.Clear();
+        //    conn.CerrarConexion();
+        //}
+        //public void Eliminar(int id)
+        //{
+        //    comando.Connection = conn.AbrirConexion();
+        //    comando.CommandText = "EliminarProducto";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    comando.Parameters.AddWithValue("@idpro", id);
+        //    comando.ExecuteNonQuery();
+        //    comando.Parameters.Clear();
+        //    conn.CerrarConexion();
+        //}
 
     }
 }

@@ -121,7 +121,7 @@ namespace matricula
                 {
                     lblCorrectoError.Visible = true;
                     lblCorrectoError.ForeColor = Color.Red;
-                    lblCorrectoError.Text = "No se pudo ingresar los datos debido a un error: " + ex;
+                    lblCorrectoError.Text = "Error. Verifique que haya ingresado los datos correctos: " ;
                 }
 
                 txtIdentificacion.Text = "";
@@ -215,6 +215,7 @@ namespace matricula
                     lblCorrectoError.Visible = true;
                     lblCorrectoError.ForeColor = Color.Red;
                     lblCorrectoError.Text = "No se ha podido realizar la actualización.";
+               
                 }
 
             }

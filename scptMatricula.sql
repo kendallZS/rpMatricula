@@ -11,6 +11,8 @@ id_rol int, --* listo
 contrasena varbinary(50),
 --llave varchar(50)
 )
+
+select * from usuarios
 --drop table Usuarios
 --delete usuarios
 --alter table usuarios
@@ -20,7 +22,7 @@ Create table Rol(
 id_rol int primary key,
 rol varchar(20)
 )
-
+select * from Rol
 Create table Notas(
 id_nota int primary key identity(1,1),
 nota_1 decimal(18,2),
@@ -77,7 +79,6 @@ ADD FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula); --ejecutado
 ALTER TABLE Usuarios
 ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
 
-
 --ALTER TABLE Usuarios
 --drop column llave ;
 
@@ -103,6 +104,8 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  --Volcado de datos para la tabla Rol
  insert into Rol values (1,'Docente')
  insert into Rol values (2,'Estudiante')
+ insert into Rol values (3,'Por asignar')
+
 
  --Volcado de datos para la tabla Notas
  insert into Notas values (70,85,60,364829575,0,1)
@@ -114,7 +117,7 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Notas values (88,87,89,364829517,0,7)
  insert into Notas values (64,93,91,325687595,0,8)
  insert into Notas values (44,33,100)
-
+ select * from notas
 
  --Volcado de datos para la tabla PromedioEstudiante
  --insert into PromedioEstudiante values (364829575,1,40,1)
@@ -136,10 +139,13 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  select * from Matricula
 
 --PROCEDIMIENTOS ALMACENADOS
+
+
 create procedure MostrarUsuarios
 as
 select * from Usuarios
 go
+
 exec MostrarUsuarios
 
 

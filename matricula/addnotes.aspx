@@ -9,7 +9,18 @@
     <title>Ingreso de notas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     
+    <%-- Icono en la pestaña --%>
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtwqLEhOP7jsw7yv3WPqTSluT6C_0Je_PF5w&usqp=CAU"/>
+
+    <%-- Para el header --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
 
      <style>
         
@@ -75,7 +86,7 @@
             }
             #btnGuardarNotas{
                 border-radius:17px;
-                background:#FC4B2D;
+                background:#cc4b37;
                 color:white;
             }
             .txt{
@@ -89,10 +100,10 @@
             }
 
             #btnActualizarNotasEst{
-                background-color:#FC4B2D;
+                background-color:#cc4b37;
                 width:55px;
                 border-radius:44px;
-                margin-left:35.2%;
+                margin-left:43%;
                 /*font-size:15px;*/
             }
             #btnActualizarNotasEst:hover{
@@ -115,43 +126,89 @@
                 background-color:lightgray;
                 border-radius:4px;
             }
+
+
+            /*Para el header*/
+        #navbarCollapse .navbar-nav a{
+            color:white;
+        }
+
+        #encabezado{
+            height:130px;
+        }
     </style>
+    
+    <%-- Abrir o cerrar la modal --%>
+    <script>
+
+        function myFunction2() {
+            var x = document.getElementById("window-notice");
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+
+    <script type="text/javascript" >
+        //Función que permite solo Números
+        function ValidaSoloNumeros() {
+            if ((event.keyCode < 48) || (event.keyCode > 57))
+                event.returnValue = false;
+        }
+
+        //Valida solo texto
+        function SoloTexto() {
+            if ((event.keyCode != 32) && (event.keyCode < 65) || (event.keyCode > 90) && (event.keyCode < 97) || (event.keyCode > 122))
+                event.returnValue = false;
+        }
+    </script>
+
+
 </head>
 <body style="margin: 0; text-align:center">
     <form id="form1" runat="server">
-        <header class="header1" style="background: #FC4B2D;">
-           
-             
-            <div class="callout" style="background-color: #FC4B2D; border: none">
-                <a class="a" href="#">content</a>
-                <a class="a" href="#">content</a>
-                <a class="a" href="#">content</a>
-                <a class="a" href="#">content</a>
-                <a class="a" href="#">content</a>
-            </div>
-          
-           
-            <div class="alert callout" style="border: none;">
-                <br />
+        <div style="margin: 0px" class="bs-example">
+            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" class="navbar-brand">Bienvenido</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <h2 style="color:lightyellow;text-shadow: 2px 2px 2px #FC4B2D;
-                    font-family:Verdana">Módulo del docente</h2>
-
-                <br />
-            </div>
-        </header>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">Profile</a>
+                        <a href="#" class="nav-item nav-link">Messages</a>
+                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="#" class="nav-item nav-link">Log out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="encabezado" class="alert callout" style="border: none;">
+            <br />
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del estudiante</h2>
+            <br />
+        </div>
 
         <br />
 
         <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
-            <h3 style="color: #FC4B2D;">Ingrese los siguientes datos</h3>
+            <h3 style="color: #cc4b37;">Ingrese los siguientes datos</h3>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:TextBox CssClass="txt" type="number" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" type="number" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
+                  
+                    <a style="color:#1779ba" onclick="myFunction2()">Actualización de notas</a>
                     <br />
                     <br />
                    <asp:Button CssClass="button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
@@ -169,24 +226,6 @@
         
 
 
-
-    <script>
-
-        function myFunction2() {
-            var x = document.getElementById("window-notice");
-            var y = document.getElementById("btnCerraModal");
-            var z = document.getElementById("btnModalActNotas");
-            if (x.style.display === "none") {
-                y.style.display = "block";
-                x.style.display = "block";
-                z.style.display = "none";
-            } else {
-                x.style.display = "none";
-                y.style.display = "none";
-                z.style.display = "block";
-            }
-        }
-    </script>
 
 
 
@@ -208,18 +247,20 @@
             <%-- Modal Actualizacion notas --%>
         <div class="window-notice" style="display: none;" id="window-notice">
             <div class="content">
-                <header style="background-color:#FC4B2D">
+                <header style="background-color:#cc4b37">
                     <h3 style="color:white;font-size:27px">Actualización de notas</h3>
-                    <p style="font-size:15px;color:white">Ingrese lo que se le solicita acontinuación</p>
+                    <p style="font-size:15px;color:white">Ingrese lo que se le solicita acontinuación <br />
+                    (Las cifras con decimales deben separarse mediante una coma (,)</p>
                 </header>
                 <br />
-                <asp:TextBox CssClass="txt" type="number" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
-                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
-                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
-                <asp:TextBox CssClass="txt" type="number" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
+                <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
                 <br />
                 <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
                <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
+                <a onclick="myFunction2()" href="#">Cerrar</a>
                 <br />
 
             </div>
@@ -250,13 +291,14 @@
         }
     </style>
 
-    <div style="position: absolute; top: 80%; left: 44%" class="cont-modal">
+   <%-- <div style="position: absolute; top: 80%; left: 44%" class="cont-modal">
     
         <button style="position:relative;color: darkcyan" id="btnModalActNotas" onclick="myFunction2()">Actualizar notas estudiante</button>
           
-    </div>
+    </div>--%>
 
-    <button style="position:fixed;top:53.5%;left:51.2%;display:none" class="button" ID="btnCerraModal" onClick="myFunction2()">Cancelar</button>
+  <%--  <button style="position:fixed;top:53.5%;left:51.2%;display:none" class="button" ID="btnCerraModal" onClick="myFunction2()">Cancelar</button>--%>
+
 
 </body>
 </html>

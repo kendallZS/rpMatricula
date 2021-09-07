@@ -18,6 +18,12 @@ namespace Negocio
             return tabla;
         }
 
+        public void InsertarRegistraUrs(int ident, string nombre, string apellidos,
+            int idRol, string contrasena)
+        {
+            usrs.InsertarUsuario(ident, nombre, apellidos, idRol, contrasena);
+        }
+
 
     }
 }
