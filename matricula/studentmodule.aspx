@@ -267,7 +267,7 @@
                         <div class="container">
                             <h5><b>"nombre | identificacion"</b></h5>
                            <asp:GridView CssClass="callout primary" Height="10px" ForeColor="" BackColor="Red" ID="gvhorario" runat="server"></asp:GridView>
-                           <%-- <asp:Label ID="lblMostrar" Text="text" runat="server" />--%>
+                            <asp:Label ID="lblMostrar" Text="text" runat="server" />
                             <br />
                             <br />
                             <a onclick="myFunction2()" style="float: right" href="#">Detalles</a>

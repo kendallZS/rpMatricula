@@ -17,6 +17,7 @@ namespace Datos
         SqlDataReader leer;
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
+        string valor;
 
         Conexion conn = new Conexion();
         public DataTable Mostrar()
@@ -65,7 +66,21 @@ namespace Datos
         }
 
 
+        public string Desencriptar(int identificacion)
+        {
+            SqlCommand comando = new SqlCommand("Select contrasena,libre= convert(varchar(100),DecryptByPassPhrase('key',contrasena)) from Usuarios as Decrypt where identificacion = @identificacion", conn.AbrirConexion());
+            //comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", identificacion);
 
+            SqlDataReader usr = comando.ExecuteReader();
+
+            if (usr.Read())
+            {
+                valor = usr["libre"].ToString();
+            }
+            return valor;
+            conn.CerrarConexion();
+        }
 
 
 

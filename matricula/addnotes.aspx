@@ -192,7 +192,7 @@
         </div>
         <div id="encabezado" class="alert callout" style="border: none;">
             <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del estudiante</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del docente</h2>
             <br />
         </div>
 

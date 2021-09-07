@@ -10,7 +10,7 @@ namespace Datos
 {
     class Conexion
     {
-        private SqlConnection connection = new SqlConnection("Server=.\\SQLEXPRESS;DataBase= Matricula;Integrated Security=true");
+       private SqlConnection connection = new SqlConnection("Server=.\\SQLEXPRESS;DataBase= Matricula;Integrated Security=true");
         public SqlConnection AbrirConexion()
         {
             if (connection.State == ConnectionState.Closed)

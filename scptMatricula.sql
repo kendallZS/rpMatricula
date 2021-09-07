@@ -217,7 +217,7 @@ from Matricula
 inner join Notas on Matricula.id_matricula= Notas.id_matricula
 where Notas.identificacion=@identificacion
 go
-exec Sp_Muestra_horario_matricula 315243695
+exec Sp_Muestra_horario_matricula 364829517
 
 --drop procedure Muestra_horario_matricula
 
@@ -261,11 +261,12 @@ select * from Usuarios
 ALTER PROCEDURE Sp_desencripta 
 @identificacion int
 as
-Select *,libre= convert(varchar(100),DecryptByPassPhrase('key',contrasena)) from Usuarios as Decrypt   
---where identificacion=@identificacion
+declare @valor varchar(50)
+Select identificacion,id_rol,libre= convert(varchar(100),DecryptByPassPhrase('key',contrasena)) from Usuarios as Decrypt   
+where identificacion=@identificacion
 go
 
-exec Sp_desencripta 315243695
+exec Sp_desencripta 364829572
 
 select * from Usuarios 
 --delete Usuarios
@@ -278,6 +279,15 @@ select * from Usuarios
 
 --Select convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) as Decrypt  
 ----------------------------------------------------------------------------------------------------
+
+select * from Usuarios
+CREATE PROCEDURE Sp_login @identificacion int, @contrasena varchar(50)
+as
+
+go
+
+
+
 
 
 exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'

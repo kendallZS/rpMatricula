@@ -194,7 +194,7 @@
                 </div>
             </nav>
         </div>
-
+        <asp:TextBox hidden="" ID="txtContDesencriptada" runat="server" />
         <br />
         <br />
         <br />
@@ -207,7 +207,7 @@
                     <h3>Inicio de sesión</h3>
                     <asp:TextBox onkeypress="ValidaSoloNumeros()" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" />
+                    <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
                     <br />
                     <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
                     <br />   

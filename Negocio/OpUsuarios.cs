@@ -24,6 +24,12 @@ namespace Negocio
             usrs.InsertarUsuario(ident, nombre, apellidos, idRol, contrasena);
         }
 
-
+        //retorna contrassena desencriptada
+        public string MostrarDesencripcion(int ident)
+        {
+            string contr;
+            contr = usrs.Desencriptar(ident);
+            return contr;
+        }
     }
 }

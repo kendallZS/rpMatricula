@@ -24,6 +24,15 @@ namespace matricula
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control txtContDesencriptada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContDesencriptada;
+
+        /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
         /// <remarks>

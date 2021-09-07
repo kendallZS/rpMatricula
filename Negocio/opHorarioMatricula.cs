@@ -11,11 +11,11 @@ namespace Negocio
    public class opHorarioMatricula
     {
         HorarioMatricula HorarioMatricula = new HorarioMatricula();
-        public DataTable MostrarHorario(int ident)
+        public string MostrarHorario(int ident)
         {
-            DataTable tabla = new DataTable();
-            tabla = HorarioMatricula.Mostrar(ident);
-            return tabla;
+            string fecha;
+            fecha = HorarioMatricula.MostrarFecha(ident);
+            return fecha;
         }
     }
 }

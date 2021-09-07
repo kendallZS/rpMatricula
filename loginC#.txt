@@ -1,0 +1,80 @@
+  try
+            {
+                conexion.Open();
+                string strCadSQL;
+
+                SqlDataReader myReader = null;
+                strCadSQL = "select * from funcionarios";
+                SqlCommand myCommand = new SqlCommand(strCadSQL, conexion);
+
+
+                myReader = myCommand.ExecuteReader();
+
+                int contador = 0;
+
+
+                while (myReader.Read())
+                {
+
+                    String user = myReader["emailFuncionario"].ToString();
+                    String password = myReader["contrasena"].ToString();
+                    String rol = myReader["rol"].ToString();
+
+
+                    if (txtcorreo.Text == user && txtContrasena.Text == password)
+                    {
+
+                        if (rol.Contains("admin"))
+                        {
+                            contador = 1;
+
+                        }
+                        else if (rol.Contains("creador"))
+                        {
+                            contador = 2;
+
+                        }
+                  
+                    }
+
+
+                    if (contador == 1)
+                    {
+                        Response.Redirect("AdministradorPprincipal.aspx");
+
+                    }
+
+                    else if (contador == 2)
+                    {
+                        Response.Redirect("CreadorPprincipal.aspx");
+
+                    }
+                    else if (contador == 3)
+                    {
+                        Response.Redirect("TramitadorPagPrincip.aspx");
+
+                    }
+                    else if (contador == 4)
+                    {
+                        //  Response.Redirect("UsuarioFinalPprincipal.aspx");//cambiar a la direccion del host
+                        Response.Redirect("http://maikol1112-001-site1.itempurl.com/UsuarioFinalPprincipal.aspx/?usuario=" + txtcorreo.Text);
+
+                    }
+                    else if (contador == 5)
+                    {
+                        Response.Redirect("RegistroSinRol.aspx");
+
+                    }
+                    else
+                    {
+                        lblError1.Visible = true;
+                    }
+
+
+                }
+            }
+            catch (Exception)
+            {
+
+                lblError1.Visible = true;
+            }
