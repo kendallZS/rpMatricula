@@ -220,6 +220,7 @@
             color:white;
         }
 
+        /*Callout luego del header*/
         #encabezado{
             height:130px;
         }

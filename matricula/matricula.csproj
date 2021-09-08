@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="addnotes.aspx" />
+    <Content Include="asignacionroles.aspx" />
     <Content Include="css\style.css" />
     <Content Include="guardasession.aspx" />
     <Content Include="login.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="addnotes.aspx.designer.cs">
       <DependentUpon>addnotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="asignacionroles.aspx.cs">
+      <DependentUpon>asignacionroles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asignacionroles.aspx.designer.cs">
+      <DependentUpon>asignacionroles.aspx</DependentUpon>
     </Compile>
     <Compile Include="guardasession.aspx.cs">
       <DependentUpon>guardasession.aspx</DependentUpon>
