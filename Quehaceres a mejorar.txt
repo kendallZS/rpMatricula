@@ -4,6 +4,7 @@ para evitar verla para colocarla después.
 -Periodos
 --En modulo de docente poner una ventana con la opcion para actualizar notas--listo
 --Notificaciones por correo
+--Hacer buscadores por identificacion en mod Docente
 --agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
 --Tarjetas dinamicas
 --Al final hacer responsive los modulos.
@@ -11,7 +12,9 @@ para evitar verla para colocarla después.
 Sp)
 --Hacer un index
 --el adm puede inacivar cuentas, asignar los roles...
+--Para el mod estudiantes mostrar una tarjeta con el horario de matricula
+y al darle click muestre una ventana con las notas y promedio--listo
+--SUBIR A HOSTING Y PROBAR DESDE EL CELULAR
 
-Para el mod estudiantes mostrar una tarjeta con el horario de matricula
-y al darle click muestre una ventana con las notas y promedio
+
 

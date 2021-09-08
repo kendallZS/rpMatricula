@@ -6,7 +6,7 @@ Declare @Encrypt varbinary(200)
 Select @Encrypt = EncryptByPassPhrase('key', 'Jothish' )  
 Select @Encrypt as Encrypt  
 
-Select convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) as Decrypt  
+Select contrasena,libre= convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) from tabla as Decrypt  
 
 
 

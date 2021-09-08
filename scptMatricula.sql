@@ -22,6 +22,7 @@ Create table Rol(
 id_rol int primary key,
 rol varchar(20)
 )
+insert into Rol values (4,'hackeado')
 select * from Rol
 Create table Notas(
 id_nota int primary key identity(1,1),
@@ -223,7 +224,7 @@ exec Sp_Muestra_horario_matricula 364829517
 
 select * from Notas
 select * from Matricula
-
+select * from Usuarios
 
 --Muestra detalle de notas y promedio (mod estudiante)
 
@@ -266,7 +267,7 @@ Select identificacion,id_rol,libre= convert(varchar(100),DecryptByPassPhrase('ke
 where identificacion=@identificacion
 go
 
-exec Sp_desencripta 364829572
+exec Sp_desencripta 369852147
 
 select * from Usuarios 
 --delete Usuarios
@@ -280,15 +281,10 @@ select * from Usuarios
 --Select convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) as Decrypt  
 ----------------------------------------------------------------------------------------------------
 
+
+select * from Matricula
 select * from Usuarios
-CREATE PROCEDURE Sp_login @identificacion int, @contrasena varchar(50)
-as
-
-go
-
-
-
-
+select * from notas
 
 exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
 exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'

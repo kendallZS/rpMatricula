@@ -151,6 +151,25 @@
         }
     </script>
 
+    <%-- EVITA EL PASTE Y COPY EN LAS CAJAS DE TEXTO --%>
+<%--    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtIdentificacion").bind('copy', function (e) {
+                alert('copying text!');
+            });
+            $("#txtIdentificacion").bind('paste', function (e) {
+                alert('pasting text!');
+            });
+            $("#txtIdentificacion").bind('cut', function (e) {
+                alert('cut text!');
+            });
+        });
+    </script>--%>
+
+
+
+
+
     <%-- Valida que ingrese solo numeros en campos como la identificacion --%>
      <script type="text/javascript" >
                //Función que permite solo Números
@@ -205,8 +224,8 @@
             <div class="cont-login">
                 <div id="cont-log2" class="callout">
                     <h3>Inicio de sesión</h3>
-                    <asp:TextBox onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox  oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
+                    <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
                     <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
                     <br />
                     <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
@@ -228,10 +247,10 @@
                     <p style="font-size: 15px; color: white">Pronto se le asignará el rol correspondiente</p>
                 </header>
                 <br />
-                <asp:TextBox onkeypress="ValidaSoloNumeros()" CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
-                <asp:TextBox onkeypress="SoloTexto()" CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
-                <asp:TextBox onkeypress="SoloTexto()" CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
-                <asp:TextBox TextMode="Password" CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
+                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
+                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
+                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
+                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" TextMode="Password" CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
                 <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" OnClick="btnRegistrarme_Click" />
                 
                 <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>

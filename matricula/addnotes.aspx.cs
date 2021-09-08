@@ -26,6 +26,12 @@ namespace matricula
 
             gvUsrs.DataSource = ob.MostrarUsrs();
             gvUsrs.DataBind();
+
+            if (Session["misesion"]!=null)
+            {
+                lblMostrarUsuario.Text =Session["misesion"].ToString();
+                               
+            }
         }
 
         protected void btnGuardarNotas_Click(object sender, EventArgs e)
@@ -208,6 +214,7 @@ namespace matricula
                     opNotas.EditarProm(promedio, Convert.ToInt32(txtIdentActualizar.Text));
 
                     lblPromedio.Text = "Promedio actualizado: " + promedio.ToString("#.##");
+                    lblPromedio.ForeColor = Color.Green;
                 }
                 catch (Exception)
                 {

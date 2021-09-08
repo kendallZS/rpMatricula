@@ -101,9 +101,9 @@
 
             #btnActualizarNotasEst{
                 background-color:#cc4b37;
-                width:55px;
+                width:90%;
                 border-radius:44px;
-                margin-left:43%;
+                margin-left:5%;
                 /*font-size:15px;*/
             }
             #btnActualizarNotasEst:hover{
@@ -134,7 +134,12 @@
         }
 
         #encabezado{
-            height:130px;
+            /*height:130px;*/
+        }
+
+        #lblMostrarUsuario{
+            font-size:x-large;
+            text-shadow:1px 1px 1px gray;
         }
     </style>
     
@@ -172,13 +177,11 @@
     <form id="form1" runat="server">
         <div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
-                <a href="#" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    Ha ingresado como:...
                     <div class="navbar-nav">
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
@@ -195,12 +198,18 @@
             <br />
             <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del docente</h2>
             <br />
+            <h6 style="color:white;text-shadow: 2px 2px 2px gray">Usuario:</h6>           
+             <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
         </div>
 
         <br />
 
-        <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">
-            <h3 style="color: #cc4b37;">Ingrese los siguientes datos</h3>
+
+        <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">  
+            <br />
+            <br />
+            <h3 style="color: #cc4b37;">Asignación de notas. Ingrese los siguientes datos</h3>
+             <p style="font-size:15px;color:gray">(Las cifras con decimales deben separarse mediante una coma (,)</p>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -261,7 +270,7 @@
                 <br />
                 <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
                <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
-                <a onclick="myFunction2()" href="#">Cerrar</a>
+                <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>
                 <br />
 
             </div>
