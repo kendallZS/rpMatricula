@@ -6,3 +6,4 @@ Secondary	#767676	118, 118, 118
 Success	#3adb76	58, 219, 118	
 Warning	#ffae00	255, 174, 0	
 Alert	#cc4b37	204, 75, 55
+

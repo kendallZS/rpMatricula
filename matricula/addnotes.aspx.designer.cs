@@ -51,15 +51,6 @@ namespace matricula
         protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// Control UpdatePanel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
         /// <remarks>
@@ -132,49 +123,13 @@ namespace matricula
         protected global::System.Web.UI.WebControls.Label lblpruebaValorHorario;
 
         /// <summary>
-        /// Control gvUsrs.
+        /// Control gvNotas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvUsrs;
-
-        /// <summary>
-        /// Control txtIdentActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdentActualizar;
-
-        /// <summary>
-        /// Control txtNota1Actualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNota1Actualizar;
-
-        /// <summary>
-        /// Control txtNota2Actualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNota2Actualizar;
-
-        /// <summary>
-        /// Control txtNota3Actualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNota3Actualizar;
+        protected global::System.Web.UI.WebControls.GridView gvNotas;
 
         /// <summary>
         /// Control btnActualizarNotasEst.

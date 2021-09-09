@@ -6,6 +6,9 @@ para evitar verla para colocarla después.
 --Notificaciones por correo
 --Hacer buscadores por identificacion en mod Docente
 --agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
+--Que tanto profesor como estudiantes pertenezcan a algun curso y grupo y cuando
+el profesor vaya a ingresar las notas, vea la lista de los estudiantes que están 
+en su grupo
 --Tarjetas dinamicas
 --Al final hacer responsive los modulos.
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante

@@ -26,12 +26,13 @@
         
         .window-notice {
             background: rgba(33, 41, 52, .85);
-            left: 0;
+            /*left: 0;
             bottom: 0;
-            right: 0;
+            right: 0;*/
             top: 0;
-            display: flex;
-            position: fixed;
+/*            display: flex;
+*/            position: fixed;
+            width:100%;
           /*  z-index: 999;*/
         }
     </style>
@@ -211,8 +212,8 @@
             <h3 style="color: #cc4b37;">Asignación de notas. Ingrese los siguientes datos</h3>
              <p style="font-size:15px;color:gray">(Las cifras con decimales deben separarse mediante una coma (,)</p>
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
+       <%--     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>--%>
                     <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
@@ -229,8 +230,8 @@
                     <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
                     <br />
                     <asp:Label Text="text" ID="lblpruebaValorHorario" runat="server" />
-                  </ContentTemplate>
-            </asp:UpdatePanel>
+                <%--  </ContentTemplate>
+            </asp:UpdatePanel>--%>
         </asp:Panel>
 
         
@@ -247,15 +248,23 @@
         <br />
         <br />
 
-        Usuarios:
-        <br />
+        Alumnos:
+        <br />       
         <br />
         <div class="gv-cont">
-        <asp:GridView CssClass="gv" ID="gvUsrs" runat="server"></asp:GridView>
+<%--            <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>--%>
+            <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>--%>
+                   
+             <%--   </ContentTemplate>
+            </asp:UpdatePanel>--%>
         </div>
+        
+
+
 
             <%-- Modal Actualizacion notas --%>
-        <div class="window-notice" style="display: none;" id="window-notice">
+        <div class="window-notice" style="display: block;" id="window-notice">
             <div class="content">
                 <header style="background-color:#cc4b37">
                     <h3 style="color:white;font-size:27px">Actualización de notas</h3>
@@ -263,10 +272,24 @@
                     (Las cifras con decimales deben separarse mediante una coma (,)</p>
                 </header>
                 <br />
-                <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
+              <%--  <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
                 <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
+               --%>
+                <div style="overflow-y:scroll;height:400px;" class="gv-cont">
+               <asp:GridView Width="100%" ID="gvNotas" runat="server" AutoGenerateColumns="false" OnRowCommand="gvTablaUno_RowCommand" DataKeyNames="identificacion">
+                        <Columns>
+                            <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
+                            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+                            <asp:BoundField DataField="nota_1" HeaderText="Nota 1" />
+                            <asp:BoundField DataField="nota_2" HeaderText="Nota 2" />
+                            <asp:BoundField DataField="nota_3" HeaderText="Nota 3" />
+                            <asp:BoundField DataField="promedio" HeaderText="Promedio" />
+                            <asp:ButtonField Text="Editar" CommandName="Editar" />
+                        </Columns>
+                    </asp:GridView>
+                    </div>
                 <br />
                 <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
                <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />

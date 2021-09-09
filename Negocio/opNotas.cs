@@ -33,12 +33,22 @@ namespace Negocio
         }
 
 
-        //Muestra desglose de notas
+        //Muestra desglose de notas para el usuario en sesion mod student
         public DataTable MostrarNotasEstudiantes(int identificacion)
         {
             DataTable tabla = new DataTable();
             tabla = notas.MostrarNotas(identificacion);
             return tabla;
         }
+
+        //Muestra desglose de notas mod docente
+
+        public DataTable MostrarNotas()
+        {
+            DataTable tabla = new DataTable();
+            tabla = notas.MostrarNotasEst();
+            return tabla;
+        }
+
     }
 }

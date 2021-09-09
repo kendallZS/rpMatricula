@@ -81,5 +81,15 @@ namespace Datos
             return tabla;
         }
 
+        public DataTable MostrarNotasEst()
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Mostrar_notas";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer2 = comando.ExecuteReader();
+            tabla.Load(leer2);
+            conn.CerrarConexion();
+            return tabla;
+        }
     }
 }

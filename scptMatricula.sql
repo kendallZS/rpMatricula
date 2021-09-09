@@ -155,7 +155,7 @@ Create procedure InsertaNotas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 
 as
 insert into Notas values(@nota1,@nota2,@nota3,@identificacion,@promedio,@idmatricula)
 go
-exec InsertaNotas @nota1=50,@nota2=80,@nota3=90,@identificacion=315243695,@promedio=0,@idmatricula=1
+exec InsertaNotas 0,0,0,365987542,0,7
 
 select * from notas
 
@@ -281,6 +281,13 @@ select * from Usuarios
 --Select convert(varchar(100),DecryptByPassPhrase('key',@Encrypt )) as Decrypt  
 ----------------------------------------------------------------------------------------------------
 
+CREATE PROCEDURE Mostrar_notas
+as
+select Notas.identificacion,Usuarios.nombre, nota_1,nota_2,nota_3,promedio from notas
+inner join Usuarios on Usuarios.identificacion = Notas.identificacion
+go
+
+exec Mostrar_notas 
 
 select * from Matricula
 select * from Usuarios
@@ -295,3 +302,5 @@ exec Sp_registra_usuario  364829517,'Yorleny','Fuentes Zuñiga',2,'111'
 exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
 exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
 exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
+
+exec Sp_registra_usuario  325859568,'Martin','Braitwait Saens',2,'111'
