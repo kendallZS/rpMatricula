@@ -72,6 +72,7 @@
     <Content Include="css\style.css" />
     <Content Include="guardasession.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="pruebacarddesplegable.aspx" />
     <Content Include="pruebasession.aspx" />
     <Content Include="studentmodule.aspx" />
     <Content Include="Web.config" />
@@ -106,6 +107,13 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pruebacarddesplegable.aspx.cs">
+      <DependentUpon>pruebacarddesplegable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pruebacarddesplegable.aspx.designer.cs">
+      <DependentUpon>pruebacarddesplegable.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pruebasession.aspx.cs">
       <DependentUpon>pruebasession.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

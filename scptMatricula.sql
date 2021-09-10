@@ -289,9 +289,20 @@ go
 
 exec Mostrar_notas 
 
+
+ALTER PROCEDURE sp_mostrar_estudiantes_con_notas
+as
+select Usuarios.identificacion, Usuarios.nombre, notas.nota_1,
+notas.nota_2, Notas.nota_3
+from Usuarios
+inner join Notas on Usuarios.identificacion=Notas.identificacion
+go
+
+exec sp_mostrar_estudiantes_con_notas
+
 select * from Matricula
 select * from Usuarios
-select * from notas
+select * from notas where identificacion=374847484
 
 exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
 exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'
@@ -303,4 +314,4 @@ exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
 exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
 exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
 
-exec Sp_registra_usuario  325859568,'Martin','Braitwait Saens',2,'111'
+exec Sp_registra_usuario  374847484,'Kendall','Robles Mora',2,'111'

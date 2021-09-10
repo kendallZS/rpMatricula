@@ -81,10 +81,11 @@ namespace Datos
             return tabla;
         }
 
+        //muestra estudiantes con notas asignadas
         public DataTable MostrarNotasEst()
         {
             comando.Connection = conn.AbrirConexion();
-            comando.CommandText = "Mostrar_notas";
+            comando.CommandText = "sp_mostrar_estudiantes_con_notas";
             comando.CommandType = CommandType.StoredProcedure;
             leer2 = comando.ExecuteReader();
             tabla.Load(leer2);
