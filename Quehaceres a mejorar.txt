@@ -13,6 +13,8 @@ en su grupo
 --Al final hacer responsive los modulos.
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
+--Separar las dos funcionalidades del dcente
+en un modulo inicial con tarjetas
 --Hacer un index
 --el adm puede inacivar cuentas, asignar los roles...
 --Para el mod estudiantes mostrar una tarjeta con el horario de matricula

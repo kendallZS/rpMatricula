@@ -287,52 +287,29 @@
              <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
         </div>
 
-
-         <div class="dropdownMenu">
-            <div class="title dropdownButton">
-                <p>Actualizar notas a estudiantes</p>
-            </div>
-            <div class="dropdownContent">
-              <%--  <ul>--%>
-                    <%-- Tabla que muestra los estudiantes con notas asignadas para editarlas --%>
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                            <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
-                            <asp:GridView  ID="gvEstNotasAsignadas" runat="server" AutoGenerateColumns="false" OnRowCommand="gvTablaUno_RowCommand" DataKeyNames="identificacion">
-                                <Columns>
-                                    <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
-                                    <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                    <asp:BoundField DataField="nota_1" HeaderText="Nota 1" />
-                                    <asp:BoundField DataField="nota_2" HeaderText="Nota 2" />
-                                    <asp:BoundField DataField="nota_3" HeaderText="Nota 3" />
-                                    <asp:ButtonField Text="Editar" CommandName="Editar" />
-                                </Columns>
-                            </asp:GridView>
-
-
-                            <%-- Formulario para la edición de notas --%>
-                            <asp:Panel ID="pnlFormActualizar" CssClass="callout" runat="server">
-                                <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
-                                <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
-                                <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
-                                <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
-                                <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
-                                
-                            </asp:Panel>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-
-
-                <%--</ul>--%>
-            </div>
-        </div>
-
-
         <br />
+          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
                <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">  
+                   <h2>Asignación de notas</h2>
+
+
+                   <asp:GridView runat="server" AutoGenerateColumns="false" ID="gvUsuarios" DataKeyNames="identificacion" OnRowCommand="Tabla2_RowCommand">
+                        <Columns>
+                                <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
+                                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                                <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
+                               <asp:ButtonField Text="Asignar" CommandName="Asignar" />
+                            </Columns>
+                   </asp:GridView>
+
+
+
             <br />
             <br />
+                  
+                   <asp:Panel ID="pnlAsignacionNotas" runat="server">
             <h3 style="color: #cc4b37;">Asignación de notas. Ingrese los siguientes datos</h3>
              <p style="font-size:15px;color:gray">(Las cifras con decimales deben separarse mediante una coma (,)</p>
          
@@ -341,23 +318,50 @@
                     <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
                     <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
                   
-                    <a style="color:#1779ba" onclick="myFunction2()">Actualización de notas</a>
-                    <br />
-                    <br />
                    <asp:Button CssClass="button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
-                    <br />
-                    <br />
-                    <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
-                    <br />
+                     <br />
                     <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
                     <br />
+                    <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
                     <asp:Label Text="text" ID="lblpruebaValorHorario" runat="server" />
-             
+
+                   <br />
+                   <br />
+                   <br />
+             </asp:Panel>
         </asp:Panel>
 
-       
 
-        
+
+        <h2>Actualización de notas de estudiantes</h2>
+                <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
+                <asp:GridView ID="gvEstNotasAsignadas" runat="server" AutoGenerateColumns="false" OnRowCommand="gvTablaUno_RowCommand" DataKeyNames="identificacion">
+                    <Columns>
+                        <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
+                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                        <asp:BoundField DataField="nota_1" HeaderText="Nota 1" />
+                        <asp:BoundField DataField="nota_2" HeaderText="Nota 2" />
+                        <asp:BoundField DataField="nota_3" HeaderText="Nota 3" />
+                        <asp:ButtonField Text="Editar" CommandName="Editar" />
+                    </Columns>
+                </asp:GridView>
+                <br />
+                <%-- Formulario para la edición de notas --%>
+                <asp:Panel ID="pnlFormActualizar" CssClass="callout" runat="server">
+                    <br />
+                    <h3 style="color: #FC4B2D">Complete los siguientes espacios</h3>
+                    <br />
+                    <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
+                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
+                    <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
+
+                </asp:Panel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
+
 
 
         <%-- MENÚ DESPLEGABLE PARA LAS DOS OPCIONES DEL DOCENTE --%>
@@ -425,15 +429,6 @@
         }
 
     </style>
-
-   <%-- <div style="position: absolute; top: 80%; left: 44%" class="cont-modal">
-    
-        <button style="position:relative;color: darkcyan" id="btnModalActNotas" onclick="myFunction2()">Actualizar notas estudiante</button>
-          
-    </div>--%>
-
-  <%--  <button style="position:fixed;top:53.5%;left:51.2%;display:none" class="button" ID="btnCerraModal" onClick="myFunction2()">Cancelar</button>--%>
-
 
 </body>
 </html>

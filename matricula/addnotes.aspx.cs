@@ -17,6 +17,8 @@ namespace matricula
         opNotas opNotas = new opNotas();
         protected void Page_Load(object sender, EventArgs e)
         {
+            pnlAsignacionNotas.Visible = false;
+
             pnlFormActualizar.Visible = false;
 
             lblActualizaNotas.Visible = false;
@@ -33,10 +35,15 @@ namespace matricula
                 lblMostrarUsuario.Text =Session["misesion"].ToString();
                                
             }
+
+            gvUsuarios.DataSource = ob.MostrarUsrs();
+            gvUsuarios.DataBind();
         }
 
         protected void btnGuardarNotas_Click(object sender, EventArgs e)
         {
+            gvUsuarios.Visible = true;
+
             opNotas notas = new opNotas();
             int hora_matricula;
 
@@ -122,7 +129,9 @@ namespace matricula
                     //Actualizar el promedio del estudiante.
                     notas.EditarProm(promedio, Convert.ToInt32(txtIdentificacion.Text));
 
-                    pnlFrm.Visible = false;
+                     
+
+
                 }
                 catch (Exception ex)
                 {
@@ -250,6 +259,27 @@ namespace matricula
                 gvEstNotasAsignadas.Visible = false;
             }
         }
+
+
+        protected void Tabla2_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            
+            gvUsuarios.Visible = false;
+            pnlAsignacionNotas.Visible = true;
+
+            if (e.CommandName == "Asignar")
+            {
+                int index = int.Parse(e.CommandArgument.ToString());
+                int ident = int.Parse(gvUsuarios.DataKeys[index].Value.ToString());
+
+                //txtIdentActualizar.Text = id.ToString();
+                txtIdentificacion.Text = ident.ToString();
+
+                
+            }
+        }
+
+
 
         //protected void btnMostrarTabla_Click(object sender, EventArgs e)
         //{
