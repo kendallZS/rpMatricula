@@ -71,6 +71,7 @@
     <Content Include="asignacionroles.aspx" />
     <Content Include="css\style.css" />
     <Content Include="guardasession.aspx" />
+    <Content Include="iniciodocente.aspx" />
     <Content Include="login.aspx" />
     <Content Include="pruebacarddesplegable.aspx" />
     <Content Include="pruebasession.aspx" />
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="guardasession.aspx.designer.cs">
       <DependentUpon>guardasession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="iniciodocente.aspx.cs">
+      <DependentUpon>iniciodocente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="iniciodocente.aspx.designer.cs">
+      <DependentUpon>iniciodocente.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
