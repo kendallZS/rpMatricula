@@ -12,7 +12,8 @@ contrasena varbinary(50),
 --llave varchar(50)
 )
 
-select * from usuarios
+select * from Usuarios
+
 --drop table Usuarios
 --delete usuarios
 --alter table usuarios
@@ -299,6 +300,17 @@ inner join Notas on Usuarios.identificacion=Notas.identificacion
 go
 
 exec sp_mostrar_estudiantes_con_notas
+
+
+--SP QUE MUESTRA LOS USUARIOS QUE NO TIENEN UN ROL ASIGNADO (id_rol = 3) se muestra en mod Asignacion rol
+CREATE PROCEDURE Sp_mostrar_usrs_sin_rol
+as
+select Usuarios.identificacion, Usuarios.nombre, Usuarios.apellidos from usuarios
+inner join Rol on Usuarios.id_rol = rol.id_rol
+where rol.id_rol = 3
+go
+
+EXEC Sp_mostrar_usrs_sin_rol
 
 select * from Matricula
 select * from Usuarios

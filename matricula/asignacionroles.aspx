@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Asignación roles</title>
@@ -28,12 +29,24 @@
         #encabezado{
             /*height:130px;*/
         }
+
+        #gvMostrarUsrSinRol{
+            width:70%;
+            margin-left:15%;
+        }
+
+        @media only screen and (max-width:600px) {
+            #gvMostrarUsrSinRol {
+                width: 100%;
+                margin-left: 0%;
+            }
+        }
     </style>
 
 </head>
-<body style="text-align:center">
+<body style="text-align: center; min-width:396px">
     <form id="form1" runat="server">
-        
+
         <div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
                 <a href="#" class="navbar-brand">Bienvenido</a>
@@ -59,6 +72,18 @@
             <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo de asignación de roles</h2>
             <br />
         </div>
+        <br />
+        <h3 style="color:#cc4b37">Lista de usuarios a la espera de un rol en el sistema</h3>
+        <br />
+
+        <asp:GridView AutoGenerateColumns="false" CssClass="table" runat="server" ID="gvMostrarUsrSinRol" DataKeyNames="identificacion" OnRowCommand="UsrsSinRol_Rowcomand">
+            <Columns>
+                <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
+                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
+                <asp:ButtonField Text="Asignar" CommandName="Asignar" />
+            </Columns>
+        </asp:GridView>
 
     </form>
 </body>

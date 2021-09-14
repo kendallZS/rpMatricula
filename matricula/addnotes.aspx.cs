@@ -146,17 +146,7 @@ namespace matricula
             }
         }
 
-        protected void btnActualizarNotasEst_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void gvTablaUno_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
-        {
-          
-        }
-
-
+     
         protected void Tabla2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             
