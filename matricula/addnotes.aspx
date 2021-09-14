@@ -12,7 +12,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ingreso de notas</title>
+    <title>Asignación de notas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     
     <%-- Icono en la pestaña --%>
@@ -281,7 +281,7 @@
         </div>
         <div id="encabezado" class="alert callout" style="border: none;">
             <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del docente</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo de asignación de notas</h2>
             <br />
             <h6 style="color:white;text-shadow: 2px 2px 2px gray">Usuario:</h6>           
              <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
@@ -292,8 +292,6 @@
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">  
-                   <h2>Asignación de notas</h2>
-
 
                    <asp:GridView runat="server" AutoGenerateColumns="false" ID="gvUsuarios" DataKeyNames="identificacion" OnRowCommand="Tabla2_RowCommand">
                         <Columns>
@@ -330,36 +328,12 @@
                    <br />
              </asp:Panel>
         </asp:Panel>
-
-
-
-        <h2>Actualización de notas de estudiantes</h2>
-                <asp:Label ID="lblActualizaNotas" Text="Se actualizó correctamente" runat="server" />
-                <asp:GridView ID="gvEstNotasAsignadas" runat="server" AutoGenerateColumns="false" OnRowCommand="gvTablaUno_RowCommand" DataKeyNames="identificacion">
-                    <Columns>
-                        <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="nota_1" HeaderText="Nota 1" />
-                        <asp:BoundField DataField="nota_2" HeaderText="Nota 2" />
-                        <asp:BoundField DataField="nota_3" HeaderText="Nota 3" />
-                        <asp:ButtonField Text="Editar" CommandName="Editar" />
-                    </Columns>
-                </asp:GridView>
-                <br />
-                <%-- Formulario para la edición de notas --%>
-                <asp:Panel ID="pnlFormActualizar" CssClass="callout" runat="server">
-                    <br />
-                    <h3 style="color: #FC4B2D">Complete los siguientes espacios</h3>
-                    <br />
-                    <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
-                    <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
-
-                </asp:Panel>
-            </ContentTemplate>
+                  </ContentTemplate>
         </asp:UpdatePanel>
+
+
+     
+          
 
 
 

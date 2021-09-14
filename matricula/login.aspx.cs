@@ -109,7 +109,7 @@ namespace matricula
 
                     if (contador == 1)
                     {
-                        Response.Redirect("addnotes.aspx");
+                        Response.Redirect("teachermodule.aspx");
 
                     }
 

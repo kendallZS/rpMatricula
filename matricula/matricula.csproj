@@ -71,11 +71,12 @@
     <Content Include="asignacionroles.aspx" />
     <Content Include="css\style.css" />
     <Content Include="guardasession.aspx" />
-    <Content Include="iniciodocente.aspx" />
+    <Content Include="teachermodule.aspx" />
     <Content Include="login.aspx" />
     <Content Include="pruebacarddesplegable.aspx" />
     <Content Include="pruebasession.aspx" />
     <Content Include="studentmodule.aspx" />
+    <Content Include="updatenotes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,12 +101,12 @@
     <Compile Include="guardasession.aspx.designer.cs">
       <DependentUpon>guardasession.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iniciodocente.aspx.cs">
-      <DependentUpon>iniciodocente.aspx</DependentUpon>
+    <Compile Include="teachermodule.aspx.cs">
+      <DependentUpon>teachermodule.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="iniciodocente.aspx.designer.cs">
-      <DependentUpon>iniciodocente.aspx</DependentUpon>
+    <Compile Include="teachermodule.aspx.designer.cs">
+      <DependentUpon>teachermodule.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="studentmodule.aspx.designer.cs">
       <DependentUpon>studentmodule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updatenotes.aspx.cs">
+      <DependentUpon>updatenotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatenotes.aspx.designer.cs">
+      <DependentUpon>updatenotes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
