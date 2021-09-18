@@ -42,6 +42,11 @@
             margin-left:20%;
         }
 
+        #GridView1{
+            width:85%;
+            margin-left:8.5%;
+        }
+
         @media only screen and (max-width:600px){
             #pnlFormActualizar{
                 margin-left:0%;
@@ -79,44 +84,51 @@
             <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Actualización de notas de estudiantes</h2>
             <br />
         </div>
-     
+
         <br />
+        <br />
+     <h3 style="color: #FC4B2D">Complete los siguientes espacios</h3>
+        <br />
+        
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowCommand="GridView1_RowCommand">
+    <Columns>
+        <asp:TemplateField HeaderText="Identificación" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:Label ID="lblIdentificacion" Text='<%# Eval("identificacion") %>' runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:BoundField DataField="nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
+          <asp:TemplateField HeaderText="Nota 1" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox ID="txtn1" Text='<%# Eval("nota_1") %>'  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+         <asp:TemplateField HeaderText="Nota 2" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox ID="txtn2" Text='<%# Eval("nota_2") %>'  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+         <asp:TemplateField HeaderText="Nota 3" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox ID="txtn3" Text='<%# Eval("nota_3") %>'  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button Text="Actualizar" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
 
 
-
-   <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-
-                <asp:Label ID="lblActualizaNotas" runat="server" />
-                <asp:GridView ID="gvEstNotasAsignadas" runat="server" AutoGenerateColumns="false" DataKeyNames="identificacion" OnRowCommand="Update_RowCommand">
-                    <Columns>
-                        <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
-                        <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                        <asp:BoundField DataField="nota_1" HeaderText="Nota 1" />
-                        <asp:BoundField DataField="nota_2" HeaderText="Nota 2" />
-                        <asp:BoundField DataField="nota_3" HeaderText="Nota 3" />
-                        <asp:ButtonField Text="Editar" CommandName="Editar" />
-                    </Columns>
-                </asp:GridView>
-                <br />
-                <%-- Formulario para la edición de notas --%>
-                <asp:Panel ID="pnlFormActualizar" CssClass="callout" runat="server">
-                    <br />
-                    <h3 style="color: #FC4B2D">Complete los siguientes espacios</h3>
-                    <br />
-                    <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentActualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1Actualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2Actualizar" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3Actualizar" runat="server"></asp:TextBox>
-                    <asp:Button CssClass="button" ID="btnActualizarNotasEst" Text="Actualizar" runat="server" OnClick="btnActualizarNotasEst_Click" />
-                    <asp:Button Text="Cancelar" ID="btnCancelarEdicion" CssClass="button alert" runat="server" OnClick="btnCancelarEdicion_Click" />
-                    <asp:Label ID="lblCorrectoError" runat="server" />
-                    <asp:Label ID="lblpruebaValorHorario" runat="server" />
-                </asp:Panel>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-
+        <br />
+          <asp:Label hidden="" Text="valor matricula" ID="lblpruebaValorHorario" runat="server" /> <br />
+          <asp:Label ID="lblActualizaNotas" runat="server" />
+        <br />
+        <br />
+        <br />
+        <br />
     </form>
 </body>
 </html>

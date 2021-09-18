@@ -145,7 +145,6 @@ namespace matricula
                 txtNota3.Text = "";
             }
         }
-
      
         protected void Tabla2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -160,7 +159,6 @@ namespace matricula
 
                 //txtIdentActualizar.Text = id.ToString();
                 txtIdentificacion.Text = ident.ToString();
-
                 
             }
         }

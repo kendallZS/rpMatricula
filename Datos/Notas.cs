@@ -51,8 +51,8 @@ namespace Datos
 
 
         //Edita las notas
-        public void EditaNotas(double n1, double n2, double n3,
-            int ident, double prom, int idmatricula)
+        public void EditaNotas(decimal n1, decimal n2, decimal n3,
+            int ident, decimal prom, int idmatricula)
         {
             comando.Connection = conn.AbrirConexion();
             comando.CommandText = "sp_editar_notas";

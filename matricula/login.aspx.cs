@@ -73,11 +73,9 @@ namespace matricula
                 strCadSQL = "Select identificacion,id_rol,libre= convert(varchar(100),DecryptByPassPhrase('key',contrasena)) from Usuarios as Decrypt";
                 SqlCommand myCommand = new SqlCommand(strCadSQL, connection);
 
-
                 myReader = myCommand.ExecuteReader();
 
                 int contador = 0;
-
 
                 while (myReader.Read())
                 {

@@ -35,12 +35,39 @@
             margin-left:15%;
         }
 
+        #pnlAsigRol{
+            width:70%;
+            margin-left:15%;
+        }
+
+        #txtidentAsigRol {
+            float: left;
+            width: 35%
+        }
+
+        #DropDownList1 {
+            float: left;
+            width: 25%;
+            margin-left:2%;
+        }
+
+        #pnlAsigRol:hover{
+            background-color:lightgray;
+        }
+
         @media only screen and (max-width:600px) {
-            #gvMostrarUsrSinRol {
+            #gvMostrarUsrSinRol,#pnlAsigRol {
                 width: 100%;
                 margin-left: 0%;
             }
         }
+
+         @media only screen and (max-width:600px) {
+            #txtidentAsigRol,#pnlAsigRol,#DropDownList1, #btnAsignar {
+                width: 100%;
+            }
+        }
+
     </style>
 
 </head>
@@ -72,6 +99,8 @@
             <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo de asignación de roles</h2>
             <br />
         </div>
+
+        <br />
         <br />
         <h3 style="color:#cc4b37">Lista de usuarios a la espera de un rol en el sistema</h3>
         <br />
@@ -84,6 +113,22 @@
                 <asp:ButtonField Text="Asignar" CommandName="Asignar" />
             </Columns>
         </asp:GridView>
+
+        <br />
+        <br />
+
+        <br />
+        <br />
+
+        <asp:Panel CssClass="callout primary" ID="pnlAsigRol" runat="server">
+            <asp:TextBox CssClass="form-control" ID="txtidentAsigRol" runat="server" />
+            <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:ListItem>Seleccione...</asp:ListItem>
+                <asp:ListItem>Docente</asp:ListItem>
+                <asp:ListItem>Estudiante</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="btnAsignar" CssClass="button alert" Text="Asignar" runat="server" />
+        </asp:Panel>
 
     </form>
 </body>

@@ -13,58 +13,49 @@ namespace matricula
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            pnlFormActualizar.Visible = false;
-
             opNotas opNotas = new opNotas();
 
-            gvEstNotasAsignadas.DataSource = opNotas.MostrarNotas();
-            gvEstNotasAsignadas.DataBind();
-        }
-
-        protected void Update_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            pnlFormActualizar.Visible = true;
-            if (e.CommandName == "Editar")
+            //gvEstNotasAsignadas.DataSource = opNotas.MostrarNotas();
+            //gvEstNotasAsignadas.DataBind();
+            if (!this.IsPostBack)
             {
-                int index = int.Parse(e.CommandArgument.ToString());
-                int id = int.Parse(gvEstNotasAsignadas.DataKeys[index].Value.ToString());
-
-                txtIdentActualizar.Text = id.ToString();
-
-                gvEstNotasAsignadas.Visible = false;
+                GridView1.DataSource = opNotas.MostrarNotas();
+                GridView1.DataBind();
             }
         }
 
-        protected void btnActualizarNotasEst_Click(object sender, EventArgs e)
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            gvEstNotasAsignadas.Visible = true;
-
             opNotas opNotas = new opNotas();
 
             int hora_matriculaAct;
 
-            //verifica que no hayan campos vacíos.
+            decimal promedio;
 
-            if (txtIdentActualizar.Text == "" || txtNota1Actualizar.Text == "" ||
-                txtNota2Actualizar.Text == "" || txtNota3Actualizar.Text == "")
+            if (e.CommandName == "Select")
             {
-                lblCorrectoError.Visible = true;
-                lblCorrectoError.ForeColor = Color.Red;
-                lblCorrectoError.Text = "Verifique que no haya ningún espacio en blanco.";
-            }
-            else
-            {
+                //Determine the RowIndex of the Row whose Button was clicked.
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+
+                //Reference the GridView Row.
+                GridViewRow row = GridView1.Rows[rowIndex];
+
+                //Fetch value of Name.
+                string identificacion = (row.FindControl("lblIdentificacion") as Label).Text;
+
+                //Fetch value of Country
+                string nombre = row.Cells[1].Text;
+
+                string n1 = (row.FindControl("txtn1") as TextBox).Text;
+                string n2 = (row.FindControl("txtn2") as TextBox).Text;
+                string n3 = (row.FindControl("txtn3") as TextBox).Text;
+
+           
+
+                //Calcula promedio y hora matricula
                 try
                 {
-
-                    decimal n1, n2, n3, promedio;
-                    n1 = Convert.ToDecimal(txtNota1Actualizar.Text);
-                    n2 = Convert.ToDecimal(txtNota2Actualizar.Text);
-                    n3 = Convert.ToDecimal(txtNota3Actualizar.Text);
-
-                    promedio = (n1 + n2 + n3) / 3;
-
-
+                    promedio = (Convert.ToInt32(n1) + Convert.ToInt32(n2) + Convert.ToInt32(n3)) / 3;
 
                     if (promedio <= 100 && promedio >= 90)
                     {
@@ -106,35 +97,45 @@ namespace matricula
                         hora_matriculaAct = 10;
                         lblpruebaValorHorario.Text = hora_matriculaAct.ToString();
                     }
+                    else if (promedio <= 20 && promedio >= 10)
+                    {
+                        hora_matriculaAct = 11;
+                        lblpruebaValorHorario.Text = hora_matriculaAct.ToString();
+                    }
+                    else if (promedio <= 10 && promedio >= 0)
+                    {
+                        hora_matriculaAct = 12;
+                        lblpruebaValorHorario.Text = hora_matriculaAct.ToString();
+                    }
 
-                    opNotas.EditarNotas(Convert.ToDouble(txtNota1Actualizar.Text), Convert.ToDouble(txtNota2Actualizar.Text),
-                                Convert.ToDouble(txtNota3Actualizar.Text), Convert.ToInt32(txtIdentActualizar.Text), 0,
-                                Convert.ToInt32(lblpruebaValorHorario.Text));
 
-                    opNotas.EditarProm(promedio, Convert.ToInt32(txtIdentActualizar.Text));
+                    opNotas.EditarNotas(Convert.ToDecimal(n1), Convert.ToDecimal(n2),
+                       Convert.ToDecimal(n3), Convert.ToInt32(identificacion), 0,
+                       Convert.ToInt32(lblpruebaValorHorario.Text));
+
 
                     lblActualizaNotas.Visible = true;
                     lblActualizaNotas.ForeColor = Color.Green;
+
+
+                    
+
+                    opNotas.EditarProm(promedio, Convert.ToInt32(identificacion));
+
                     lblActualizaNotas.Text = "Notas y promedio actualizado: " + promedio.ToString("#.##");
 
-
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Identificación: " + identificacion + "\\nNombre: " + nombre + "\\nNotas y promedio (" + promedio + ") actualizados" + "');", true);
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
                     lblActualizaNotas.Visible = true;
                     lblActualizaNotas.ForeColor = Color.Red;
-                    lblActualizaNotas.Text = "No se ha podido realizar la actualización.";
-
+                    lblActualizaNotas.Text = "No se ha podido realizar la actualización." + ex;
                 }
 
+               
             }
-        }
-
-        protected void btnCancelarEdicion_Click(object sender, EventArgs e)
-        {
-            gvEstNotasAsignadas.Visible = true;
         }
     }
 }

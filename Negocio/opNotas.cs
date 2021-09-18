@@ -26,8 +26,8 @@ namespace Negocio
         }
 
         //Actualiza Notas
-        public void EditarNotas(double n1, double n2, double n3,
-            int ident, double prom, int idmatricula)
+        public void EditarNotas(decimal n1, decimal n2, decimal n3,
+            int ident, decimal prom, int idmatricula)
         {
             notas.EditaNotas(n1, n2, n3, ident, prom, idmatricula);
         }

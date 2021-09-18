@@ -134,6 +134,8 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Matricula values ('2021-09-05 09:10:00.000')
  insert into Matricula values ('2021-09-05 09:20:00.000')
  insert into Matricula values ('2021-09-05 09:30:00.000')
+ insert into Matricula values ('2021-09-05 09:40:00.000')
+ insert into Matricula values ('2021-09-05 09:50:00.000')
 
 
 -- delete Matricula
@@ -222,8 +224,7 @@ go
 exec Sp_Muestra_horario_matricula 364829517
 
 --drop procedure Muestra_horario_matricula
-
-select * from Notas
+select * from Notas where identificacion=365987542
 select * from Matricula
 select * from Usuarios
 
@@ -314,7 +315,7 @@ EXEC Sp_mostrar_usrs_sin_rol
 
 select * from Matricula
 select * from Usuarios
-select * from notas where identificacion=374847484
+select * from notas where identificacion=444444444
 
 exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
 exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'
