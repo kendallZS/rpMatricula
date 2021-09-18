@@ -17,148 +17,29 @@ namespace matricula
         opNotas opNotas = new opNotas();
         protected void Page_Load(object sender, EventArgs e)
         {
-            pnlAsignacionNotas.Visible = false;
 
-            //pnlFormActualizar.Visible = false;
-
-            //lblActualizaNotas.Visible = false;
-
-            lblpruebaValorHorario.Visible = false;
-
-            lblCorrectoError.Visible = false;
-
-          
+            gvUsrs.DataSource = ob.MostrarUsrs();
+            gvUsrs.DataBind();
 
             if (Session["misesion"]!=null)
             {
                 lblMostrarUsuario.Text =Session["misesion"].ToString();
                                
             }
-
-            gvUsuarios.DataSource = ob.MostrarUsrs();
-            gvUsuarios.DataBind();
-        }
-
-        protected void btnGuardarNotas_Click(object sender, EventArgs e)
-        {
-            gvUsuarios.Visible = true;
-
-            opNotas notas = new opNotas();
-            int hora_matricula;
-
-            //verifica que no hayan campos vacíos.
-
-            if (txtIdentificacion.Text == "" || txtNota1.Text == "" ||
-                txtNota2.Text == "" || txtNota3.Text == "")
-            {
-                lblCorrectoError.Visible = true;
-                lblCorrectoError.ForeColor = Color.Red;
-                lblCorrectoError.Text = "Verifique que no haya ningún espacio en blanco.";
-            }
-            else
-            {
-                try
-                {
-                    decimal n1, n2, n3, promedio;
-                    n1 = Convert.ToDecimal(txtNota1.Text);
-                    n2 = Convert.ToDecimal(txtNota2.Text);
-                    n3 = Convert.ToDecimal(txtNota3.Text);
-
-                    promedio = (n1 + n2 + n3) / 3;
-
-
-
-                    if (promedio <= 100 && promedio >= 90)
-                    {
-                        hora_matricula = 3;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 90 && promedio >= 80)
-                    {
-                        hora_matricula = 4;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 80 && promedio >= 70)
-                    {
-                        hora_matricula = 5;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 70 && promedio >= 60)
-                    {
-                        hora_matricula = 6;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 60 && promedio >= 50)
-                    {
-                        hora_matricula = 7;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 50 && promedio >= 40)
-                    {
-                        hora_matricula = 8;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 40 && promedio >= 30)
-                    {
-                        hora_matricula = 9;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-                    else if (promedio <= 30 && promedio >= 20)
-                    {
-                        hora_matricula = 10;
-                        lblpruebaValorHorario.Text = hora_matricula.ToString();
-                    }
-
-
-
-                    notas.InsertarNotas(Convert.ToDouble(txtNota1.Text), Convert.ToDouble(txtNota2.Text),
-                        Convert.ToDouble(txtNota3.Text), Convert.ToInt32(txtIdentificacion.Text), 0, Convert.ToInt32(lblpruebaValorHorario.Text));
-
-
-                    //MessageBox.Show("se inserto correctamente");
-                    lblCorrectoError.Visible = true;
-                    lblCorrectoError.ForeColor = Color.Green;
-                    lblCorrectoError.Text = "Se ha ingresado correctamente";
-
-
-
-                    lblPromedio.Text = "Promedio: " + promedio.ToString("#.##");
-
-
-                    //Actualizar el promedio del estudiante.
-                    notas.EditarProm(promedio, Convert.ToInt32(txtIdentificacion.Text));
-
-                     
-
-
-                }
-                catch (Exception ex)
-                {
-                    lblCorrectoError.Visible = true;
-                    lblCorrectoError.ForeColor = Color.Red;
-                    lblCorrectoError.Text = "Error. Verifique que haya ingresado los datos correctos: "+ex ;
-                }
-
-                txtIdentificacion.Text = "";
-                txtNota1.Text = "";
-                txtNota2.Text = "";
-                txtNota3.Text = "";
-            }
         }
      
         protected void Tabla2_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             
-            gvUsuarios.Visible = false;
-            pnlAsignacionNotas.Visible = true;
+            //pnlAsignacionNotas.Visible = true;
 
             if (e.CommandName == "Asignar")
             {
                 int index = int.Parse(e.CommandArgument.ToString());
-                int ident = int.Parse(gvUsuarios.DataKeys[index].Value.ToString());
+                //int ident = int.Parse(gvUsuarios.DataKeys[index].Value.ToString());
 
                 //txtIdentActualizar.Text = id.ToString();
-                txtIdentificacion.Text = ident.ToString();
+                //txtIdentificacion.Text = ident.ToString();
                 
             }
         }

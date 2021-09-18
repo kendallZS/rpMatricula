@@ -254,11 +254,17 @@
 .dropdownContent ul li a:hover{
 	color: blue;
 }
+
+
+        #gvUsrs {
+            width: 85%;
+            margin-left: 8.5%;
+        }
     </style>
 
 
 </head>
-<body style="margin: 0; text-align:center; min-width:470px">
+<body style="margin: 0; text-align:center; min-width:605px">
     <form id="form1" runat="server">
         <div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
@@ -287,55 +293,46 @@
              <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
         </div>
 
-        <br />
-          <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-               <asp:Panel ID="pnlFrm" CssClass="callout" runat="server">  
-
-                   <asp:GridView runat="server" AutoGenerateColumns="false" ID="gvUsuarios" DataKeyNames="identificacion" OnRowCommand="Tabla2_RowCommand">
-                        <Columns>
-                                <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
-                                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                                <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
-                               <asp:ButtonField Text="Asignar" CommandName="Asignar" />
-                            </Columns>
-                   </asp:GridView>
-
-
-
-            <br />
-            <br />
-                  
-                   <asp:Panel ID="pnlAsignacionNotas" runat="server">
-            <h3 style="color: #cc4b37;">Asignación de notas. Ingrese los siguientes datos</h3>
-             <p style="font-size:15px;color:gray">(Las cifras con decimales deben separarse mediante una coma (,)</p>
-         
-                    <asp:TextBox CssClass="txt" MaxLength="9" onkeypress="ValidaSoloNumeros()" placeholder="Identificación estudiante" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 1" ID="txtNota1" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 2" ID="txtNota2" runat="server"></asp:TextBox>
-                    <asp:TextBox CssClass="txt" placeholder="Nota 3" ID="txtNota3" runat="server"></asp:TextBox>
-                  
-                   <asp:Button CssClass="button" ID="btnGuardarNotas" Text="Agregar" runat="server" OnClick="btnGuardarNotas_Click" />
-                     <br />
-                    <asp:Label ID="lblPromedio" Text="El promedio de este alumno es: " runat="server" />
-                    <br />
-                    <asp:Label ID="lblCorrectoError" Text="..." runat="server" />
-                    <asp:Label Text="text" ID="lblpruebaValorHorario" runat="server" />
-
-                   <br />
-                   <br />
-                   <br />
-             </asp:Panel>
-        </asp:Panel>
-                  </ContentTemplate>
-        </asp:UpdatePanel>
-
-
-     
-          
-
-
+        <%-- TABLA CON LOS USUARIOS A LOS QUE ASIGNAR NOTAS (estudiantes) --%>
+        <asp:GridView AutoGenerateColumns="false" ID="gvUsrs" runat="server">
+             <Columns>
+        <asp:TemplateField HeaderText="Identificación" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:Label ID="lblIdentificacion" Text='<%# Eval("identificacion") %>' runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+          <asp:TemplateField HeaderText="Nombre" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:Label ID="lblNombre" Text='<%# Eval("nombre") %>' runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+         <asp:TemplateField HeaderText="Apellidos" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:Label ID="lblApellidos" Text='<%# Eval("apellidos") %>' runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+         <asp:TemplateField HeaderText="Nota 1" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox MaxLength="6" ID="txtAsigN1" Text="00,00"  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Nota 2" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox MaxLength="6" ID="txtAsigN2" Text="00,00"  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Nota 3" ItemStyle-Width="150">
+            <ItemTemplate>
+                <asp:TextBox MaxLength="6" ID="txtAsigN3" Text="00,00"  runat="server" />
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField>
+            <ItemTemplate>
+                <asp:Button CssClass="button primary" Text="Actualizar" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+        </asp:GridView>
 
 
         <%-- MENÚ DESPLEGABLE PARA LAS DOS OPCIONES DEL DOCENTE --%>
@@ -351,54 +348,22 @@
 			<%--<li><a href="#">ITEM II</a></li>--%>
 		<%--    </ul>
 		</div>
-	</div>--%>
-
-       
-
-
-
-
-        <%-- Modal Actualizacion notas --%>
-      <%--  <div class="window-notice" style="display: none;" id="window-notice">
-            <div class="content">
-                <header style="background-color:#cc4b37">
-                    <h3 style="color:white;font-size:27px">Actualización de notas</h3>
-                    <p style="font-size:15px;color:white">Ingrese lo que se le solicita acontinuación <br />
-                    (Las cifras con decimales deben separarse mediante una coma (,)</p>
-                </header>
-               
-                <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>
-                <br />
-            </div>
-        </div>--%>
+	</div>--%>   
     </form>
 
    
 
     <style>
         @media only screen and (max-width: 600px) {
-
-            .btn {
-                width: 100%;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
-            .txt {
-                margin-left: 0%;
-                width: 100%;
-            }
-        }
-
-        @media only screen and (max-width: 600px) {
             .a {
                 width: 100%;
             }
         }
 
-         @media only screen and (max-width: 600px) {
-            #btnActualizarNotasEst {
-                width: 100%;
+            @media only screen and (max-width:750px){
+            #gvUsrs{
+                margin-left:0%;
+                width:100%;
             }
         }
 

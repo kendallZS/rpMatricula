@@ -55,7 +55,7 @@ namespace matricula
                 //Calcula promedio y hora matricula
                 try
                 {
-                    promedio = (Convert.ToInt32(n1) + Convert.ToInt32(n2) + Convert.ToInt32(n3)) / 3;
+                    promedio = (Convert.ToDecimal(n1) + Convert.ToDecimal(n2) + Convert.ToDecimal(n3)) / 3;
 
                     if (promedio <= 100 && promedio >= 90)
                     {
@@ -112,26 +112,16 @@ namespace matricula
                     opNotas.EditarNotas(Convert.ToDecimal(n1), Convert.ToDecimal(n2),
                        Convert.ToDecimal(n3), Convert.ToInt32(identificacion), 0,
                        Convert.ToInt32(lblpruebaValorHorario.Text));
-
-
-                    lblActualizaNotas.Visible = true;
-                    lblActualizaNotas.ForeColor = Color.Green;
-
-
                     
 
                     opNotas.EditarProm(promedio, Convert.ToInt32(identificacion));
 
-                    lblActualizaNotas.Text = "Notas y promedio actualizado: " + promedio.ToString("#.##");
-
                     ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Identificación: " + identificacion + "\\nNombre: " + nombre + "\\nNotas y promedio (" + promedio + ") actualizados" + "');", true);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    lblActualizaNotas.Visible = true;
-                    lblActualizaNotas.ForeColor = Color.Red;
-                    lblActualizaNotas.Text = "No se ha podido realizar la actualización." + ex;
+                    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Error, verifique que haya ingresado valores numéricos correctos');", true);
                 }
 
                

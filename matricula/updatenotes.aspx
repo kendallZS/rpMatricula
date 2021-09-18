@@ -19,7 +19,7 @@
     <style>
         body{
             text-align:center;
-            min-width:470px;
+            min-width:490px;
         }
 
           .bs-example {
@@ -47,13 +47,34 @@
             margin-left:8.5%;
         }
 
+        .primary{
+            border-radius:10px;
+            color:white;
+            border:none;
+        }
+
         @media only screen and (max-width:600px){
-            #pnlFormActualizar{
+            #GridView1{
                 margin-left:0%;
                 width:100%;
             }
         }
+
     </style>
+
+    <script type="text/javascript" >
+        //Función que permite solo Números
+        function ValidaSoloNumeros() {
+            if ((event.keyCode < 48) || (event.keyCode > 57))
+                event.returnValue = false;
+        }
+
+        //Valida solo texto
+        function SoloTexto() {
+            if ((event.keyCode != 32) && (event.keyCode < 65) || (event.keyCode > 90) && (event.keyCode < 97) || (event.keyCode > 122))
+                event.returnValue = false;
+        }
+    </script>
 
 </head>
 <body>
@@ -84,10 +105,12 @@
             <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Actualización de notas de estudiantes</h2>
             <br />
         </div>
+        <%-- Fin header --%>
 
         <br />
         <br />
-     <h3 style="color: #FC4B2D">Complete los siguientes espacios</h3>
+     <h3 style="color: #FC4B2D">Edite el registro requerido</h3>
+        <p style="color:gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
         <br />
         
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowCommand="GridView1_RowCommand">
@@ -100,22 +123,22 @@
         <asp:BoundField DataField="nombre" HeaderText="Nombre" ItemStyle-Width="150px" />
           <asp:TemplateField HeaderText="Nota 1" ItemStyle-Width="150">
             <ItemTemplate>
-                <asp:TextBox ID="txtn1" Text='<%# Eval("nota_1") %>'  runat="server" />
+                <asp:TextBox MaxLength="6" ID="txtn1" Text='<%# Eval("nota_1") %>'  runat="server" />
             </ItemTemplate>
         </asp:TemplateField>
          <asp:TemplateField HeaderText="Nota 2" ItemStyle-Width="150">
             <ItemTemplate>
-                <asp:TextBox ID="txtn2" Text='<%# Eval("nota_2") %>'  runat="server" />
+                <asp:TextBox MaxLength="6" ID="txtn2" Text='<%# Eval("nota_2") %>'  runat="server" />
             </ItemTemplate>
         </asp:TemplateField>
          <asp:TemplateField HeaderText="Nota 3" ItemStyle-Width="150">
             <ItemTemplate>
-                <asp:TextBox ID="txtn3" Text='<%# Eval("nota_3") %>'  runat="server" />
+                <asp:TextBox MaxLength="6" ID="txtn3" Text='<%# Eval("nota_3") %>'  runat="server" />
             </ItemTemplate>
         </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <asp:Button Text="Actualizar" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
+                <asp:Button CssClass="button primary" Text="Actualizar" runat="server" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -123,11 +146,7 @@
 
 
         <br />
-          <asp:Label hidden="" Text="valor matricula" ID="lblpruebaValorHorario" runat="server" /> <br />
-          <asp:Label ID="lblActualizaNotas" runat="server" />
-        <br />
-        <br />
-        <br />
+        <asp:Label hidden="" Text="valor matricula" ID="lblpruebaValorHorario" runat="server" /> <br />
         <br />
     </form>
 </body>

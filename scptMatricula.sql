@@ -118,9 +118,10 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Notas values (74,71,95,369852147,0,6)
  insert into Notas values (88,87,89,364829517,0,7)
  insert into Notas values (64,93,91,325687595,0,8)
- insert into Notas values (44,33,100)
+ insert into Notas values (0,0,0,999999999,0,12)
  select * from notas
-
+ select * from Usuarios
+ update Usuarios set id_rol=2 where identificacion=545454545
  --Volcado de datos para la tabla PromedioEstudiante
  --insert into PromedioEstudiante values (364829575,1,40,1)
  --insert into PromedioEstudiante values ('Estudiante')
@@ -144,14 +145,24 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
 
 --PROCEDIMIENTOS ALMACENADOS
 
-
-create procedure MostrarUsuarios
-as
 select * from Usuarios
+
+--ALTER procedure SP_mostrar_usrs_sin_nota
+--as
+--select Usuarios.identificacion, Usuarios.nombre, Notas.nota_1,Notas.nota_2,Notas.nota_3
+--from Notas
+--inner join Usuarios on Notas.identificacion = Usuarios.identificacion
+--where id_rol=2 and nota_1=null and nota_2=null and nota_3=null
+--go
+
+CREATE PROCEDURE Sp_mostrar_usuarios
+as
+select identificacion, nombre, apellidos from Usuarios
 go
 
-exec MostrarUsuarios
+exec Sp_mostrar_usuarios
 
+CREATE PROCEDURE SP_Mostrar_usrs_sin_nota
 
 Create procedure InsertaNotas @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
 @identificacion int, @promedio decimal(18,2), @idmatricula int
@@ -174,6 +185,7 @@ select * from notas
 
 
 
+--Obsoleto
 --SP que valida si un usuario ya tiene asignadas sus notas para que no ingrese otro registro con otras notas distintas
 --a la tabla
 create procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
@@ -212,7 +224,7 @@ go
 
 exec sp_editar_notas 55,55,55,315243695,0,5
 
-select * from Notas
+select * from Notas where identificacion=315243695
 
 Create procedure Sp_Muestra_horario_matricula @identificacion int
 as
@@ -315,7 +327,7 @@ EXEC Sp_mostrar_usrs_sin_rol
 
 select * from Matricula
 select * from Usuarios
-select * from notas where identificacion=444444444
+select * from notas where identificacion=121212121
 
 exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
 exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'
@@ -327,4 +339,4 @@ exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
 exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
 exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
 
-exec Sp_registra_usuario  374847484,'Kendall','Robles Mora',2,'111'
+exec Sp_registra_usuario  304879565,'Mario','Cascante Masís',2,'111'

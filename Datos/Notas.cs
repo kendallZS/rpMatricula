@@ -68,7 +68,7 @@ namespace Datos
             conn.CerrarConexion();
         }
 
-
+        //Student
         public DataTable MostrarNotas(int identificacion)
         {
             comando.Connection = conn.AbrirConexion();

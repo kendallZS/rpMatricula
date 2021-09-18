@@ -24,7 +24,7 @@ namespace Datos
         public DataTable Mostrar()
         {
             comando.Connection = conn.AbrirConexion();
-            comando.CommandText = "MostrarUsuarios";
+            comando.CommandText = "Sp_mostrar_usuarios";
             comando.CommandType = CommandType.StoredProcedure;
             leer = comando.ExecuteReader();
             tabla.Load(leer);
