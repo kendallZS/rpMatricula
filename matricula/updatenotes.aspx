@@ -17,6 +17,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
+
+        * {
+            font-family: 'Times New Roman';
+            font-size: 18px;
+            /*font-family:Tahoma;*/
+            /*font-family:Comic Sans MS;*/
+        }
+
         body{
             text-align:center;
             min-width:490px;
@@ -47,10 +55,11 @@
             margin-left:8.5%;
         }
 
-        .primary{
-            border-radius:10px;
-            color:white;
-            border:none;
+        .primary {
+            border-radius: 10px;
+            color: red;
+            border: none;
+            font-weight: bold;
         }
 
         @media only screen and (max-width:600px){
@@ -107,7 +116,6 @@
         </div>
         <%-- Fin header --%>
 
-        <br />
         <br />
      <h3 style="color: #FC4B2D">Edite el registro requerido</h3>
         <p style="color:gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>

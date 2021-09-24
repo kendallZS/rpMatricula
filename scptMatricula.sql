@@ -188,7 +188,7 @@ select * from notas
 --Obsoleto
 --SP que valida si un usuario ya tiene asignadas sus notas para que no ingrese otro registro con otras notas distintas
 --a la tabla
-create procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
+ALTER procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
 @identificacion int, @promedio decimal(18,2), @idmatricula int
     as
 	DECLARE @conteoExistencia INT
@@ -201,16 +201,65 @@ create procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,
            10, -- Severity,  
            1   -- State
 			);
+			RAISERROR (50027, 16, 1, 'Error en al insertar los datos de la tabla clientes')
 				end
             ELSE 
 			begin
                 INSERT INTO Notas values(@nota1, @nota2, @nota3,@identificacion,@promedio,@idmatricula)
+				declare @CalcProm decimal =(@nota1 + @nota2 + @nota3)/3
+				
+				--Calcula la hora de matricula segun promedio
+                    declare @hora_matriculaAct int=0
+
+                    if (@CalcProm <= 100 and @CalcProm >= 90)
+                    begin
+                       set @hora_matriculaAct = 3
+                    end
+                    else if (@CalcProm <= 90 and @CalcProm >= 80)
+                    begin
+                       set @hora_matriculaAct = 4
+                    end
+                    else if (@CalcProm <= 80 and @CalcProm >= 70)
+                    begin
+                        set @hora_matriculaAct = 5
+                    end
+                    else if (@CalcProm <= 70 and @CalcProm >= 60)
+                    begin
+                        set @hora_matriculaAct = 6;
+                    end
+                    else if (@CalcProm <= 60 and @CalcProm >= 50)
+                    begin
+                        set @hora_matriculaAct = 7;
+                    end
+                    else if (@CalcProm <= 50 and @CalcProm >= 40)
+                    begin
+                       set @hora_matriculaAct = 8;
+                    end
+                    else if (@CalcProm <= 40 and @CalcProm >= 30)
+                    begin
+                        set @hora_matriculaAct = 9;
+                    end
+                    else if (@CalcProm <= 30 and @CalcProm >= 20)
+                    begin
+                       set @hora_matriculaAct = 10;
+                    end
+                    else if (@CalcProm <= 20 and @CalcProm >= 10)
+                    begin
+                       set @hora_matriculaAct = 11;
+                    end
+                    else if (@CalcProm <= 10 and @CalcProm >= 0)
+                    begin
+                        set @hora_matriculaAct = 12;
+                    end
+				--------------------------------------------------
+				update Notas set promedio =@CalcProm, id_matricula= @hora_matriculaAct 
+				where identificacion=@identificacion
             END
     go
 --	drop procedure sp_inserta_si_no_existe
-exec sp_inserta_si_no_existe 50,60,44,315243695,0,3
+exec sp_inserta_si_no_existe 9,9,9,315243695,0,3
 
-
+delete Notas
 select * from Notas
 
 
@@ -339,4 +388,4 @@ exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
 exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
 exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
 
-exec Sp_registra_usuario  304879565,'Mario','Cascante Masís',2,'111'
+exec Sp_registra_usuario  304879545,'Probando','Ingreso Notas',2,'111'

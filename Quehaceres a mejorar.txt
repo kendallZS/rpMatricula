@@ -1,8 +1,11 @@
+Pasar todo este txt a un word para ordenarlo por nomenclatura
+
 Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
-para evitar verla para colocarla después.
+para evitar verla para colocarla después. -- listo (se realiza en la misma tabla)
 -Validaciones(que en las notas no meta letras...etc)--listo
 -Periodos
---En modulo de docente poner una ventana con la opcion para actualizar notas--listo
+--En modulo de docente poner una ventana con la opcion para actualizar notas--listo (actualiza
+en otro modulo)
 --Notificaciones por correo
 --Hacer buscadores por identificacion en mod Docente
 --agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
@@ -10,16 +13,17 @@ para evitar verla para colocarla después.
 el profesor vaya a ingresar las notas, vea la lista de los estudiantes que están 
 en su grupo
 --Tarjetas dinamicas
---Al final hacer responsive los modulos.
+--Al final hacer responsive los modulos.--listo
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
 --Calcular promedio mediante varios cursos y no solo con uno
---Separar las dos funcionalidades del dcente
-en un modulo inicial con tarjetas
+--Separar las dos funcionalidades del docente
+en un modulo inicial con tarjetas --listo
 --Hacer un index
 --el adm puede inacivar cuentas, asignar los roles...
 --Para el mod estudiantes mostrar una tarjeta con el horario de matricula
-y al darle click muestre una ventana con las notas y promedio--listo
+y al darle click muestre una ventana con las notas y promedio --listo
+--Colocar los try cath en todos los modulos que lo requieran
 --SUBIR A HOSTING Y PROBAR DESDE EL CELULAR
 
 
