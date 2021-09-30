@@ -17,6 +17,8 @@ namespace matricula
         opNotas opNotas = new opNotas();
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtRaiseError.Visible = false;
+
             if (!this.IsPostBack)
             {
                 gvUsrs.DataSource = ob.MostrarUsrs();
@@ -74,10 +76,11 @@ namespace matricula
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Error. El usuario que indicó ya cuenta con sus notas asignadas');", true);
-                //throw;
+                //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Error. El usuario que indicó ya cuenta con sus notas asignadas');", true);
+                txtRaiseError.Text = "Verifique: "+ex;
+                txtRaiseError.Visible = true;
             }
         }
     }

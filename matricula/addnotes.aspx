@@ -104,7 +104,10 @@
             <h6 style="color:white;text-shadow: 2px 2px 2px gray">Usuario:</h6>           
              <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
         </div>
-
+        <asp:TextBox MaxLength="9" ID="txtRaiseError" Enabled="false" runat="server" />
+        <br />
+     <h3 style="color: #FC4B2D">Asigne las notas en la siguiente lista.</h3>
+        <p style="color: gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
         <br />
 
         <%-- TABLA CON LOS USUARIOS A LOS QUE ASIGNAR NOTAS (estudiantes) --%>

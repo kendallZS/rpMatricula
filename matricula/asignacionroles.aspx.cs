@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,8 +10,12 @@ namespace matricula
 {
     public partial class asignacionroles : System.Web.UI.Page
     {
+        OpUsuarios OpUsuarios = new OpUsuarios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMensajeActRol.Visible = false;
+
             pnlAsigRol.Visible = false;
 
             opAsignarRol opAsignarRol = new opAsignarRol();
@@ -25,7 +30,7 @@ namespace matricula
         protected void UsrsSinRol_Rowcomand(object sender, GridViewCommandEventArgs e)
         {
             gvMostrarUsrSinRol.Visible = false;
-            pnlAsigRol.Visible = true;
+
 
             if (e.CommandName == "Asignar")
             {
@@ -34,27 +39,42 @@ namespace matricula
 
                 txtidentAsigRol.Text = ident.ToString();
 
+                pnlAsigRol.Visible = true;
             }
         }
 
-        //protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Select")
-        //    {
-        //        //Determine the RowIndex of the Row whose Button was clicked.
-        //        int rowIndex = Convert.ToInt32(e.CommandArgument);
+        protected void btnAsignar_Click(object sender, EventArgs e)
+        {
+            string nombreRol = DropDownList1.SelectedValue;
 
-        //        //Reference the GridView Row.
-        //        GridViewRow row = GridView1.Rows[rowIndex];
+            if (nombreRol == "Seleccione...")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Por favor, seleccione el rol correspondiente');", true);
+            }
+            else if (nombreRol == "Docente")
+            {
+                OpUsuarios.EditarRolUsr(1, Convert.ToInt32(txtidentAsigRol.Text));
+                Response.Redirect("asignacionroles.aspx");
+                lblMensajeActRol.Text = "Rol Docente asignado con éxito a: "+txtidentAsigRol.Text;
+                lblMensajeActRol.ForeColor = Color.Green;
+                lblMensajeActRol.Visible = true;
+            }
+            else if (nombreRol == "Estudiante")
+            {
+                OpUsuarios.EditarRolUsr(2, Convert.ToInt32(txtidentAsigRol.Text));
+                Response.Redirect("asignacionroles.aspx");
+                lblMensajeActRol.Text = "Rol Estudiante asignado con éxito a: " + txtidentAsigRol.Text;
+                lblMensajeActRol.ForeColor = Color.Green;
+                lblMensajeActRol.Visible = true;
+            }
+            else if (nombreRol == "MantenerSinRol")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('No se ha realizado ningún cambio');", true);
+            }
 
-        //        //Fetch value of Name.
-        //        string name = (row.FindControl("txtName") as TextBox).Text;
+            gvMostrarUsrSinRol.Visible = true;
+        }
+        //ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Identificación: " + identificacion + "\\nNombre: " + nombre + "\\nNotas y promedio (" + promedio + ") actualizados" + "');", true);
 
-        //        //Fetch value of Country
-        //        string country = row.Cells[1].Text;
-
-        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Name: " + name + "\\nCountry: " + country + "');", true);
-        //    }
-        //}
     }
 }

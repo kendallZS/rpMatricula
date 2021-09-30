@@ -105,21 +105,19 @@ namespace Datos
 
 
 
-        //public void Editar(string nombre, string desc, string marca, double precio, int stock, int id)
-        //{
-        //    comando.Connection = conn.AbrirConexion();
-        //    comando.CommandText = "EditarProductos";
-        //    comando.CommandType = CommandType.StoredProcedure;
-        //    comando.Parameters.AddWithValue("@nombre", nombre);
-        //    comando.Parameters.AddWithValue("@descrip", desc);
-        //    comando.Parameters.AddWithValue("@Marca", marca);
-        //    comando.Parameters.AddWithValue("@precio", precio);
-        //    comando.Parameters.AddWithValue("@stock", precio);
-        //    comando.Parameters.AddWithValue("@id", id);
-        //    comando.ExecuteNonQuery();
-        //    comando.Parameters.Clear();
-        //    conn.CerrarConexion();
-        //}
+        public void EditarRol(int rol, int id)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Sp_actualizar_rol";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@idRol", rol);
+            comando.Parameters.AddWithValue("@identificacion", id);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conn.CerrarConexion();
+        }
+
+
         //public void Eliminar(int id)
         //{
         //    comando.Connection = conn.AbrirConexion();

@@ -36,5 +36,11 @@ namespace Negocio
         {
            return usrs.MostrarNombreUsr(ident);
         }
+
+        //Editar rol en el mod asignacionrol
+        public void EditarRolUsr(int rol,int identificacion)
+        {
+            usrs.EditarRol(rol, identificacion);
+        }
     }
 }

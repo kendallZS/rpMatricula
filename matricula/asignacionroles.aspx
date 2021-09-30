@@ -71,7 +71,7 @@
     </style>
 
 </head>
-<body style="text-align: center; min-width:396px">
+<body style="text-align: center; min-width:442px">
     <form id="form1" runat="server">
 
         <div style="margin: 0px" class="bs-example">
@@ -105,31 +105,37 @@
         <h3 style="color:#cc4b37">Lista de usuarios a la espera de un rol en el sistema</h3>
         <br />
 
+       <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>--%>
+        <asp:Label ID="lblMensajeActRol" Text="..." runat="server" />
         <asp:GridView AutoGenerateColumns="false" CssClass="table" runat="server" ID="gvMostrarUsrSinRol" DataKeyNames="identificacion" OnRowCommand="UsrsSinRol_Rowcomand">
             <Columns>
                 <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
+                <asp:BoundField DataField="id_rol" HeaderText="Id rol" />
+
                 <asp:ButtonField Text="Asignar" CommandName="Asignar" />
             </Columns>
         </asp:GridView>
+                
 
         <br />
         <br />
-
         <br />
-        <br />
-
         <asp:Panel CssClass="callout primary" ID="pnlAsigRol" runat="server">
             <asp:TextBox CssClass="form-control" ID="txtidentAsigRol" runat="server" />
             <asp:DropDownList ID="DropDownList1" runat="server">
                 <asp:ListItem>Seleccione...</asp:ListItem>
                 <asp:ListItem>Docente</asp:ListItem>
                 <asp:ListItem>Estudiante</asp:ListItem>
+                <asp:ListItem Value="MantenerSinRol">Mantener sin rol</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="btnAsignar" CssClass="button alert" Text="Asignar" runat="server" />
+            <asp:Button ID="btnAsignar" CssClass="button alert" Text="Asignar" runat="server" OnClick="btnAsignar_Click" />
         </asp:Panel>
-
+        <%-- </ContentTemplate>
+        </asp:UpdatePanel>--%>
     </form>
 </body>
 </html>

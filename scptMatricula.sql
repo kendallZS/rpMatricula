@@ -108,6 +108,7 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Rol values (2,'Estudiante')
  insert into Rol values (3,'Por asignar')
 
+ select * from Rol
 
  --Volcado de datos para la tabla Notas
  insert into Notas values (70,85,60,364829575,0,1)
@@ -139,12 +140,12 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Matricula values ('2021-09-05 09:50:00.000')
 
 
--- delete Matricula
-
+--delete Usuarios
+--delete Notas
  select * from Matricula
 
 --PROCEDIMIENTOS ALMACENADOS
-
+select * from Notas
 select * from Usuarios
 
 --ALTER procedure SP_mostrar_usrs_sin_nota
@@ -155,12 +156,18 @@ select * from Usuarios
 --where id_rol=2 and nota_1=null and nota_2=null and nota_3=null
 --go
 
-CREATE PROCEDURE Sp_mostrar_usuarios
+ALTER PROCEDURE Sp_mostrar_usuarios
 as
-select identificacion, nombre, apellidos from Usuarios
+select Usuarios.identificacion, nombre, apellidos from Usuarios
+inner join Rol on Usuarios.id_rol=rol.id_rol
+where rol.id_rol=2 
 go
 
 exec Sp_mostrar_usuarios
+
+select * from Usuarios
+select * from Notas
+
 
 CREATE PROCEDURE SP_Mostrar_usrs_sin_nota
 
@@ -171,7 +178,15 @@ insert into Notas values(@nota1,@nota2,@nota3,@identificacion,@promedio,@idmatri
 go
 exec InsertaNotas 0,0,0,365987542,0,7
 
-select * from notas
+select * from usuarios
+
+
+CREATE PROCEDURE Sp_actualizar_rol @idRol int, @identificacion int
+as
+update Usuarios set id_rol=@idRol where identificacion=@identificacion
+go
+
+exec Sp_actualizar_rol 1, 105659862
 
 
 
@@ -181,7 +196,7 @@ update Notas set promedio=@promedio where identificacion= @identificacion
 go
 exec EditarPromedio @promedio=30, @identificacion=315243695
 
-select * from notas
+select * from Usuarios 
 
 
 
@@ -195,13 +210,39 @@ ALTER procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2
         SET @conteoExistencia = (SELECT COUNT(*) FROM Notas WHERE identificacion = @identificacion);
             IF @conteoExistencia > 0 begin
                 --SIGNAL SQLSTATE '45000'
-                print 'El registro ya existe';
-				RAISERROR (
-           N'El usuario que indicó ya cuenta con sus notas asignadas.', -- Mensaje de ejemplo
-           10, -- Severity,  
-           1   -- State
-			);
-			RAISERROR (50027, 16, 1, 'Error en al insertar los datos de la tabla clientes')
+                --print 'El registro ya existe';
+			--	RAISERROR (
+   --        N'El usuario que indicó ya cuenta con sus notas asignadas.', -- Mensaje de ejemplo
+   --        10, -- Severity,  
+   --        1   -- State
+			--);
+			--RAISERROR (50027, 16, 1, 'Error en al insertar los datos de la tabla clientes')
+
+
+
+			BEGIN TRY  
+    -- RAISERROR con 'severity' 11-19 para causar la ejecución de bloque CATCH  
+    RAISERROR ('Error raised in TRY block.', 
+               11, -- Severity.  
+               19 -- State.  
+               );  
+END TRY  
+BEGIN CATCH  
+    DECLARE @ErrorMessage NVARCHAR(4000);  
+    DECLARE @ErrorSeverity INT;  
+    DECLARE @ErrorState INT;  
+
+    SELECT   
+        @ErrorMessage = 'EL USUARIO QUE INDICÓ YA CUENTA CON LAS NOTAS ASIGNADAS',  
+        @ErrorSeverity = ERROR_SEVERITY(),  
+        @ErrorState = ERROR_STATE();  
+
+    -- RAISE ERROR en bloque catch para forzar la devolución de error personalizado
+    RAISERROR (@ErrorMessage, -- Message text.  
+               @ErrorSeverity, -- Severity.  
+               @ErrorState -- State.  
+               );  
+END CATCH;
 				end
             ELSE 
 			begin
@@ -365,9 +406,9 @@ exec sp_mostrar_estudiantes_con_notas
 
 
 --SP QUE MUESTRA LOS USUARIOS QUE NO TIENEN UN ROL ASIGNADO (id_rol = 3) se muestra en mod Asignacion rol
-CREATE PROCEDURE Sp_mostrar_usrs_sin_rol
+Alter PROCEDURE Sp_mostrar_usrs_sin_rol
 as
-select Usuarios.identificacion, Usuarios.nombre, Usuarios.apellidos from usuarios
+select Usuarios.identificacion, Usuarios.nombre, Usuarios.apellidos, Rol.id_rol from usuarios
 inner join Rol on Usuarios.id_rol = rol.id_rol
 where rol.id_rol = 3
 go
@@ -388,4 +429,10 @@ exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
 exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
 exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
 
-exec Sp_registra_usuario  304879545,'Probando','Ingreso Notas',2,'111'
+exec Sp_registra_usuario  398653256,'John','Céspedes Matarrita',3,'111'
+exec Sp_registra_usuario  365987521,'Inessa','Rebbeck',3,'111'
+exec Sp_registra_usuario  326548195,'Chelsey','Pinkett',3,'111'
+exec Sp_registra_usuario  326598562,'Hyacinthe','Playford',3,'111'
+exec Sp_registra_usuario  369856324,'Kingsly','Conneely',3,'111'
+exec Sp_registra_usuario  369856547,'Todd','Lyard',3,'111'
+exec Sp_registra_usuario  325487595,'Godard','Brevitt',3,'111'
