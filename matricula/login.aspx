@@ -20,11 +20,12 @@
 
     <style>
         body {
-            text-align: center
+            text-align: center;
+            background: url("imgs/m5.jpg");
         }
 
         #navbarCollapse .navbar-nav a {
-            color: white;
+            color: #cc4b37;
         }
 
         #encabezado {
@@ -87,22 +88,19 @@
 
 
         /*formulario*/
-        .cont-login {
+        /*.callout {
+            border-radius:30px;
+        }*/
+
+        .callout {
+            background-color:ivory;
             width: 35%;
             margin-left: 33%;
+            border-radius:30px;
         }
 
-        .callout .cont-login #cont-log2 {
-            background-color: lightgray;
-            border: none;
-        }
-
-            .callout .cont-login #cont-log2 h3 {
-                color: #cc4b37;
-            }
-
-            .callout .cont-login #cont-log2 #btnlogin {
-                border-radius: 15px;
+            #btnlogin {
+                border-radius: 25px;
             }
 
              #txtIdentificacion{
@@ -122,7 +120,7 @@
         }
 
         @media only screen and (max-width:800px) {
-            .cont-login {
+            .callout{
                 width: 100%;
                 margin-left: 0%;
             }
@@ -194,8 +192,10 @@
 
     <form id="form1" runat="server">
         <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
+            <nav style="background-color:ivory; margin: 0px" class="navbar navbar-expand-md navbar-light">
                 <a href="#" class="navbar-brand">Bienvenido</a>
+                <br />
+                <br />
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -218,12 +218,13 @@
         <br />
         <br />
 
-        <div class="callout">
+
+
+        <%--<div class="callout">--%>
             <br />
             <br />
-            <div class="cont-login">
-                <div id="cont-log2" class="callout">
-                    <h3>Inicio de sesión</h3>
+            <div class="callout">
+                    <h3 style="color:#cc4b37">Inicio de sesión</h3>
                     <asp:TextBox  oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
                     <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
                     <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
@@ -231,11 +232,10 @@
                     <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
                     <br />   
                     <asp:Label ID="lblMensaj" Text="text" runat="server" />
-                    </div>
             </div>
             <br />
             <br />
-        </div>
+<%--        </div>--%>
 
 
 

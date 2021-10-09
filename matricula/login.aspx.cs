@@ -20,7 +20,7 @@ namespace matricula
 
             OpUsuarios opurs = new OpUsuarios();
 
-            txtContDesencriptada.Text = opurs.MostrarDesencripcion(364829572).ToString();
+            //txtContDesencriptada.Text = opurs.MostrarDesencripcion(364829572).ToString();
          
         }
      

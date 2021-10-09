@@ -16,6 +16,7 @@ en su grupo
 --Al final hacer responsive los modulos.--listo
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
+--Buscar mejores ventanas modales
 --Calcular promedio mediante varios cursos y no solo con uno
 --Separar las dos funcionalidades del docente
 en un modulo inicial con tarjetas --listo

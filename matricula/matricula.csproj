@@ -71,6 +71,15 @@
     <Content Include="asignacionroles.aspx" />
     <Content Include="css\style.css" />
     <Content Include="guardasession.aspx" />
+    <Content Include="imgs\m3.jpg" />
+    <Content Include="imgs\m2.jpg" />
+    <Content Include="imgs\cfondo.jfif" />
+    <Content Include="imgs\imgfondo.jpg" />
+    <Content Include="imgs\m1.jpg" />
+    <Content Include="imgs\m4.jpg" />
+    <Content Include="imgs\m5.jpg" />
+    <Content Include="imgs\Vine.jpg" />
+    <Content Include="pruebamodalbootstrap.aspx" />
     <Content Include="teachermodule.aspx" />
     <Content Include="login.aspx" />
     <Content Include="pruebacarddesplegable.aspx" />
@@ -100,6 +109,13 @@
     </Compile>
     <Compile Include="guardasession.aspx.designer.cs">
       <DependentUpon>guardasession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pruebamodalbootstrap.aspx.cs">
+      <DependentUpon>pruebamodalbootstrap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pruebamodalbootstrap.aspx.designer.cs">
+      <DependentUpon>pruebamodalbootstrap.aspx</DependentUpon>
     </Compile>
     <Compile Include="teachermodule.aspx.cs">
       <DependentUpon>teachermodule.aspx</DependentUpon>
