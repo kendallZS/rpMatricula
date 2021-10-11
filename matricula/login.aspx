@@ -63,10 +63,18 @@
 
         #btnRegistrarme {
             width: 120px;
-            margin-left: 40%;
-            border-radius: 10px;
+            margin-left: 0%;
+            border-radius: 30px;
         }
 
+
+        #btnAbrirModal{
+            background-color:white;
+            color:#1779ba;
+            border:none;
+            border-radius:25px;
+            font-size:14px
+        }
 
 
         #txtIdentificacionRegistro {
@@ -208,7 +216,6 @@
                         <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
                     </div>
                     <div class="navbar-nav ml-auto">
-                        <a href="#" class="nav-item nav-link">Log out</a>
                     </div>
                 </div>
             </nav>
@@ -221,21 +228,52 @@
 
 
         <%--<div class="callout">--%>
+        <br />
+        <br />
+        <div class="callout">
             <br />
+            <h3 style="color: #cc4b37">Inicio de sesión</h3>
+            <asp:TextBox oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
+            <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
+            <asp:Button CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
             <br />
-            <div class="callout">
-                    <h3 style="color:#cc4b37">Inicio de sesión</h3>
-                    <asp:TextBox  oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
-                    <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
-                    <asp:Button  CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
-                    <br />
-                    <a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>
-                    <br />   
-                    <asp:Label ID="lblMensaj" Text="text" runat="server" />
+            <%--<a style="color:#1779ba" onclick="myFunction2()">¿No tiene cuenta?</a>--%>
+            <button id="btnAbrirModal" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">¿No tiene cuenta?</button>
+
+            <br />
+            <asp:Label ID="lblMensaj" Text="text" runat="server" />
+        </div>
+        <br />
+        <br />
+        <%--        </div>--%>
+
+
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 style="color: #cc4b37; font-size: 27px">Complete los siguientes datos para realizar el registro</h3>
+                        <%-- <p style="font-size: 15px;">Pronto se le asignará el rol correspondiente</p>--%>
+                    </div>
+                    <div class="modal-body">
+                        <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
+                        <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
+                        <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
+                        <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" TextMode="Password" CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
+                        <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" OnClick="btnRegistrarme_Click" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
-            <br />
-            <br />
-<%--        </div>--%>
+        </div>
+
 
 
 
@@ -247,11 +285,7 @@
                     <p style="font-size: 15px; color: white">Pronto se le asignará el rol correspondiente</p>
                 </header>
                 <br />
-                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" CssClass="form-control" ID="txtIdentificacionRegistro" placeholder="Identificación" runat="server" />
-                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtNombre" placeholder="Nombre" runat="server" />
-                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" onkeypress="SoloTexto()" CssClass="form-control" ID="txtApellidos" placeholder="Apellidos" runat="server" />
-                <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" TextMode="Password" CssClass="form-control" ID="txtContrasenaRegistro" placeholder="Contraseña" runat="server" />
-                <asp:Button CssClass="button alert" ID="btnRegistrarme" Text="Registrarme" runat="server" OnClick="btnRegistrarme_Click" />
+                
                 
                 <a style="color:#1779ba" onclick="myFunction2()">Cerrar</a>
                 <br />

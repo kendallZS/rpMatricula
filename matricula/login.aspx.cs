@@ -100,8 +100,15 @@ namespace matricula
                         }
                         else if (rol.Contains("3"))
                         {
-                            contador = 3;
+                            
+                               contador = 3;
                             //rol indefinido
+                        }
+                        else if (rol.Contains("4"))
+                        {
+                            
+                               contador = 4;
+                            //rol Admin
                         }
                     }
 
@@ -123,6 +130,10 @@ namespace matricula
                         lblMensaj.ForeColor = Color.DarkOrange;
                         lblMensaj.BackColor = Color.White;
                         //lblMensaj.BorderStyle = BorderStyle.Inset;
+                    }
+                    else if (contador == 4)
+                    {
+                        Response.Redirect("asignacionroles.aspx");
                     }
                     else
                     {

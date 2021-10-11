@@ -19,6 +19,13 @@
         .bs-example {
             margin: 20px;
         }
+
+
+        body{
+            /* background: url("imgs/m5.jpg");*/
+             font-family: Verdana;
+             text-align:center
+        }
        
 
          /*Para el header*/
@@ -71,7 +78,7 @@
     </style>
 
 </head>
-<body style="font-family: Verdana; text-align:center">
+<body>
     <form id="form1" runat="server">
 
         <div style="margin: 0px" class="bs-example">

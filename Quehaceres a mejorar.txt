@@ -1,5 +1,13 @@
 Pasar todo este txt a un word para ordenarlo por nomenclatura
 
+Finalizados:
+modulo agregar notas*
+modulo de updatenotes*
+modulo recibe al docente*
+modulo asigroles listo, solo notificacion*
+modulo login listo* 
+INICIAR CON LO DE ESTA LISTA
+
 Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
 para evitar verla para colocarla después. -- listo (se realiza en la misma tabla)
 -Validaciones(que en las notas no meta letras...etc)--listo
@@ -16,7 +24,9 @@ en su grupo
 --Al final hacer responsive los modulos.--listo
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
---Buscar mejores ventanas modales
+--COlocar en los header la redireccion atras pa no presionar
+varias veces la flecha de atras para volver.
+--Buscar mejores ventanas modales --listo
 --Calcular promedio mediante varios cursos y no solo con uno
 --Separar las dos funcionalidades del docente
 en un modulo inicial con tarjetas --listo

@@ -31,7 +31,10 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
+                            <header style="background-color: #cc4b37">
+                                <h3 style="color: white; font-size: 27px">Ingrese los siguientes datos</h3>
+                                <p style="font-size: 15px; color: white">Pronto se le asignará el rol correspondiente</p>
+                            </header>
                         </div>
                         <div class="modal-body">
                             <p>Some text in the modal.</p>

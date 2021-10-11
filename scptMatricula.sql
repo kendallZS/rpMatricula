@@ -23,7 +23,7 @@ Create table Rol(
 id_rol int primary key,
 rol varchar(20)
 )
-insert into Rol values (4,'hackeado')
+insert into Rol values (4,'Admin')
 select * from Rol
 Create table Notas(
 id_nota int primary key identity(1,1),
@@ -53,6 +53,8 @@ Create table Matricula(
 id_matricula int primary key identity(1,1),
 fecha datetime
 )
+
+select * from matricula
 --drop table Matricula
 --PARA HACER LOS JOINS SE DEBEN VINCULAR DESDE LA LLAVE FORANEA O ATRIBUTO QUE RELACIONA AMBAS TABLAS EN CASO DE QUE UNA
 --TABLA TENGA MAS REGISTROS QUE LA OTRA
