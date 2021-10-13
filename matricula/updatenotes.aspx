@@ -62,6 +62,17 @@
             font-weight: bold;
         }
 
+        #txtNombreBuscar {
+            float: right;
+            border-radius: 13px;
+        }
+
+         #btnbuscar{
+             margin-right:6.3%;
+            float:right;
+            border-radius:20px;
+        }
+
         @media only screen and (max-width:600px){
             #GridView1{
                 margin-left:0%;
@@ -116,9 +127,15 @@
         </div>
         <%-- Fin header --%>
 
-        <br />
+
+
+
+        
      <h3 style="color: #FC4B2D">Edite el registro requerido</h3>
         <p style="color:gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
+        <br />
+        <asp:Button CssClass="btn btn-info" Text="Buscar" ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" /> &nbsp;&nbsp;&nbsp;
+        <asp:TextBox CssClass="form-control" Width="20%" runat="server" ID="txtNombreBuscar" placeholder="Búsqueda por nombre" />
         <br />
         
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" OnRowCommand="GridView1_RowCommand">
@@ -156,6 +173,9 @@
         <br />
         <asp:Label hidden="" Text="valor matricula" ID="lblpruebaValorHorario" runat="server" /> <br />
         <br />
+
+
+
     </form>
 </body>
 </html>

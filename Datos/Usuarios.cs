@@ -32,6 +32,40 @@ namespace Datos
             return tabla;
 
         }
+
+
+
+
+        public DataTable BuscarUsr(string nombre)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "SP_buscar_estudiante";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value= nombre;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conn.CerrarConexion();
+            return tabla;
+
+        }
+
+
+        public DataTable BuscarUsrNotas(string nombre)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "SP_buscar_estudiante_notas";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@nombre", SqlDbType.VarChar).Value = nombre;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conn.CerrarConexion();
+            return tabla;
+
+        }
+
+
+
+
         public void Insertar(decimal n1, decimal n2, decimal n3, 
             int ident, decimal prom)
         {

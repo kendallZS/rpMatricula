@@ -127,5 +127,20 @@ namespace matricula
                
             }
         }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
+        {
+            OpUsuarios opUsuarios = new OpUsuarios();
+
+            try
+            {
+                GridView1.DataSource = opUsuarios.MostrarUsrBuscado2(txtNombreBuscar.Text.Trim());
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ocurrión un error en la búsqueda.');"+ex, true);
+            }
+        }
     }
 }

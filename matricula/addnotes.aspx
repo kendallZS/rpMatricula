@@ -59,6 +59,19 @@
             border: none;
             font-weight: bold;
         }
+
+
+        #txtNombreBuscar {
+            float: right;
+            border-radius: 13px;
+        }
+
+         #btnbuscar{
+             margin-right:6.3%;
+            float:right;
+            border-radius:20px;
+        }
+
     </style>
   
     <script type="text/javascript" >
@@ -110,6 +123,12 @@
         <p style="color: gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
         <br />
 
+
+
+        <asp:Button CssClass="btn btn-info" Text="Buscar" ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" /> &nbsp;&nbsp;&nbsp;
+        <asp:TextBox CssClass="form-control" Width="20%" runat="server" ID="txtNombreBuscar" placeholder="Búsqueda por nombre" />
+        <br />
+        <br />
         <%-- TABLA CON LOS USUARIOS A LOS QUE ASIGNAR NOTAS (estudiantes) --%>
         <asp:GridView AutoGenerateColumns="false" ID="gvUsrs" runat="server" OnRowCommand="gvUsrs_RowCommand">
             <Columns>
@@ -145,7 +164,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button CssClass="button primary" Text="Agregar" runat="server" CommandName="Notas" CommandArgument="<%# Container.DataItemIndex %>" />
+                        <asp:Button CssClass="btn btn-primary" Text="Agregar" runat="server" CommandName="Notas" CommandArgument="<%# Container.DataItemIndex %>" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

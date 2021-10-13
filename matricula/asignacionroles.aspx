@@ -55,6 +55,14 @@
             background-color:lightgray;
         }
 
+        .a{
+            margin:5px
+        }
+
+        .a:hover{
+            color:brown;
+        }
+
         @media only screen and (max-width:600px) {
             #gvMostrarUsrSinRol,#pnlAsigRol {
                 width: 100%;
@@ -83,10 +91,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a href="#" class="nav-item nav-link active">Home</a>
-                        <a href="#" class="nav-item nav-link">Profile</a>
-                        <a href="#" class="nav-item nav-link">Messages</a>
-                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                        <a href="#" class="a">Home</a>
+                        <a href="#" class="a">Profile</a>
+                        <a href="#" class="a">Messages</a>
+                        <a href="#" class="a">Gestión de usuarios</a>
+
                     </div>
                     <div class="navbar-nav ml-auto">
                         <a href="#" class="nav-item nav-link">Log out</a>
@@ -114,7 +123,7 @@
                 <asp:BoundField DataField="identificacion" HeaderText="Identificación" />
                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
-                <asp:BoundField DataField="id_rol" HeaderText="Id rol" />
+                <%--<asp:BoundField DataField="id_rol" HeaderText="Id rol" />--%>
 
                 <asp:ButtonField Text="Asignar" CommandName="Asignar" />
             </Columns>
@@ -136,6 +145,7 @@
         </asp:Panel>
         <%-- </ContentTemplate>
         </asp:UpdatePanel>--%>
+        
     </form>
 </body>
 </html>

@@ -18,6 +18,20 @@ namespace Negocio
             return tabla;
         }
 
+        public DataTable MostrarUsrBuscado(string nombre)
+        {
+            DataTable tabla = new DataTable();
+            tabla = usrs.BuscarUsr(nombre);
+            return tabla;
+        }
+
+        public DataTable MostrarUsrBuscado2(string nombre)
+        {
+            DataTable tabla = new DataTable();
+            tabla = usrs.BuscarUsrNotas(nombre);
+            return tabla;
+        }
+
         public void InsertarRegistraUrs(int ident, string nombre, string apellidos,
             int idRol, string contrasena)
         {

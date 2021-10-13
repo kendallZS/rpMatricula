@@ -344,6 +344,35 @@ go
 exec Sp_Muestra_desglose 364829517
 
 
+--SP para a utilizarlo en el BUSCADOR por nombre para mod add notes
+Alter PROCEDURE SP_buscar_estudiante @nombre varchar(20)
+as
+	select identificacion,
+		   nombre ,
+		   apellidos 
+		   from Usuarios
+		   inner join Rol on rol.id_rol = Usuarios.id_rol
+		   where Usuarios.id_rol=2
+		   and Usuarios.nombre like '%' +@nombre+ '%' 
+go
+
+select * from notas
+
+--SP para a utilizarlo en el BUSCADOR por nombre para mod update notes
+Create PROCEDURE SP_buscar_estudiante_notas @nombre varchar(20)
+as
+	select Usuarios.identificacion, Usuarios.nombre, notas.nota_1,
+	notas.nota_2, Notas.nota_3
+	from Usuarios
+	inner join Notas on Usuarios.identificacion=Notas.identificacion
+	and Usuarios.nombre like '%' +@nombre+ '%' 
+go
+
+
+
+
+
+
 --Encripta contrasena cuando se hace un registro
 --https://www.c-sharpcorner.com/blogs/password-encryption-and-decryption-in-sql-sp
 Alter PROCEDURE Sp_registra_usuario 
@@ -438,3 +467,5 @@ exec Sp_registra_usuario  326598562,'Hyacinthe','Playford',3,'111'
 exec Sp_registra_usuario  369856324,'Kingsly','Conneely',3,'111'
 exec Sp_registra_usuario  369856547,'Todd','Lyard',3,'111'
 exec Sp_registra_usuario  325487595,'Godard','Brevitt',3,'111'
+
+exec Sp_registra_usuario  111111111,'Kendall','Zeldón Sánchez',4,'111'

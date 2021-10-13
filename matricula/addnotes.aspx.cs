@@ -83,5 +83,21 @@ namespace matricula
                 txtRaiseError.Visible = true;
             }
         }
+
+        protected void btnbuscar_Click(object sender, EventArgs e)
+        {
+            OpUsuarios opUsuarios = new OpUsuarios();
+
+            try
+            {
+                gvUsrs.DataSource = opUsuarios.MostrarUsrBuscado(txtNombreBuscar.Text.Trim());
+                gvUsrs.DataBind();
+            }
+            catch (Exception)
+            {
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Ocurrión un error en la búsqueda.');", true);
+            }
+        }
     }
 }
