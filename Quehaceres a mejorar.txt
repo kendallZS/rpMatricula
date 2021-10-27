@@ -15,6 +15,7 @@ para evitar verla para colocarla después. -- listo (se realiza en la misma tabl
 --En modulo de docente poner una ventana con la opcion para actualizar notas--listo (actualiza
 en otro modulo)
 --Notificaciones por correo
+--Carga masiva de datos desded el sitio.
 --Hacer buscadores por identificacion en mod Docente. --LISTO
 --agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
 --Que tanto profesor como estudiantes pertenezcan a algun curso y grupo y cuando

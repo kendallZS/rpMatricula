@@ -12,6 +12,12 @@ contrasena varbinary(50),
 --llave varchar(50)
 )
 
+create table Estado_usuario(
+id_estado int primary key,
+estado varchar(15)
+)
+
+
 select * from Usuarios
 
 --drop table Usuarios
@@ -83,13 +89,22 @@ ADD FOREIGN KEY (id_matricula) REFERENCES Matricula(id_matricula); --ejecutado
 ALTER TABLE Usuarios
 ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
 
+
+--Agrega nueva columna para el estado de los usuarios Tabla Usuarios
+Alter table Usuarios
+Add estado int
+
+--Agrega foranea a columna estado en tabla Usuarios
+ALTER TABLE Usuarios
+ADD FOREIGN KEY (estado) REFERENCES Estado_usuario(id_estado); --ejecutado
+
+select * from Usuarios
+
 --ALTER TABLE Usuarios
 --drop column llave ;
 
 --ALTER TABLE PromedioEstudiante
 --ADD FOREIGN KEY (identificacion) REFERENCES Usuarios(identificacion); --NO
-
-
 
 
 --Volcado de datos para la tabla Usuarios
@@ -141,6 +156,9 @@ ADD llave varchar(50); --Agrega campo LLAVE para la desencriptacion
  insert into Matricula values ('2021-09-05 09:40:00.000')
  insert into Matricula values ('2021-09-05 09:50:00.000')
 
+--Volcado de datos para la tabla Estado_usuarios
+insert into Estado_usuario values(1,'Activo')
+insert into Estado_usuario values(2,'Inactivo')
 
 --delete Usuarios
 --delete Notas
@@ -200,9 +218,29 @@ exec EditarPromedio @promedio=30, @identificacion=315243695
 
 select * from Usuarios 
 
+Create procedure Mostrar_estado_usuarios
+as
+select identificacion, nombre, apellidos, estado from Usuarios
+go
 
 
---Obsoleto
+--Los proximos dos procedimienstos son para inactivar/activar respectivamente
+Alter procedure Inactivar_usrs @identificacion int
+as
+Update Usuarios set estado=2 where identificacion=@identificacion --inactiva usuario
+go
+
+exec Inactivar_usrs 111111111
+
+
+Create procedure Activar_usrs @identificacion int
+as
+Update Usuarios set estado=1 where identificacion=@identificacion --activa usuario
+go
+
+exec Activar_usrs 111111111
+
+
 --SP que valida si un usuario ya tiene asignadas sus notas para que no ingrese otro registro con otras notas distintas
 --a la tabla
 ALTER procedure sp_inserta_si_no_existe @nota1 decimal(18,2),@nota2 decimal(18,2), @nota3 decimal(18,2),
@@ -248,7 +286,9 @@ END CATCH;
 				end
             ELSE 
 			begin
+			--Inserta notas que recibe
                 INSERT INTO Notas values(@nota1, @nota2, @nota3,@identificacion,@promedio,@idmatricula)
+				--calcula promedios
 				declare @CalcProm decimal =(@nota1 + @nota2 + @nota3)/3
 				
 				--Calcula la hora de matricula segun promedio
@@ -380,16 +420,17 @@ Alter PROCEDURE Sp_registra_usuario
 @nombre varchar(20),
 @apellidos varchar(40),
 @id_rol int,
-@contrasena varchar(50)
+@contrasena varchar(50),
+@estado int
 as
 Declare @Encrypt varbinary(200)  
 --								clave | campo a encriptar
 
 Select @Encrypt = EncryptByPassPhrase('key',@contrasena)  
-insert into Usuarios values (@identificacion,@nombre,@apellidos,@id_rol,@Encrypt)
+insert into Usuarios values (@identificacion,@nombre,@apellidos,@id_rol,@Encrypt,@estado)
 go
 
-exec Sp_registra_usuario 364829572,'test','test test',1,'333'
+exec Sp_registra_usuario 364829572,'test','test test',1,'333',1
 
 select * from Usuarios
 
@@ -450,22 +491,25 @@ select * from Matricula
 select * from Usuarios
 select * from notas where identificacion=121212121
 
-exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111'
-exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111'
-exec Sp_registra_usuario  325698654,'Jeovanny','Coto Perez',1,'111'
-exec Sp_registra_usuario  315247585,'Maria','Figueroa Mata',1,'111'
-exec Sp_registra_usuario  369852147,'Rafael','Jimenez Azofeifa',2,'111'
-exec Sp_registra_usuario  364829517,'Yorleny','Fuentes Zuñiga',2,'111'
-exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111'
-exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111'
-exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111'
+delete Usuarios
+delete Notas
 
-exec Sp_registra_usuario  398653256,'John','Céspedes Matarrita',3,'111'
-exec Sp_registra_usuario  365987521,'Inessa','Rebbeck',3,'111'
-exec Sp_registra_usuario  326548195,'Chelsey','Pinkett',3,'111'
-exec Sp_registra_usuario  326598562,'Hyacinthe','Playford',3,'111'
-exec Sp_registra_usuario  369856324,'Kingsly','Conneely',3,'111'
-exec Sp_registra_usuario  369856547,'Todd','Lyard',3,'111'
-exec Sp_registra_usuario  325487595,'Godard','Brevitt',3,'111'
+exec Sp_registra_usuario 315243695,'Raul','Vazquez Arrieta',1,'111',1
+exec Sp_registra_usuario 365987542,'Marta','Aguilar Brenes',1,'111',1
+exec Sp_registra_usuario  325698654,'Jeovanny','Coto Perez',1,'111',1
+exec Sp_registra_usuario  315247585,'Maria','Figueroa Mata',1,'111',1
+exec Sp_registra_usuario  369852147,'Rafael','Jimenez Azofeifa',2,'111',1
+exec Sp_registra_usuario  364829517,'Yorleny','Fuentes Zuñiga',2,'111',1
+exec Sp_registra_usuario  325687595,'Roberto','Ulloa Obando',2,'111',1
+exec Sp_registra_usuario  325486179,'Kimberly','Hernandez Hernandez',2,'111',1
+exec Sp_registra_usuario  365987452,'Andres','Vega Valladares',2,'111',1
 
-exec Sp_registra_usuario  111111111,'Kendall','Zeldón Sánchez',4,'111'
+exec Sp_registra_usuario  398653256,'John','Céspedes Matarrita',3,'111',1
+exec Sp_registra_usuario  365987521,'Inessa','Rebbeck',3,'111',1
+exec Sp_registra_usuario  326548195,'Chelsey','Pinkett',3,'111',1
+exec Sp_registra_usuario  326598562,'Hyacinthe','Playford',3,'111',1
+exec Sp_registra_usuario  369856324,'Kingsly','Conneely',3,'111',1
+exec Sp_registra_usuario  369856547,'Todd','Lyard',3,'111',1
+exec Sp_registra_usuario  325487595,'Godard','Brevitt',3,'111',1
+
+exec Sp_registra_usuario  111111111,'Kendall','Zeldón Sánchez',4,'111',1

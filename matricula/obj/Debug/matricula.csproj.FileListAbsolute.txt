@@ -116,8 +116,7 @@ C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\bin\Datos.pdb
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\bin\Datos.dll.config
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.csprojAssemblyReference.cache
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.csproj.CoreCompileInputs.cache
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.csproj.CopyComplete
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.dll
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.pdb
+C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\matricula\obj\Debug\matricula.csproj.AssemblyReference.cache

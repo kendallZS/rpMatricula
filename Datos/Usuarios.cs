@@ -64,6 +64,18 @@ namespace Datos
         }
 
 
+        public DataTable Mostrar_estado_usrs()
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Mostrar_estado_usuarios";
+            comando.CommandType = CommandType.StoredProcedure;
+            leer = comando.ExecuteReader();
+            tabla.Load(leer);
+            conn.CerrarConexion();
+            return tabla;
+        }
+
+
 
 
         public void Insertar(decimal n1, decimal n2, decimal n3, 
@@ -77,6 +89,31 @@ namespace Datos
             comando.Parameters.AddWithValue("@nota3", n3);
             comando.Parameters.AddWithValue("@identificacion", ident);
             comando.Parameters.AddWithValue("@promedio", prom);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conn.CerrarConexion();
+        }
+
+
+        //Inactivar usuarios
+        public void InactivarUsrs(int identificacion)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Inactivar_usrs";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", identificacion);
+            comando.ExecuteNonQuery();
+            comando.Parameters.Clear();
+            conn.CerrarConexion();
+        }
+
+        //Activar usuarios
+        public void ActivarUsrs(int identificacion)
+        {
+            comando.Connection = conn.AbrirConexion();
+            comando.CommandText = "Activar_usrs";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@identificacion", identificacion);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
             conn.CerrarConexion();

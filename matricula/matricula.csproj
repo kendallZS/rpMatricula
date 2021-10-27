@@ -70,6 +70,7 @@
     <Content Include="addnotes.aspx" />
     <Content Include="asignacionroles.aspx" />
     <Content Include="css\style.css" />
+    <Content Include="gestormodule.aspx" />
     <Content Include="guardasession.aspx" />
     <Content Include="imgs\m3.jpg" />
     <Content Include="imgs\m2.jpg" />
@@ -86,6 +87,7 @@
     <Content Include="pruebasession.aspx" />
     <Content Include="studentmodule.aspx" />
     <Content Include="updatenotes.aspx" />
+    <Content Include="usersmanagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +104,13 @@
     </Compile>
     <Compile Include="asignacionroles.aspx.designer.cs">
       <DependentUpon>asignacionroles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gestormodule.aspx.cs">
+      <DependentUpon>gestormodule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestormodule.aspx.designer.cs">
+      <DependentUpon>gestormodule.aspx</DependentUpon>
     </Compile>
     <Compile Include="guardasession.aspx.cs">
       <DependentUpon>guardasession.aspx</DependentUpon>
@@ -159,6 +168,13 @@
     </Compile>
     <Compile Include="updatenotes.aspx.designer.cs">
       <DependentUpon>updatenotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usersmanagement.aspx.cs">
+      <DependentUpon>usersmanagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usersmanagement.aspx.designer.cs">
+      <DependentUpon>usersmanagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -5,8 +5,7 @@ C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\bin\
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\bin\Debug\EntityFramework.xml
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
-C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.dll
 C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.pdb
+C:\Users\Kendall\Documents\ProyectoHorarioMatricula\matriculaProyecto\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache

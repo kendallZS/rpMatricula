@@ -38,6 +38,21 @@ namespace Negocio
             usrs.InsertarUsuario(ident, nombre, apellidos, idRol, contrasena);
         }
 
+        //Metodos activar / inactivar usrs
+        public void Inactivar_Usrs(int ident)
+        {
+            usrs.InactivarUsrs(ident);
+        }
+        public void Activar_Usrs(int ident)
+        {
+            usrs.ActivarUsrs(ident);
+        }
+
+        public DataTable EstadoUsuarios()
+        {
+            return usrs.Mostrar_estado_usrs();
+        }
+
         //retorna contrassena desencriptada
         public string MostrarDesencripcion(int ident)
         {
