@@ -31,12 +31,51 @@ varias veces la flecha de atras para volver.
 --Calcular promedio mediante varios cursos y no solo con uno
 --Separar las dos funcionalidades del docente
 en un modulo inicial con tarjetas --listo
---Hacer un index
+--Hacer un index que se vaya animando conforme se haga scroll(algo moderno)
+REALIZAR EL INDEX DE ESTA FORMA: https://www.smithmicro.com/
 --el adm puede inacivar cuentas, asignar los roles... EN PROCESO
 --Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio --listo
 --Colocar los try cath en todos los modulos que lo requieran
 --SUBIR A HOSTING Y PROBAR DESDE EL CELULAR
+
+
+
+HACER UN INDEX DONDE INCLUYA EL LINK A ESTE PROYECTO PARA
+EL PORTAFOLIO DE PROYECTOS
+Ej portafolio -> https://github.com/xrochoa/PortfolioBuild.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

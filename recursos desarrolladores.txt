@@ -1,0 +1,15 @@
+-Pexels: imagenes de calidad
+-Favicon generator: sitio web para pasar imagenes
+a iconos con todos los tamanos
+-fake data: sitio para cargar datos falsos
+por ej para bases de datos o API
+-IDs generator: cifrar datos
+-fontawesome: iconos con CDN
+-google icons: iconos
+-DIFFCHECKER: comparacion de textos.
+-Convertidor de Less a css...
+-flatuicolors: paletas de colores
+-uigradients: colores degradados
+-wireframe.cc: crear mockups
+mockups.com: mockups
+Pingdom.com: medir la velocidad de mi sitio
