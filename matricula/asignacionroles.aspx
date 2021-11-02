@@ -16,6 +16,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
+
+        body{
+            font-family:'Times New Roman';
+        }
+
         .bs-example {
             margin: 20px;
         }
@@ -63,6 +68,19 @@
             color:brown;
         }
 
+        .btnAsignarRol{
+            color:#1dd1a1;
+            font-size:22px;
+            background-color:#f5f6fa;
+            text-shadow: 1px 1px 1px black
+        }
+
+         #encabezado{
+           /* height:130px;*/
+            background-image: url("imgs/Vine.jpg");
+        }
+
+
         @media only screen and (max-width:600px) {
             #gvMostrarUsrSinRol,#pnlAsigRol {
                 width: 100%;
@@ -82,20 +100,20 @@
 <body style="text-align: center; min-width:442px">
     <form id="form1" runat="server">
 
-        <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
-                <a href="#" class="navbar-brand">Bienvenido</a>
+       <div id="encabezado" class="alert callout" style="border: none;">
+             <div style="margin: 0px" class="bs-example">
+            <nav style="margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" style="font-size:26px;color:#353b48" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
-                        <a href="#" class="a">Home</a>
-                        <a href="#" class="a">Profile</a>
-                        <a href="#" class="a">Messages</a>
-                        <a href="#" class="a">Gestión de usuarios</a>
-
+                    <div style="font-size:24px" class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">Profile</a>
+                        <a href="#" class="nav-item nav-link">Messages</a>
+                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
                     </div>
                     <div class="navbar-nav ml-auto">
                         <a href="#" class="nav-item nav-link">Log out</a>
@@ -103,15 +121,13 @@
                 </div>
             </nav>
         </div>
-        <div id="encabezado" class="alert callout" style="border: none;">
-            <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo de asignación de roles</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Asignación de roles de usuario</h2>
             <br />
         </div>
 
         <br />
         <br />
-        <h3 style="color:#cc4b37">Lista de usuarios a la espera de un rol en el sistema</h3>
+        <h3 style="color:#1dd1a1">Lista de usuarios a la espera de un rol en el sistema</h3>
         <br />
 
        <%-- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -125,7 +141,7 @@
                 <asp:BoundField DataField="apellidos" HeaderText="Apellidos" />
                 <%--<asp:BoundField DataField="id_rol" HeaderText="Id rol" />--%>
 
-                <asp:ButtonField Text="Asignar" CommandName="Asignar" />
+                <asp:ButtonField ControlStyle-CssClass="btnAsignarRol" Text="Asignar" CommandName="Asignar" />
             </Columns>
         </asp:GridView>
                 

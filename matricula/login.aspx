@@ -21,11 +21,13 @@
     <style>
         body {
             text-align: center;
+            font-family:'Times New Roman';
             background: url("imgs/m5.jpg");
         }
 
         #navbarCollapse .navbar-nav a {
-            color: #cc4b37;
+            color: #10ac84;
+            font-size:18px
         }
 
         #encabezado {
@@ -65,6 +67,7 @@
             width: 120px;
             margin-left: 0%;
             border-radius: 30px;
+            background-color:#10ac84;
         }
 
 
@@ -109,6 +112,7 @@
 
             #btnlogin {
                 border-radius: 25px;
+                background-color:#10ac84
             }
 
              #txtIdentificacion{
@@ -232,7 +236,7 @@
         <br />
         <div class="callout">
             <br />
-            <h3 style="color: #cc4b37">Inicio de sesión</h3>
+            <h3 style="color: #10ac84">Inicio de sesión</h3>
             <asp:TextBox oncut="return false" oncopy="return false" onkeypress="ValidaSoloNumeros()" MaxLength="9" placeholder="Identificación" ID="txtIdentificacion" runat="server"></asp:TextBox>
             <asp:TextBox onpaste="return false" oncut="return false" oncopy="return false" placeholder="Contraseña" ID="txtContrasena" runat="server" TextMode="Password"></asp:TextBox>
             <asp:Button CssClass="button alert" ID="btnlogin" runat="server" Text="Ingresar" OnClick="btnlogin_Click" />
@@ -256,7 +260,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 style="color: #cc4b37; font-size: 27px">Complete los siguientes datos para realizar el registro</h3>
+                        <h3 style="color: #10ac84; font-size: 27px">Complete los siguientes datos para realizar el registro</h3>
                         <%-- <p style="font-size: 15px;">Pronto se le asignará el rol correspondiente</p>--%>
                     </div>
                     <div class="modal-body">

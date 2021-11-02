@@ -221,8 +221,9 @@
         }
 
         /*Callout luego del header*/
-        #encabezado{
-            height:130px;
+         #encabezado{
+           /* height:130px;*/
+            background-image: url("imgs/Vine.jpg");
         }
     </style>
 </head>
@@ -230,15 +231,16 @@
     <form id="form1" runat="server">
         <asp:Label hidden="" ID="lblGuardaSesion" runat="server" />
 
-        <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
-                <a href="#" class="navbar-brand">Bienvenido</a>
+        <div id="encabezado" class="alert callout" style="border: none;">
+             <div style="margin: 0px" class="bs-example">
+            <nav style="margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" style="font-size:26px;color:#353b48" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
+                    <div style="font-size:24px" class="navbar-nav">
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
                         <a href="#" class="nav-item nav-link">Messages</a>
@@ -250,9 +252,7 @@
                 </div>
             </nav>
         </div>
-        <div id="encabezado" class="alert callout" style="border: none;">
-            <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Módulo del estudiante</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Asignación de roles de usuario</h2>
             <br />
         </div>
 
@@ -294,7 +294,7 @@
             <%--  Modal visualizar desglose de notas --%>
         <div class="window-notice" style="display: none;" id="window-notice">
             <div class="content">
-                <header style="background-color:#cc4b37">
+                <header style="background-color:#10ac84">
                     <h3 style="color:white;font-size:27px">Detalle de notas</h3>
                     <p style="font-size:15px;color:white">Desglose de resultados obtenidos</p>
                 </header>

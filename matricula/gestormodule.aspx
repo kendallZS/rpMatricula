@@ -26,7 +26,7 @@
              font-family:'Times New Roman';
              text-align:center;
              /*overflow-y:hidden*/
-             min-width:574px;
+             min-width:404px;
         }
        
 
@@ -86,7 +86,7 @@
               /*width:50%;
               margin-left:20%;*/
               background-color:#f5f6fa;
-             margin-top:21%;/*
+             margin-top:17%;/*
             background-color:#f5f6fa;*/
           /*  float:inline-end*/
            /* height:100px;*/
@@ -115,6 +115,16 @@
                 position:absolute;
                 top:100%;
                 width: 100%;
+                /*float:right;
+                height:300px*/
+            }
+        }
+
+         @media only screen and (max-width:321px) {
+            /* For mobile phones: */
+            footer{
+                /*margin-top:100%;*/
+                display:none;
                 /*float:right;
                 height:300px*/
             }
@@ -164,7 +174,7 @@
                         <div class="card-body">
                             <h5 style="font-size:27px;color:#ffffff;text-shadow: 2px 2px 2px #57606f;" class="card-title">Gestión de usuarios</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Realizar activación o inactivación de cuentas de usuario.</p>
-                            <a href="usersmanagement.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir</a>
+                            <a href="usersmanagement.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir al módulo</a>
                         </div>
                     </div>
                 </div>
@@ -174,7 +184,7 @@
                         <div class="card-body">
                             <h5 style="font-size:27px;color:white;text-shadow: 2px 2px 2px #57606f;" class="card-title">Asignar roles</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Decretar el rol específico que tendrán los usuarios en este sitio</p>
-                            <a href="asignacionroles.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir</a>
+                            <a href="asignacionroles.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir al módulo</a>
                         </div>
                     </div>
                 </div>

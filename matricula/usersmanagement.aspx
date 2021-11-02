@@ -22,11 +22,11 @@
         }
 
 
-        body{
+        body {
             /* background: url("imgs/m5.jpg");*/
-             font-family: Verdana;
-             text-align:center;
-             min-width:685px
+             font-family:'Times New Roman';
+            text-align: center;
+            min-width: 685px
         }
        
 
@@ -35,9 +35,9 @@
             color:white;
         }
 
-        /*Callout luego del header*/
-        #encabezado{
-            height:130px;
+          #encabezado{
+           /* height:130px;*/
+            background-image: url("imgs/Vine.jpg");
         }
 
 
@@ -52,6 +52,10 @@
 
            .btn-primary{
                border-radius:15px;
+           }
+
+           .btn-primary,.btn-danger{
+               font-size:15px
            }
 
 
@@ -74,15 +78,16 @@
 <body>
     <form id="form1" runat="server">
 
-        <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
-                <a href="#" class="navbar-brand">Bienvenido</a>
+        <div id="encabezado" class="alert callout" style="border: none;">
+             <div style="margin: 0px" class="bs-example">
+            <nav style="margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" style="font-size:26px;color:#353b48" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
+                    <div style="font-size:24px" class="navbar-nav">
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
                         <a href="#" class="nav-item nav-link">Messages</a>
@@ -94,9 +99,7 @@
                 </div>
             </nav>
         </div>
-        <div id="encabezado" class="alert callout" style="border: none;">
-            <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Activar / Inactivar cuentas de usuario</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Activar / Inactivar cuentas de usuario</h2>
             <br />
         </div>
 

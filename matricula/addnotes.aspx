@@ -72,6 +72,11 @@
             border-radius:20px;
         }
 
+          #encabezado{
+           /* height:130px;*/
+            background-image: url("imgs/Vine.jpg");
+        }
+
     </style>
   
     <script type="text/javascript" >
@@ -91,7 +96,35 @@
 </head>
 <body style="margin: 0; text-align:center; min-width:605px">
     <form id="form1" runat="server">
-        <div style="margin: 0px" class="bs-example">
+
+        <div id="encabezado" class="alert callout" style="border: none;">
+             <div style="margin: 0px" class="bs-example">
+            <nav style="margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" style="font-size:26px;color:#353b48" class="navbar-brand">Bienvenido</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div style="font-size:24px" class="navbar-nav">
+                        <a href="#" class="nav-item nav-link active">Home</a>
+                        <a href="#" class="nav-item nav-link">Profile</a>
+                        <a href="#" class="nav-item nav-link">Messages</a>
+                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="#" class="nav-item nav-link">Log out</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Asignación de roles de usuario</h2>
+            <br />
+                 <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="#10ac84" Text="No existe sesión" runat="server" />
+        </div>
+
+
+        <%--<div style="margin: 0px" class="bs-example">
             <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -116,10 +149,11 @@
             <br />
             <h6 style="color:white;text-shadow: 2px 2px 2px gray">Usuario:</h6>           
              <asp:Label Font-Size="20px" ID="lblMostrarUsuario" ForeColor="green" Text="No existe sesión" runat="server" />
-        </div>
+        </div>--%>
+
         <asp:TextBox MaxLength="9" ID="txtRaiseError" Enabled="false" runat="server" />
-        <br />
-     <h3 style="color: #FC4B2D">Asigne las notas en la siguiente lista.</h3>
+        <br /> <br />
+     <h3 style="color: #10ac84">Asigne las notas en la siguiente lista.</h3>
         <p style="color: gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
         <br />
 
