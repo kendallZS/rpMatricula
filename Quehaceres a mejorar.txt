@@ -33,7 +33,7 @@ varias veces la flecha de atras para volver.
 en un modulo inicial con tarjetas --listo
 --Hacer un index que se vaya animando conforme se haga scroll(algo moderno)
 REALIZAR EL INDEX DE ESTA FORMA: https://www.smithmicro.com/
---el adm puede inacivar cuentas, asignar los roles... EN PROCESO
+--el adm puede inacivar cuentas, asignar los roles...--listo
 --Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio --listo
 --Colocar los try cath en todos los modulos que lo requieran

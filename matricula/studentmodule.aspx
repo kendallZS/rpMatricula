@@ -35,6 +35,7 @@
 <style>
 * {
   box-sizing: border-box;
+  font-family:'Times New Roman'
 }
 .menu {
   float: left;
@@ -145,14 +146,7 @@
     }
 }
 
-    @media only screen and (max-width:600px) {
-        /* For mobile phones: */
-        #encabezado {
-            display: none;
-        }
-    }
-
-   
+     
     .header1 .callout button:hover {
         background: #3493FA;
         color: white;
@@ -225,9 +219,58 @@
            /* height:130px;*/
             background-image: url("imgs/Vine.jpg");
         }
+
+
+          #ftr{
+              /*width:50%;
+              margin-left:20%;*/
+              background-color:#f5f6fa;
+             margin-top:17%;/*
+            background-color:#f5f6fa;*/
+          /*  float:inline-end*/
+           /* height:100px;*/
+          }
+
+          footer a{
+         margin-right:93%
+        }
+
+        @media only screen and (max-width:755px) {
+            /* For mobile phones: */
+            footer{
+                /*margin-top:100%;*/
+                position:absolute;
+                top:15%;
+                width: 15%;
+                float:right;
+                height:300px
+            }
+        }
+
+         @media only screen and (max-width:603px) {
+            /* For mobile phones: */
+            footer{
+                /*margin-top:100%;*/
+                position:absolute;
+                top:100%;
+                width: 100%;
+                /*float:right;
+                height:300px*/
+            }
+        }
+
+         @media only screen and (max-width:321px) {
+            /* For mobile phones: */
+            footer{
+                /*margin-top:100%;*/
+                display:none;
+                /*float:right;
+                height:300px*/
+            }
+        }
     </style>
 </head>
-<body style="font-family: Verdana; text-align:center">
+<body style="font-family: Verdana; min-width:537px; text-align:center">
     <form id="form1" runat="server">
         <asp:Label hidden="" ID="lblGuardaSesion" runat="server" />
 
@@ -252,7 +295,7 @@
                 </div>
             </nav>
         </div>
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Asignación de roles de usuario</h2>
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Consulta horario matricula</h2>
             <br />
         </div>
 
@@ -260,7 +303,7 @@
         <br />
 
         <div class="main">
-            <div style="word-wrap: break-word;" class="callout">
+            <div style="word-wrap: break-word; border:none;" class="callout">
                 <div id="cc2" style="width: 80%; border: none" class="callout">
                     <div id="card" class="card">
                         <img style="height: 60px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg6mTt1EIgit18bPwjA_OyzpeVDJkuiR2qOw&usqp=CAU" alt="Avatar">
@@ -284,11 +327,12 @@
         <br />
         <br />
         <br />
-        <footer class="callout" style="background-color:black;margin-top:280px">
-            <h3>Autor: @</h3> 
-            <a href="#">content</a> <br />
-            <a href="#">content</a> <br />
-            <a href="#">content</a> <br />
+          <footer id="ftr" class="ll">
+            <h4 style="color:#10ac84">Autor: @</h4> 
+             <a href="#">content</a> <br />
+             <a href="#">content</a> <br />
+             <a href="#">content</a> <br />
+             <a href="#">content</a> <br />
         </footer>
 
             <%--  Modal visualizar desglose de notas --%>

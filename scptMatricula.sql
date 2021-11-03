@@ -18,7 +18,7 @@ estado varchar(15)
 )
 
 
-select * from Usuarios
+select * from notas
 
 --drop table Usuarios
 --delete usuarios
@@ -98,6 +98,10 @@ Add estado int
 ALTER TABLE Usuarios
 ADD FOREIGN KEY (estado) REFERENCES Estado_usuario(id_estado); --ejecutado
 
+--Agrega nueva columna para el estado de los usuarios Tabla Usuarios
+Alter table Usuarios
+Add correo varchar(50) --ex
+
 select * from Usuarios
 
 --ALTER TABLE Usuarios
@@ -125,7 +129,7 @@ select * from Usuarios
  insert into Rol values (2,'Estudiante')
  insert into Rol values (3,'Por asignar')
 
- select * from Rol
+ select * from usuarios
 
  --Volcado de datos para la tabla Notas
  insert into Notas values (70,85,60,364829575,0,1)

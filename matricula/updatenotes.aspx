@@ -27,7 +27,7 @@
 
         body{
             text-align:center;
-            min-width:490px;
+            min-width:505px;
         }
 
           .bs-example {
@@ -40,10 +40,6 @@
             color:white;
         }
 
-        /*Callout luego del header*/
-        #encabezado{
-            height:130px;
-        }
 
         #pnlFormActualizar{
             width:60%;
@@ -73,6 +69,11 @@
             border-radius:20px;
         }
 
+          #encabezado{
+           /* height:130px;*/
+            background-image: url("imgs/Vine.jpg");
+        }
+
         @media only screen and (max-width:600px){
             #GridView1{
                 margin-left:0%;
@@ -99,16 +100,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <%-- Header --%>
-           <div style="margin: 0px" class="bs-example">
-            <nav style="background-color: #cc4b37; margin: 0px" class="navbar navbar-expand-md navbar-light">
-                <a href="#" class="navbar-brand">Bienvenido</a>
+      <div id="encabezado" class="alert callout" style="border: none;">
+             <div style="margin: 0px" class="bs-example">
+            <nav style="margin: 0px" class="navbar navbar-expand-md navbar-light">
+                <a href="#" style="font-size:26px;color:#353b48" class="navbar-brand">Bienvenido</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav">
+                    <div style="font-size:24px" class="navbar-nav">
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
                         <a href="#" class="nav-item nav-link">Messages</a>
@@ -120,18 +121,15 @@
                 </div>
             </nav>
         </div>
-        <div id="encabezado" class="alert callout" style="border: none;">
+            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #55E6C1; font-family: Verdana">Módulo del gestor</h2>
             <br />
-            <h2 style="color: lightyellow; text-shadow: 2px 2px 2px #FC4B2D; font-family: Verdana">Actualización de notas de estudiantes</h2>
-            <br />
-        </div>
-        <%-- Fin header --%>
+        </div>  <%-- Fin header --%>
 
 
 
-
+        <br />
         
-     <h3 style="color: #FC4B2D">Edite el registro requerido</h3>
+     <h3 style="color: #10ac84">Edite el registro requerido</h3>
         <p style="color:gray">En caso de que la cifra tenga decimales utilice una coma (,).</p>
         <br />
         <asp:Button CssClass="btn btn-info" Text="Buscar" ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" /> &nbsp;&nbsp;&nbsp;

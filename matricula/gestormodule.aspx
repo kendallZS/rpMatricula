@@ -170,7 +170,7 @@
             <div id="cont-cards";width:100%">
 
                 <div id="card-1" class="card">
-                    <div class="card" style="width: 100%;background-color:#079992">
+                    <div class="card" style="width: 100%;background-color:#10ac84">
                         <div class="card-body">
                             <h5 style="font-size:27px;color:#ffffff;text-shadow: 2px 2px 2px #57606f;" class="card-title">Gestión de usuarios</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Realizar activación o inactivación de cuentas de usuario.</p>
@@ -180,7 +180,7 @@
                 </div>
 
                 <div id="card-2" class="card">
-                    <div class="card" style="width: 100%;background-color:#079992">
+                    <div class="card" style="width: 100%;background-color:#10ac84">
                         <div class="card-body">
                             <h5 style="font-size:27px;color:white;text-shadow: 2px 2px 2px #57606f;" class="card-title">Asignar roles</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Decretar el rol específico que tendrán los usuarios en este sitio</p>
@@ -196,7 +196,7 @@
         <br />
 
          <footer id="ftr" class="ll">
-            <h4 style="color:#192a56">Autor: @</h4> 
+            <h4 style="color:#10ac84">Autor: @</h4> 
              <a href="#">content</a> <br />
              <a href="#">content</a> <br />
              <a href="#">content</a> <br />
