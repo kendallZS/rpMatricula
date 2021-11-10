@@ -46,7 +46,7 @@
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s;
             width: 28%;
-            margin-left: 20%;
+            margin-left: 8%;
             float:left;
             border-radius:20px;
 
@@ -62,7 +62,7 @@
             transition: 0.3s;
             width: 28%;
             float:left;
-            margin-left:5%;
+            margin-left:1%;
             border-radius:20px;
 
             /*margin-left:2%;*/
@@ -72,11 +72,57 @@
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
 
+         #cont-cards #card-3 {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            width: 28%;
+            float:left;
+            margin-left:1%;
+            border-radius:20px;
+
+            /*margin-left:2%;*/
+        }
+
+            #cont-cards #card-3:hover,#card-2:hover,#card-1:hover {
+                background: #B33771;
+                /*transition: background ease-in .8s;*/
+                transition: background linear .4s;
+            }
+
+        a {
+            border-radius:16px;
+           /* background: darkcyan;*/
+            /*transition: background ease-in .8s;*/
+            transition: background linear .4s;
+        }
+
+         a:hover {
+                background: #3B3B98;
+                color:#2C3A47;
+                /*transition: background ease-in .8s;*/
+            }
+
+         .btn {
+            background: darkcyan;
+            border-radius:10px;
+            color:antiquewhite;
+            /*transition: background ease-in .8s;*/
+            transition: background linear .4s;
+        }
+
+         .btn:hover {
+                background: #55E6C1;
+                color:#2C3A47;
+                /*transition: background ease-in .8s;*/
+            }
+
+
 
         @media only screen and (max-width:600px) {
             /* For mobile phones: */
             #cont-cards #card-1,
-            #cont-cards #card-2{
+            #cont-cards #card-2,
+            #cont-cards #card-3{
                 width: 100%;
                 margin-left:0%;
             }
@@ -101,8 +147,8 @@
             footer{
                 /*margin-top:100%;*/
                 position:absolute;
-                top:15%;
-                width: 15%;
+                top:100%;
+                width: 100%;
                 float:right;
                 height:300px
             }
@@ -113,22 +159,46 @@
             footer{
                 /*margin-top:100%;*/
                 position:absolute;
-                top:100%;
+                top:12.5%;
+                height:80px;
                 width: 100%;
                 /*float:right;
                 height:300px*/
             }
         }
-
-         @media only screen and (max-width:321px) {
+        @media only screen and (max-width:603px) {
             /* For mobile phones: */
-            footer{
+            footer {
                 /*margin-top:100%;*/
-                display:none;
-                /*float:right;
-                height:300px*/
+                display: grid;
+                grid-template-columns: auto auto auto auto auto auto auto auto;
+                padding: 10px;
             }
         }
+           @media only screen and (max-width:603px) {
+                /* For mobile phones: */
+                footer h4 {
+                   /* display:none;*/
+                }
+            }
+
+            @media only screen and (max-width:603px) {
+                /* For mobile phones: */
+                footer a {
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+
+                @media only screen and (max-width:321px) {
+                    /* For mobile phones: */
+                    footer {
+                        /*margin-top:100%;*/
+                        display: none;
+                        /*float:right;
+                height:300px*/
+                    }
+                }
     </style>
 
 </head>
@@ -149,7 +219,7 @@
                         <a href="#" class="nav-item nav-link active">Home</a>
                         <a href="#" class="nav-item nav-link">Profile</a>
                         <a href="#" class="nav-item nav-link">Messages</a>
-                        <a href="#" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+                        <a href="#" class="nav-item nav-link">Reports</a>
                     </div>
                     <div class="navbar-nav ml-auto">
                         <a href="#" class="nav-item nav-link">Log out</a>
@@ -174,7 +244,7 @@
                         <div class="card-body">
                             <h5 style="font-size:27px;color:#ffffff;text-shadow: 2px 2px 2px #57606f;" class="card-title">Gestión de usuarios</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Realizar activación o inactivación de cuentas de usuario.</p>
-                            <a href="usersmanagement.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir al módulo</a>
+                            <a id="btnc" href="usersmanagement.aspx" class="btn">Ir al módulo</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +254,18 @@
                         <div class="card-body">
                             <h5 style="font-size:27px;color:white;text-shadow: 2px 2px 2px #57606f;" class="card-title">Asignar roles</h5>
                             <p style="font-size:21px;color:#2f3542" class="card-text">Decretar el rol específico que tendrán los usuarios en este sitio</p>
-                            <a href="asignacionroles.aspx" style="background-color:darkcyan;color:antiquewhite;border-radius:8px" class="btn">Ir al módulo</a>
+                            <a href="asignacionroles.aspx" class="btn">Ir al módulo</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                   <div id="card-3" class="card">
+                    <div class="card" style="width: 100%;background-color:#10ac84">
+                        <div class="card-body">
+                            <h5 style="font-size:27px;color:white;text-shadow: 2px 2px 2px #57606f;" class="card-title">Establecer periodos</h5>
+                            <p style="font-size:21px;color:#2f3542" class="card-text">Lapso de tiempo configurable para los periodos lectivos</p>
+                            <a href="#" class="btn">Ir al módulo</a>
                         </div>
                     </div>
                 </div>
@@ -202,9 +283,8 @@
              <a href="#">content</a> <br />
              <a href="#">content</a> <br />
         </footer>
-
-
-
     </form>
+
+    
 </body>
 </html>

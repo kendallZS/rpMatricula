@@ -8,36 +8,68 @@ modulo asigroles listo, solo notificacion*
 modulo login listo* 
 INICIAR CON LO DE ESTA LISTA
 
-Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
-para evitar verla para colocarla después. -- listo (se realiza en la misma tabla)
--Validaciones(que en las notas no meta letras...etc)--listo
--Que el admin pueda estblecer Periodos
---En modulo de docente poner una ventana con la opcion para actualizar notas--listo (actualiza
-en otro modulo)
---Notificaciones por correo
+
+
+POR HACER O EN PROCESO:
+
+--Verificar si en el procedimiento Alm de mostrar estado de usrs, se puede 
+devolver desde ahi mismo activo o inactivo hacia el gridview.
+
+-Que el admin pueda estblecer Periodos --EN PROCESO
+
+--Notificaciones por correo.
+
 --Carga masiva de datos desded el sitio.
---Hacer buscadores por identificacion en mod Docente. --LISTO
---agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
+
 --Que tanto profesor como estudiantes pertenezcan a algun curso y grupo y cuando
 el profesor vaya a ingresar las notas, vea la lista de los estudiantes que están 
-en su grupo
+en su grupo.
+
 --Tarjetas dinamicas
---Al final hacer responsive los modulos.--listo
+
 --Hacer que el docente pueba borrar notas(para realizar CRUD completo mediante
 Sp)
---COlocar en los header la redireccion atras pa no presionar
-varias veces la flecha de atras para volver.
---Buscar mejores ventanas modales --listo
---Calcular promedio mediante varios cursos y no solo con uno
---Separar las dos funcionalidades del docente
-en un modulo inicial con tarjetas --listo
+
+--Calcular promedio mediante varios cursos y no solo con uno.
+
 --Hacer un index que se vaya animando conforme se haga scroll(algo moderno)
 REALIZAR EL INDEX DE ESTA FORMA: https://www.smithmicro.com/
+o un index asi: https://www.paradigmadigital.com/dev/transiciones-animaciones-css/
+
+--Colocar los try cath en todos los modulos que lo requieran.
+
+--SUBIR A HOSTING Y PROBAR DESDE EL CELULAR
+
+
+
+
+REQ COMPLETADOS:
+--Hacer que al presionar un usuario en la tabla, lance su identificacion al formilario
+para evitar verla para colocarla después. -- listo (se realiza en la misma tabla)
+--Validaciones(que en las notas no meta letras...etc)--listo
+
+--En modulo de docente poner una ventana con la opcion para actualizar notas--listo (actualiza
+en otro modulo)
+
+--Hacer buscadores por identificacion en mod Docente. --LISTO
+
+--agregar campo Contrasena para los usuarios ENCRIPTAR--Listo
+
+--Al final hacer responsive los modulos.--listo
+
+--Colocar en los header la redireccion atras para no presionar
+varias veces la flecha de atras para volver.
+
+--Buscar mejores ventanas modales --listo
+
+--Separar las dos funcionalidades del docente
+en un modulo inicial con tarjetas --listo
+
 --el adm puede inacivar cuentas, asignar los roles...--listo
+
 --Para el mod estudiantes mostrar una tarjeta con el horario de matricula
 y al darle click muestre una ventana con las notas y promedio --listo
---Colocar los try cath en todos los modulos que lo requieran
---SUBIR A HOSTING Y PROBAR DESDE EL CELULAR
+
 
 
 
